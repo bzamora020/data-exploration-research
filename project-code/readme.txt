@@ -1,0 +1,4 @@
+﻿Bryan: In this project I noticed something strange with the data that specified whether the person had some type of mental illness or not. Somehow all of the cases reported were reported as true. Which is kinda sketchy. There are some other relationships that I would like to figure out but I felt like I needed more race data in order to be able to compute them
+
+
+Jesus Oviedo: This project pointed out perhaps an interesting assumption made when creating the data that involves whether or not the person subject to the police shooting had some type of mental illness or not always came up true. As such the data point could not be compared using the correlation coefficient.
