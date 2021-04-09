@@ -90,9 +90,9 @@ int main()
     
     cout << endl;
 
-    statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getHSup, &shootingData::getPerFleeing);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHSup, &shootingData::getPerHispanics);
 
-    cout << endl;
+    /* cout << endl;
 
     statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
 
@@ -104,7 +104,7 @@ int main()
 
     statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
 
-    cout << endl;
+    cout << endl; */
 
     // statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getpopOver65, &shootingData::getPerHispanics);
 

@@ -98,7 +98,22 @@ public:
     void gatherPerStats(Visitor *theCounties, vector<double> &XPer, vector<double> &YPer,
                                 double (demogData::*f1)() const, double (shootingData::*f2)() const)
     {
-        // Do nothing 
+        for (auto entry : ((visitorCombineCounty *)theCounties)->countyDmap())
+        {
+            // cout << entry.first << endl;
+            comboShootingData *shootingForCounty = ((visitorCombineCounty *)theCounties)->countySmapEntry(entry.first);
+            // <string, pointer> 
+            if(shootingForCounty != NULL)
+            {
+                double X = (entry.second->*f1)(); // f1 function pointe, entry is demogData
+                double Y = (shootingForCounty->*f2)();
+
+                cout << entry.first << " " << X << " " << Y << "\n";
+
+                XPer.push_back(X);
+                YPer.push_back(Y);
+            }
+        }
     }
 
     //function to gather two demog datas (percentages and counts)

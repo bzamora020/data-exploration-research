@@ -101,6 +101,7 @@ public:
         if (e)
         {
             string countyName = ((countyDemogData *)e)->getCounty();
+            
             string test = countyName;
 
             size_t found = test.find(" County");
@@ -130,7 +131,49 @@ public:
     }
 
     void visit(shootingData *e){
-        // DO nothing 
+        if(e)
+        {
+            string city = ((cityShootingData *)e)->getCity();
+
+            string cityKey = city + e->getState();
+
+            // cout << cityKey << endl;
+
+            string county = "";
+
+            string countyKey = "";
+
+            //figure out the county
+            if (cityToCounty.count(cityKey) >= 1)
+            {
+                county = cityToCounty[cityKey];
+            }
+
+            else
+            {
+                county = "unknown " + e->getState();
+                // cout << "Uh oh we are in here" << endl;
+                // City was not found in the csv (i think)
+            }
+
+            countyKey = county + e->getState();
+
+            // cout << countyKey << endl;
+
+            //if first county entry, create it
+            if (allCountySData.count(countyKey) < 1)
+            {
+                
+                allCountySData[countyKey] = new comboShootingData(county + " County", e->getState());
+            }
+
+            //either way now add this city's shooting incident to the right county
+            comboShootingData *cs = allCountySData[countyKey];
+            if (cs)
+            {
+                cs->addShootingtoRegion(e);
+            }
+        }
     }
 
     std::map<string, comboDemogData *> countyDmap()
@@ -151,6 +194,14 @@ public:
     {
         return allCountyHData[countyN];
     }
+    std::map<string, comboShootingData *> countySmap()
+    {
+        return allCountySData;
+    }
+    comboShootingData *countySmapEntry(string countyN)
+    {
+        return allCountySData[countyN];
+    }
 
 private:
     // Private data like maps and stuff
@@ -158,6 +209,8 @@ private:
     std::map<string, comboHospitalData *> allCountyHData;
     //map for county name to demog data
     std::map<string, comboDemogData *> allCountyDData;
+    //map for county name to shooting data
+    std::map<string, comboShootingData*> allCountySData;
 
     //helper map to create aggregates from city -> county
     std::map<string, string> cityToCounty;

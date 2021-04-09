@@ -46,6 +46,15 @@ string getFieldNQ(std::stringstream &ss)
     return temp;
 }
 
+// New getField function for potential new city to county csv
+string getFieldNL(std::stringstream &ss)
+{
+    string temp;
+    std::getline(ss ,temp, '|');
+    return temp;
+}
+
+
 /* helper: read out column names for CSV file */
 void consumeColumnNames(std::ifstream &myFile)
 {
@@ -139,6 +148,7 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
         getField(ss);
     }
     string cityName = getField(ss);
+    // cout << cityName << endl;
     string stateName = getField(ss);
 
     string skippedFactor1 = getField(ss);

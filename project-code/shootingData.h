@@ -19,7 +19,6 @@ public:
         fleeingCases = 0;
         triedFleeing = 0;
 
-
         if (inFleeing.compare("Not fleeing") == 0)
         {
             fleeingCases++;
@@ -30,7 +29,6 @@ public:
             triedFleeing++;
             fleeingCases++;
         }
-
 
         if (inMI.compare("True") == 0)
         {
@@ -61,25 +59,109 @@ public:
 
     // These return percentage of police shootings by race
 
-    double getPerAsians() const { return 100.0f * (double)(raceCounts.getNumAsians()) / raceCounts.getRaceCount(); }
-    double getPerAfricanAme() const { return 100.0f * (double)(raceCounts.getNumAfricanAme()) / raceCounts.getRaceCount(); }
-    double getPerWhite() const { return 100.0f * (double)(raceCounts.getNumWhite()) / raceCounts.getRaceCount(); }
-    double getPerNativeAme() const { return 100.0f * (double)(raceCounts.getNumNative()) / raceCounts.getRaceCount(); }
-    double getPerHispanics() const { return 100.0f * (double)(raceCounts.getNumHispanics()) / raceCounts.getRaceCount(); }
-    double getPerOther() const { return 100.0f * (double)(raceCounts.getnumOther()) / raceCounts.getRaceCount(); }
+    // Adding base case if no cases at all then return = 0
+    double getPerAsians() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        else
+            return (100.0f * (double)(raceCounts.getNumAsians()) / raceCounts.getRaceCount());
+    }
 
+    double getPerAfricanAme() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(raceCounts.getNumAfricanAme()) / raceCounts.getRaceCount());
+    }
+
+    double getPerWhite() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(raceCounts.getNumWhite()) / raceCounts.getRaceCount());
+    }
+
+    double getPerNativeAme() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(raceCounts.getNumNative()) / raceCounts.getRaceCount());
+    }
+
+    double getPerHispanics() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(raceCounts.getNumHispanics()) / raceCounts.getRaceCount());
+    }
+
+    double getPerOther() const
+    {
+        if (raceCounts.getRaceCount() == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(raceCounts.getnumOther()) / raceCounts.getRaceCount());
+    }
     //Getters in percentage for gender
-    double getPerWomen() const { return 100.0f * (double)(genderCounts.getNumWomen()) / genderCounts.getCountedGender(); }
-    double getPerMen() const { return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender(); }
+    double getPerWomen() const
+    {
+        if (genderCounts.getCountedGender() == 0)
+        {
+            return 0;
+        }
+        return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender();
+    }
+    double gePerMen() const
+    {
+        if (genderCounts.getCountedGender() == 0)
+        {
+            return 0;
+        }
+        return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender();
+    }
 
     //Getter for percentage of mentall illness reported
-    double getPerMI() const { return 100.0f * (double)(mentalI) / countedMI; }
+    double getPerMI() const
+    {
+        if (countedMI == 0)
+        {
+            return 0;
+        }
+        return 100.0f * (double)(mentalI) / countedMI;
+    }
 
     //Getter in case the individual tried fleeing
-    double getPerFleeing() const { return 100.0f * (double)(triedFleeing) / fleeingCases; }
+    double getPerFleeing() const
+    {
+        if (fleeingCases == 0)
+        {
+            return 0;
+        }
+        return 100.0f * (double)(triedFleeing) / fleeingCases;
+    }
 
     // Getter to obtain the average age
-    double getAverageAge() const { return (age) / countedAge; }
+    double getAverageAge() const
+    {
+        if (countedAge == 0)
+        {
+            return 0;
+        }
+        else
+            return ((age) / countedAge);
+    }
 
     //counters getters
     int getCountedAge() { return countedAge; }
@@ -90,7 +172,7 @@ public:
     int getTriedFleeing() { return triedFleeing; }
     int getAge() { return age; }
     race getRaceData() { return raceCounts; }
-    gender getGenderData() { return genderCounts;}
+    gender getGenderData() { return genderCounts; }
 
     string getState() { return this->getName(); }
 
@@ -108,7 +190,6 @@ protected:
     int age;
     race raceCounts;
     gender genderCounts;
-
 };
 
 #endif
