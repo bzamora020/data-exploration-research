@@ -108,7 +108,7 @@ public:
                 double X = (entry.second->*f1)(); // f1 function pointe, entry is demogData
                 double Y = (shootingForCounty->*f2)();
 
-                cout << entry.first << " " << X << " " << Y << "\n";
+                //cout << entry.first << " " << X << " " << Y << "\n";
 
                 XPer.push_back(X);
                 YPer.push_back(Y);

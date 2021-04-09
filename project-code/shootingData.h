@@ -123,7 +123,7 @@ public:
         }
         return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender();
     }
-    double gePerMen() const
+    double getPerMen() const
     {
         if (genderCounts.getCountedGender() == 0)
         {

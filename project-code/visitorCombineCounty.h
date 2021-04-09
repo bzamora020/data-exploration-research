@@ -152,6 +152,7 @@ public:
             else
             {
                 county = "unknown " + e->getState();
+                cout << city << " " << e->getState() << endl;
                 // cout << "Uh oh we are in here" << endl;
                 // City was not found in the csv (i think)
             }

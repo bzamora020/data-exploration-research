@@ -82,33 +82,21 @@ int main()
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount); // Use of function pointers right here
 
     cout << endl;
-
+    */
     cout << "County data Pop under 5 and BA up: " << endl;
     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
-                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); */
+                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); 
     cout << "***** OUR COMPUTATIONS *****" << endl;
     
     cout << endl;
 
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHSup, &shootingData::getPerHispanics);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerFleeing);
 
-    /* cout << endl;
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
 
-    statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
 
-    cout << endl;
-
-    statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getBelowPoverty, &shootingData::getPerMen);
-
-    cout << endl;
-
-    statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
-
-    cout << endl; */
-
-    // statTool::computeStatsMixRegionData2(&theStates, &fillStates, &demogData::getpopOver65, &shootingData::getPerHispanics);
-
-    // cout << endl;
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerMen);
 
     return 0;
 }
