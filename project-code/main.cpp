@@ -50,7 +50,7 @@ int main()
     //theStates.printAllStates();
 
     //create a visitor to combine the county data (need aux map city-> county)
-    visitorCombineCounty theCounties("simple_uscities.csv");
+    visitorCombineCounty theCounties("us_cities_states_counties_comma_separated.csv");
     statTool::createCountyData(pileOfData, theCounties);
     //theCounties.printAllCounties();
 

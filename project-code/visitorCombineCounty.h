@@ -31,7 +31,7 @@ public:
             consumeColumnNames(myFile);
 
             // Helper vars
-            std::string line, state, junk;
+            std::string line, state, junk, city, county, cityAlias;
 
             // Now read data, line by line and enter into the map
             while (std::getline(myFile, line))
@@ -39,17 +39,23 @@ public:
 
                 std::stringstream ss(line);
 
-                string city = getFieldNQ(ss);
+                city = getFieldNQ(ss);
                 state = getFieldNQ(ss);
                 junk = getFieldNQ(ss);
-                string county = getFieldNQ(ss);
+                county = getFieldNQ(ss);
+                cityAlias = getFieldNQ(ss);
 
-                string cityKey = city + state;
+                cout << "line: " << line << endl;
+                cout << "city: " << city << " state: " << state<< " junk: " << junk << " county: " << county << " cityAlias: " << cityAlias << endl;
 
-                cityToCounty[cityKey] = county;
+                string cityAliasKey = cityAlias + state;
+
+                cout << cityAliasKey << endl;
+
+                cityToCounty[cityAliasKey] = county;
 
                 //cout << "line: " << line << endl;
-                //cout << "pair (city, county): " << city << ", " << county << " state " << junk << endl;
+                //cout << "pair (city, county): " << cityAlias << ", " << county << " state " << junk << endl;
             }
 
             // Close file

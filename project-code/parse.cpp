@@ -72,7 +72,7 @@ void consumeColumnNames(std::ifstream &myFile)
     // Extract each column name for debugging
     while (std::getline(ss, colname, ','))
     {
-        //std::cout << colname << std::endl;
+        std::cout << colname << std::endl;
     }
 }
 
