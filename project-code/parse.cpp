@@ -93,7 +93,14 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine)
     for (int i = 0; i < 11; i++)
         getField(ss);
 
-    //not using this demographic for lab04
+    /* double native = stod(getField(ss))/100.0;
+    double asian = stod(getField(ss))/100.0;
+    double black = stod(getField(ss))/100.0;
+    double hisp = stod(getField(ss))/100.0;
+    double haw = stod(getField(ss))/100.0;
+    double mix = stod(getField(ss))/100.0;
+    double white = stod(getField(ss))/100.0;
+    double onlywhite = stod(getField(ss))/100.0; */
 
     //now skip over some data
     for (int i = 0; i < 9; i++)

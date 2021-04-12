@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include "placeData.h"
+// #include "racialDemogData.h"
 
 /*
   class to represent generic demographic data all regional level
@@ -43,6 +44,26 @@ class demogData: public placeData {
 
   int getPop() const { return population2014; }
 
+   /* RacialData getRacialCount() const { return racial;}
+ 
+    double getNativePerc()const{ return 100.0f*racial.getNative()/population2014; }
+    double getAsianPerc() const{ return 100.0f*racial.getAsian()/population2014; }
+    double getBlackPerc() const{ return 100.0f*racial.getBlack()/population2014; }
+    double getHispanicPerc() const{ return 100.0f*racial.getHispanic()/population2014; }
+    double getHawaiianPerc() const{ return 100.0f*racial.getHawaiian()/population2014; }
+    double getMixedPerc() const { return 100.0f*racial.getMixed()/population2014; }
+    double getWhitePerc() const{ return 100.0f*racial.getWhite()/population2014; }
+    double getOnlyWhitePerc() const{ return 100.0f*racial.getOnlyWhite()/population2014; } 
+
+  int getNativeCount()const{ return racial.getNative();}
+    int getAsianCount() const{ return racial.getAsian(); }
+    int getBlackCount() const{ return racial.getBlack(); }
+    int getHispanicCount() const{ return racial.getHispanic(); }
+    int getHawaiianCount() const{ return racial.getHawaiian(); }
+    int getMixedCount() const { return racial.getMixed(); }
+    int getWhiteCount() const{ return racial.getWhite(); }
+    int getOnlyWhiteCount() const{ return racial.getOnlyWhite(); } */
+
   friend std::ostream& operator<<(std::ostream &out, const demogData &DD);
 
   void accept(class Visitor &v) override;
@@ -58,5 +79,6 @@ protected:
     int highSchoolUp;
     int belowPoverty;
     int population2014;
+    //RacialData racial;
   };
 #endif
