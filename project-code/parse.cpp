@@ -11,6 +11,7 @@
 #include "shootingData.h"
 #include "cityShootingData.h"
 #include "comboShootingData.h"
+
 #include <algorithm>
 #include <cmath>
 
@@ -90,20 +91,20 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine)
     double highSchoolUp = stod(getField(ss)) / 100.0;
 
     //now skip over some data
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < 4; i++)
         getField(ss);
 
-    /* double native = stod(getField(ss))/100.0;
+    double native = stod(getField(ss))/100.0;
     double asian = stod(getField(ss))/100.0;
     double black = stod(getField(ss))/100.0;
     double hisp = stod(getField(ss))/100.0;
     double haw = stod(getField(ss))/100.0;
     double mix = stod(getField(ss))/100.0;
     double white = stod(getField(ss))/100.0;
-    double onlywhite = stod(getField(ss))/100.0; */
+    double onlywhite = stod(getField(ss))/100.0; 
 
     //now skip over some data
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < 8; i++)
         getField(ss);
 
     double belowPoverty = stod(getField(ss)) / 100;
@@ -114,13 +115,15 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine)
 
     int totalPop2014 = stoi(getField(ss));
 
+    RacialData r{native*totalPop2014, asian*totalPop2014, black*totalPop2014, hisp*totalPop2014, haw*totalPop2014, mix*totalPop2014, white*totalPop2014, onlywhite*totalPop2014};
+
     return make_shared<countyDemogData>(name, state, round(popOver65 * totalPop2014),
                                         round(popUnder18 * totalPop2014),
                                         round(popUnder5 * totalPop2014),
                                         round(bachelorDegreeUp * totalPop2014),
                                         round(highSchoolUp * totalPop2014),
                                         round(belowPoverty * totalPop2014),
-                                        totalPop2014);
+                                        totalPop2014, r);
 }
 
 shared_ptr<hospitalData> readCSVLineHospital(std::string theLine)

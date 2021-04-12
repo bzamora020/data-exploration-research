@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 #include "placeData.h"
-// #include "racialDemogData.h"
+#include "racialDemogData.h"
 
 /*
   class to represent generic demographic data all regional level
@@ -14,15 +14,16 @@ class demogData: public placeData {
   public:
     demogData(string inS, double in65, double in18,
         double in5, double inBA, double inHS,
-        double belowPov, int totalPop14) : placeData{inS, 8},
+        double belowPov, int totalPop14, RacialData rIn) : placeData{inS, 8},
             popOver65(in65), popUnder18(in18),
             popUnder5(in5), bachelorDegreeUp(inBA), highSchoolUp(inHS),
-            belowPoverty(belowPov), population2014(totalPop14) {
+            belowPoverty(belowPov), population2014(totalPop14)  {
+                racial = rIn;
     }
     demogData(string inS) : placeData{inS, 8},
             popOver65(0), popUnder18(0),
             popUnder5(0), bachelorDegreeUp(0), highSchoolUp(0),
-            belowPoverty(0), population2014(0)  {
+            belowPoverty(0), population2014(0) {
     }
 
   string getState() const { return this->getName(); } //call placeName
@@ -44,7 +45,7 @@ class demogData: public placeData {
 
   int getPop() const { return population2014; }
 
-   /* RacialData getRacialCount() const { return racial;}
+   RacialData getRacialCount() const { return racial;}
  
     double getNativePerc()const{ return 100.0f*racial.getNative()/population2014; }
     double getAsianPerc() const{ return 100.0f*racial.getAsian()/population2014; }
@@ -62,7 +63,7 @@ class demogData: public placeData {
     int getHawaiianCount() const{ return racial.getHawaiian(); }
     int getMixedCount() const { return racial.getMixed(); }
     int getWhiteCount() const{ return racial.getWhite(); }
-    int getOnlyWhiteCount() const{ return racial.getOnlyWhite(); } */
+    int getOnlyWhiteCount() const{ return racial.getOnlyWhite(); }
 
   friend std::ostream& operator<<(std::ostream &out, const demogData &DD);
 
@@ -79,6 +80,6 @@ protected:
     int highSchoolUp;
     int belowPoverty;
     int population2014;
-    //RacialData racial;
+    RacialData racial;
   };
 #endif

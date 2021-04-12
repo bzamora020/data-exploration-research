@@ -92,7 +92,7 @@ int main()
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerFleeing);
 
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerHispanics);
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
 
