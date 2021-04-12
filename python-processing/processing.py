@@ -1,4 +1,9 @@
 import csv
+import fuzzywuzzy
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
+
+print (fuzz.partial_ratio("Hello, world", "world Hello"))
 
 comboCitiesDict = {}
 
@@ -23,6 +28,20 @@ with open('comboUSCities.csv', mode='w') as csv_file:
     for key in comboCitiesDict:
         writer.writerow([key, comboCitiesDict[key]])
 
-with open("police_shooting.csv", 'r') as shooting_file:
-    
-    
+
+
+potentialChangesDict = {}
+
+# Clean Police_shooting csv
+with open("police_shootings.csv", 'r') as shooting_file:
+    shooting = csv.DictReader(shooting_file)
+    for row in shooting:
+        incidentCityState = row["Incident.Location.City"] + row["Incident.Location.State"]
+        if(incidentCityState) not in comboCitiesDict:
+            for key in comboCitiesDict:
+                if (fuzz.partial_ratio(incidentCityState, comboCitiesDict[key]) > 60) :
+                    potentialChangesDict[incidentCityState] = comboCitiesDict[key]
+
+print(potentialChangesDict)
+
+                
