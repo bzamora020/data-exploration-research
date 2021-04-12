@@ -10,6 +10,7 @@
 #include <memory>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 class visitorCombineCounty : public Visitor
 {
@@ -31,28 +32,35 @@ public:
             consumeColumnNames(myFile);
 
             // Helper vars
-            std::string line, state, junk, city, county, cityAlias;
+            std::string line;
 
             // Now read data, line by line and enter into the map
             while (std::getline(myFile, line))
             {
 
                 std::stringstream ss(line);
+                //First csv
+                string city = getFieldNQ(ss);
+                string state = getFieldNQ(ss);
+                string junk = getFieldNQ(ss);
+                string county = getFieldNQ(ss);
 
-                city = getFieldNQ(ss);
-                state = getFieldNQ(ss);
-                junk = getFieldNQ(ss);
-                county = getFieldNQ(ss);
-                cityAlias = getFieldNQ(ss);
+                string cityKey = city + state;
 
-                cout << "line: " << line << endl;
-                cout << "city: " << city << " state: " << state<< " junk: " << junk << " county: " << county << " cityAlias: " << cityAlias << endl;
+                cityToCounty[cityKey] = county;
+                
+                // Second csv
+                /* std::string city = getFieldNQ(ss);
+                std::string state = getFieldNQ(ss);
+                std::string junk = getFieldNQ(ss);
+                std::string county = getFieldNQ(ss);
+                std::string cityAlias = getFieldEND(ss);
+                
+                cityAlias.erase(std::remove(cityAlias.begin(), cityAlias.end(), '\r'), cityAlias.end());
 
-                string cityAliasKey = cityAlias + state;
+                std::string cityAliasKey = cityAlias + state;
 
-                cout << cityAliasKey << endl;
-
-                cityToCounty[cityAliasKey] = county;
+                cityToCounty[cityAliasKey] = county; */
 
                 //cout << "line: " << line << endl;
                 //cout << "pair (city, county): " << cityAlias << ", " << county << " state " << junk << endl;
@@ -78,7 +86,6 @@ public:
             {
                 county = cityToCounty[cityKey];
             }
-
             else
             {
                 county = "unknown " + e->getState();
@@ -149,12 +156,19 @@ public:
 
             string countyKey = "";
 
+            string test = city;
+            size_t found = test.find(" County");
+
             //figure out the county
             if (cityToCounty.count(cityKey) >= 1)
             {
                 county = cityToCounty[cityKey];
             }
 
+            else if (city.find(" County") != std::string::npos){
+                test.erase(found, 7);
+                county = test;
+            }
             else
             {
                 county = "unknown " + e->getState();

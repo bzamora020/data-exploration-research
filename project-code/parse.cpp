@@ -55,6 +55,12 @@ string getFieldNL(std::stringstream &ss)
     return temp;
 }
 
+string getFieldEND(std::stringstream &ss)
+{
+    string temp;
+    std::getline(ss, temp);
+    return temp;
+}
 
 /* helper: read out column names for CSV file */
 void consumeColumnNames(std::ifstream &myFile)
@@ -72,7 +78,7 @@ void consumeColumnNames(std::ifstream &myFile)
     // Extract each column name for debugging
     while (std::getline(ss, colname, ','))
     {
-        std::cout << colname << std::endl;
+        //std::cout << colname << std::endl;
     }
 }
 

@@ -34,6 +34,9 @@ string getFieldNQ(std::stringstream &ss);
 //for alt city to county csv
 string getFieldNL(std::stringstream &ss);
 
+//for last entry of a csv
+string getFieldEND(std::stringstream &ss);
+
 /* helper: read out column names for CSV file */
 void consumeColumnNames(std::ifstream &myFile);
 
