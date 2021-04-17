@@ -39,8 +39,8 @@ with open("police_shootings.csv", 'r') as shooting_file:
         incidentCityState = row["Incident.Location.City"] + row["Incident.Location.State"]
         if(incidentCityState) not in comboCitiesDict:
             for key in comboCitiesDict:
-                if (fuzz.partial_ratio(incidentCityState, comboCitiesDict[key]) > 60) :
-                    potentialChangesDict[incidentCityState] = comboCitiesDict[key]
+                if (fuzz.partial_ratio(incidentCityState, key) > 80) :
+                    potentialChangesDict[incidentCityState] = key
 
 print(potentialChangesDict)
 
