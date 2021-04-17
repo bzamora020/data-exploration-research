@@ -15,14 +15,14 @@ with open("us_cities_states_counties_comma_separated.csv", 'r') as file:
         if(row["City alias"]) not in cityToCountyDict:
             cityToCountyDict[ row["City alias"] ] = row["County"]
             if(row["County"]) not in countyToStateDict:
-                countyToStateDict[row["County"]] = row["State"]
+                countyToStateDict[row["County"]] = row["State short"]
 
 
 with open("simple_uscities.csv", 'r') as file:
     csv_file = csv.DictReader(file)
     for row in csv_file:
         if(row["city_ascii"]) not in cityToCountyDict:
-            cityToCountyDict[row["city_ascii"] = row["county_name"]
+            cityToCountyDict[row["city_ascii"]] = row["county_name"]
             if(row["county_name"]) not in countyToStateDict:
                 countyToStateDict[row["county_name"]] = row["state_id"]
 
@@ -32,25 +32,13 @@ with open('comboUSCities.csv', mode='w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONE, escapechar='\n')
     writer.writerow(['City','County', 'State'])
     for key in cityToCountyDict:
-        writer.writerow([key, cityToCountyDict[key], countyToStateDict[cityToCountyDict[key]])
+        writer.writerow([key, cityToCountyDict[key], countyToStateDict[cityToCountyDict[key]]])
 
 
 '''
 potentialChangesDict = {}
 
 # Clean Police_shooting csv
-<<<<<<< HEAD
-with open("police_shootings.csv", 'r') as shooting_file:
-    shooting = csv.DictReader(shooting_file)
-    for row in shooting:
-        incidentCityState = row["Incident.Location.City"] + row["Incident.Location.State"]
-        if(incidentCityState) not in comboCitiesDict:
-            for key in comboCitiesDict:
-                if (fuzz.partial_ratio(incidentCityState, key) > 80) :
-                    potentialChangesDict[incidentCityState] = key
-
-print(potentialChangesDict)
-=======
 
 with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
     myFields =['Person.Name','Person.Age','Person.Gender','Person.Race','Incident.Date.Month','Incident.Date.Day','Incident.Date.Year','Incident.Date.Full','Incident.Location.City','Incident.Location.State','Factors.Armed','Factors.Mental-Illness','Factors.Threat-Level','Factors.Fleeing','Shooting.Manner','Shooting.Body-Camera']
@@ -73,7 +61,5 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
                 
                 writer.writerow(row)
 '''
-
->>>>>>> 354c7320b1a15b19b3bef0363b6815207d64b474
 
                 
