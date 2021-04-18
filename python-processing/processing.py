@@ -27,7 +27,7 @@ with open("simple_uscities.csv", 'r') as file:
                 countyToStateDict[row["county_name"]] = row["state_id"]
 
 #print(countyToStateDict)
-print(cityToCountyDict)
+#print(cityToCountyDict)
 
 '''
 # This is create a csv with city+state, county of many different city to county csv
@@ -42,38 +42,38 @@ with open('comboUSCities.csv', mode='w') as csv_file:
 potentialChangesDict = {}
 
 # Clean Police_shooting csv
-'''
+
 with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
-    myFields =['Person.Name','Person.Age','Person.Gender','Person.Race','Incident.Date.Month','Incident.Date.Day','Incident.Date.Year','Incident.Date.Full','Incident.Location.City','Incident.Location.State','Factors.Armed','Factors.Mental-Illness','Factors.Threat-Level','Factors.Fleeing','Shooting.Manner','Shooting.Body-Camera']
+    myFields =['id', "name", "date", "manner_of_death","armed", "age", "gender", "race", "city", "state", "signs_of_mental_illness", "threat_level", "flee", "body_camera", "longitude", "latitude", "is_geocoding_exact"]
     writer = csv.DictWriter(shooting_file, fieldnames=myFields)
     writer.writeheader()
-    with open("police_shootings.csv", 'r') as file:
+    with open("fatal-police-shootings-data.csv", 'r') as file:
         shooting = csv.DictReader(file)
         for row in shooting:
-            incidentCity = row["Incident.Location.City"]
-            if (row["Incident.Location.City"].find("County") != -1):
+            incidentCity = row["city"]
+            if (row["city"].find("County") != -1):
                 writer.writerow(row)
                 continue
             else:
-                if (row["Incident.Location.City"] ) in cityToCountyDict:
-                    tmp = row["Incident.Location.City"]
-                    row["Incident.Location.City"] = cityToCountyDict[row["Incident.Location.City"]] + " County"
-                    print("{0} was placed in this county ->{1}, within this state {2}".format(tmp, cityToCountyDict[tmp], countyToStateDict[cityToCountyDict[tmp]]))
+                if (row["city"] ) in cityToCountyDict:
+                    tmp = row["city"]
+                    row["city"] = cityToCountyDict[row["city"]] + " County"
+                    #print("{0} was placed in this county ->{1}, within this state {2}".format(tmp, cityToCountyDict[tmp], countyToStateDict[cityToCountyDict[tmp]]))
                 
                 else:
                     replacingCounty = ""
                     highestFuzzPartialRatio = 0.0
                     for key in cityToCountyDict:
-                        if( countyToStateDict[cityToCountyDict[key]] == row["Incident.Location.State"]):
-                            tmpPartialRatio = fuzz.partial_ratio(key, row["Incident.Location.City"])
+                        if( countyToStateDict[cityToCountyDict[key]] == row["state"]):
+                            tmpPartialRatio = fuzz.partial_ratio(key, row["city"])
                             if(tmpPartialRatio > highestFuzzPartialRatio) :
                                 highestFuzzPartialRatio = tmpPartialRatio
                                 replacingCounty = cityToCountyDict[key] + " County"
                     #print("{0} was replaced by {1}".format(row["Incident.Location.City"], replacingCounty))    
                     if(highestFuzzPartialRatio > 88):        
-                        row["Incident.Location.City"] = replacingCounty
+                        row["city"] = replacingCounty
                 writer.writerow(row)
 
-'''
+
 
                 
