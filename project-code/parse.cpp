@@ -153,40 +153,23 @@ shared_ptr<hospitalData> readCSVLineHospital(std::string theLine)
 shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
 {
     std::stringstream ss(theLine);
-
-    string personName = getField(ss);
+    
+    for(int i = 0; i < 5; i++){
+        getField(ss);
+    }
     int age = stoi(getField(ss));
     string gender = getField(ss);
     string race = getField(ss);
+    string city = getField(ss);
+    string state = getField(ss);
+    string mental_illness = getField(ss);
 
-    for (int i = 0; i < 4; i++)
-    {
-        getField(ss);
-    }
-    string cityName = getField(ss);
-    // cout << cityName << endl;
-    string stateName = getField(ss);
+    strink junk = getField(ss);
 
-    string skippedFactor1 = getField(ss);
+    string fleeing = getField(ss);
 
-    string MI = getField(ss);
-    /*
-    bool MI = 0;
-    if (tmp.compare("True") == 0)
-    {
-        bool MI = true;
-        cout << "was true: " << MI << endl;
-    }
-    else
-    {
-        bool MI = false;
-        //cout << "twas false" << endl;
-    }
-*/
-    string skippedFactor2 = getField(ss);
-    string fleeting = getField(ss);
 
-    return make_shared<cityShootingData>(stateName, cityName, age, race, gender, MI, fleeting);
+    return make_shared<cityShootingData>(state, city, age, race, gender, MI, fleeting);
 }
 // Rewrite as one method - maybe replace typeFlag with functor on readline
 void read_csv(std::vector<shared_ptr<placeData>> &dataV, std::string filename, typeFlag fileType)
