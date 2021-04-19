@@ -55,7 +55,7 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
             incidentCity = row["city"]
             #Check if entries have a problematic comma, this is a good for loop to do any checking for all the entries
             for i in range(len(myFields)):
-                if(row[myFields[i]].find(",") == -1):
+                if(row[myFields[i]].find(",") != -1):
                     row[myField[i]] = row[myFields[i]].replace(",", "")
             #Some entries already have a county skip these rows
             if (row["city"].find("County") != -1):
