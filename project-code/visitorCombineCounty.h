@@ -142,6 +142,7 @@ public:
             }
         }
     }
+            int unkCounter = 0;
 
     void visit(shootingData *e){
         if(e)
@@ -168,15 +169,14 @@ public:
             string countyKey = "";
             string test = county; 
             size_t found = test.find(" County");
-
             if (county.find(" County") != std::string::npos){
                 test.erase(found, 7);
                 county = test;
             }
             else
             {
-                county = "unknown " + e->getState();
-                cout << county << " " << e->getState() << endl;
+                unkCounter++;
+                cout << unkCounter << ". " << county << " " << e->getState() << " : Unknown" << endl;
                 // cout << "Uh oh we are in here" << endl;
                 // City was not found in the csv (i think)
             }

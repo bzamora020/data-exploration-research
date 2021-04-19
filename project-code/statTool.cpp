@@ -72,7 +72,7 @@ void statTool::computeStatsDemogRegionData(Visitor *theRegions, statGatherer *fi
     cout << "std dev mean X: " << stats::computeStdDevPop(dataXpercent, mX) << endl;
     cout << "std dev mean Y: " << stats::computeStdDevPop(dataYpercent, mY) << endl;
     //cout << "Pearson Coeff: "<<stats::computeCorCoeff(dataXpercent, dataYpercent)<< endl;
-    cout << "Population Coeff: " << stats::computeCorCoeffPop(dataXpercent, dataYpercent, mX, mY) << endl;
+    cout << "Population Coeff: " << stats::computeCorCoeffPop(dataXpercent, dataYpercent, mX, mY) << "\n" << endl;
 }
 
 /* compute statistics for mixed data, demographic and hospital
@@ -94,7 +94,7 @@ void statTool::computeStatsMixRegionData(Visitor *theRegions, statGatherer *fill
 
     cout << "std dev mean X: " << stats::computeStdDevSample(dataX) << endl;
     cout << "std dev mean Y: " << stats::computeStdDevSample(dataY) << endl;
-    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << endl;
+    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << "\n" << endl;
 }
 
 void statTool::computeStatsMixRegionData2(Visitor *theRegions, statGatherer *fillArrays,
@@ -114,7 +114,7 @@ void statTool::computeStatsMixRegionData2(Visitor *theRegions, statGatherer *fil
 
     cout << "std dev mean X: " << stats::computeStdDevSample(dataX) << endl;
     cout << "std dev mean Y: " << stats::computeStdDevSample(dataY) << endl;
-    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << endl;
+    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << "\n" << endl;
 }
 
 void statTool::computeStatsShootingRegionData(Visitor *theRegions, statGatherer *fillArrays,
@@ -128,11 +128,11 @@ void statTool::computeStatsShootingRegionData(Visitor *theRegions, statGatherer 
 
     double mX = stats::computeMean(dataX);
     double mY = stats::computeMean(dataY);
-    cout << "REGION stats comparing demographic and shooting data " << endl;
+    cout << "REGION stats comparing shooting and shooting data " << endl;
     cout << "stats mean X: " << mX << " size of vector: " << dataX.size() << endl;
     cout << "stats mean Y: " << mY << " size of vector: " << dataY.size() << endl;
 
     cout << "std dev mean X: " << stats::computeStdDevSample(dataX) << endl;
     cout << "std dev mean Y: " << stats::computeStdDevSample(dataY) << endl;
-    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << endl;
+    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << "\n" << endl;
 }
