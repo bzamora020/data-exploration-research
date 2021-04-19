@@ -105,6 +105,9 @@ public:
             // cout << entry.first << endl;
             comboShootingData *shootingForCounty = ((visitorCombineCounty *)theCounties)->countySmapEntry(entry.first);
             // <string, pointer> 
+            if(shootingForCounty == NULL){
+                cout << entry.first << "This county could not find a matching county for shooting" << endl;
+            }
             if(shootingForCounty != NULL)
             {
                 double X = (entry.second->*f1)(); // f1 function pointe, entry is demogData
