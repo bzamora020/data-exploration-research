@@ -173,7 +173,7 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
 
     string junk = getFieldNQ(ss);
 
-    string fleeing = getField(ss);
+    string fleeing = getFieldNQ(ss);
 
 
     return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing);

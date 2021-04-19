@@ -18,17 +18,17 @@ public:
         mentalI = 0;
         fleeingCases = 0;
         triedFleeing = 0;
-
-        if ((inFleeing.compare("Not fleeing") == 0) || (inFleeing.compare("") == 0))
-        {
-            notFleeing++;
-            fleeingCases++;
-        }
+        notFleeing = 0;
+        
 
         if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
         {
             triedFleeing++;
             fleeingCases++;
+        }
+        else {
+            fleeingCases++;
+            notFleeing++;
         }
 
         if (inMI.compare("True") == 0)
@@ -36,8 +36,7 @@ public:
             mentalI++;
             countedMI++;
         }
-        if (inMI.compare("False") == 0)
-        {
+        else {
             countedMI++;
         }
 
@@ -122,7 +121,7 @@ public:
         {
             return 0;
         }
-        return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender();
+        return (100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender());
     }
     double getPerMen() const
     {
@@ -130,7 +129,7 @@ public:
         {
             return 0;
         }
-        return 100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender();
+        return (100.0f * (double)(genderCounts.getNumMen()) / genderCounts.getCountedGender());
     }
 
     //Getter for percentage of mentall illness reported
@@ -140,7 +139,7 @@ public:
         {
             return 0;
         }
-        return 100.0f * (double)(mentalI) / countedMI;
+        return (100.0f * (double)(mentalI) / countedMI);
     }
 
     //Getter in case the individual tried fleeing
@@ -150,7 +149,7 @@ public:
         {
             return 0;
         }
-        return 100.0f * (double)(triedFleeing) / fleeingCases;
+        return (100.0f * (double)(triedFleeing) / fleeingCases);
     }
 
     double getPerNotFleeing() const
@@ -159,7 +158,7 @@ public:
         {
             return 0;
         }
-        return 100.0f * (double)(notFleeing) / fleeingCases;
+        return (100.0f * (double)(notFleeing) / fleeingCases);
     }
 
 
@@ -181,6 +180,7 @@ public:
 
     int getMentalI() { return mentalI; }
     int getTriedFleeing() { return triedFleeing; }
+    int getNotTriedFleeing() { return notFleeing; }
     int getAge() { return age; }
     race getRaceData() { return raceCounts; }
     gender getGenderData() { return genderCounts; }
