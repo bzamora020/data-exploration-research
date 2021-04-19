@@ -116,3 +116,23 @@ void statTool::computeStatsMixRegionData2(Visitor *theRegions, statGatherer *fil
     cout << "std dev mean Y: " << stats::computeStdDevSample(dataY) << endl;
     cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << endl;
 }
+
+void statTool::computeStatsShootingRegionData(Visitor *theRegions, statGatherer *fillArrays,
+                                          double (shootingData::*f1)() const, double (shootingData::*f2)() const)
+{
+
+    vector<double> dataX;
+    vector<double> dataY;
+
+    fillArrays->gatherPerStats(theRegions, dataX, dataY, f1, f2);
+
+    double mX = stats::computeMean(dataX);
+    double mY = stats::computeMean(dataY);
+    cout << "REGION stats comparing demographic and shooting data " << endl;
+    cout << "stats mean X: " << mX << " size of vector: " << dataX.size() << endl;
+    cout << "stats mean Y: " << mY << " size of vector: " << dataY.size() << endl;
+
+    cout << "std dev mean X: " << stats::computeStdDevSample(dataX) << endl;
+    cout << "std dev mean Y: " << stats::computeStdDevSample(dataY) << endl;
+    cout << "Correlation Coeff (sample): " << stats::computeCorCoeffSample(dataX, dataY) << endl;
+}

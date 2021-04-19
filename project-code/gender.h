@@ -15,13 +15,13 @@ public:
         numWomen = 0;
         countedGender = 0;
 
-        if (inGender.compare("Male") == 0)
+        if (inGender.compare("M") == 0)
         {
             numMen++;
             countedGender++;
         }
 
-        if (inGender.compare("Female") == 0)
+        if (inGender.compare("F") == 0)
         {
             numWomen++;
             countedGender++;

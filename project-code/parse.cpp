@@ -155,21 +155,28 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
     std::stringstream ss(theLine);
     
     for(int i = 0; i < 5; i++){
-        getField(ss);
+        getFieldNQ(ss);
     }
-    int age = stoi(getField(ss));
-    string gender = getField(ss);
-    string race = getField(ss);
-    string city = getField(ss);
-    string state = getField(ss);
-    string mental_illness = getField(ss);
+    int age = 0;
+    string tmp = getFieldNQ(ss);
+    if(tmp != ""){
+        age = stoi(tmp);
+    }
+    else{
+        age = -1;
+    }
+    string gender = getFieldNQ(ss);
+    string race = getFieldNQ(ss);
+    string city = getFieldNQ(ss);
+    string state = getFieldNQ(ss);
+    string mental_illness = getFieldNQ(ss);
 
-    strink junk = getField(ss);
+    string junk = getFieldNQ(ss);
 
     string fleeing = getField(ss);
 
 
-    return make_shared<cityShootingData>(state, city, age, race, gender, MI, fleeting);
+    return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing);
 }
 // Rewrite as one method - maybe replace typeFlag with functor on readline
 void read_csv(std::vector<shared_ptr<placeData>> &dataV, std::string filename, typeFlag fileType)

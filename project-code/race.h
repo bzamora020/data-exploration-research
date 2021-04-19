@@ -18,35 +18,35 @@ public:
         numHispanics = 0;
         numOther = 0;
         raceCount = 0;
-        if (inRace.compare("Asian") == 0)
+        if (inRace.compare("A") == 0) // Asian, non-Hispanic
         {
             numAsians++;
             raceCount++;
         }
-        if (inRace.compare("African American") == 0)
+        if (inRace.compare("B") == 0) // Black, non-Hispanic
         {
             // cout << "oh 0.0" << endl;
             numAfricanAme++;
             raceCount++;
         }
-        if (inRace.compare("White") == 0)
+        if (inRace.compare("W") == 0)
         {
             numWhite++;
             raceCount++;
         }
-        if (inRace.compare("Hispanic") == 0)
+        if (inRace.compare("H") == 0)
         {
             // cout << "oh 0.0" << endl;
 
             numHispanics++;
             raceCount++;
         }
-        if (inRace.compare("Native American") == 0)
+        if (inRace.compare("N") == 0)
         {
             numNativeAmer++;
             raceCount++;
         }
-        if (inRace.compare("Other") == 0)
+        if (inRace.compare("O") == 0)
         {
             numOther++;
             raceCount++;

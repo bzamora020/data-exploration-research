@@ -34,5 +34,8 @@ public:
       static void computeStatsMixRegionData2(Visitor *theRegions, statGatherer *fillArrays,
                                              double (demogData::*f1)() const, double (shootingData::*f2)() const);
 
+    static void computeStatsShootingRegionData(Visitor *theRegions, statGatherer *fillArrays,
+                                             double (shootingData::*f1)() const, double (shootingData::*f2)() const);
+
 };
 #endif

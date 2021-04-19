@@ -41,7 +41,7 @@ int main()
     //read in the demographic data
     read_csv(pileOfData, "county_demographics.csv", DEMOG);
     //read in the shooting data
-    read_csv(pileOfData, "police_shootings.csv", SHOOTING);
+    read_csv(pileOfData, "police_shootings_cleaned.csv", SHOOTING);
 
     //create a visitor to combine the state data
     visitorCombineState theStates;
@@ -90,13 +90,14 @@ int main()
     
     cout << endl;
 
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerFleeing);
+    statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerAfricanAme, &shootingData::getPerFleeing);
 
+    /*
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerHispanics);
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerMen);
-
+    */
     return 0;
 }
