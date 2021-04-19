@@ -21,10 +21,11 @@ public:
 
         if (inFleeing.compare("Not fleeing") == 0)
         {
+            notFleeing++;
             fleeingCases++;
         }
 
-        if (inFleeing.compare("unknown") != 0 && inFleeing.compare("Not fleeing") != 0)
+        if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0))
         {
             triedFleeing++;
             fleeingCases++;
@@ -152,6 +153,16 @@ public:
         return 100.0f * (double)(triedFleeing) / fleeingCases;
     }
 
+    double getPerNotFleeing() const
+    {
+        if (fleeingCases == 0)
+        {
+            return 0;
+        }
+        return 100.0f * (double)(notFleeing) / fleeingCases;
+    }
+
+
     // Getter to obtain the average age
     double getAverageAge() const
     {
@@ -187,6 +198,7 @@ protected:
     // Numbers per categories
     int mentalI;
     int triedFleeing;
+    int notFleeing;
     int age;
     race raceCounts;
     gender genderCounts;

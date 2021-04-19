@@ -1403,7 +1403,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 1588,Willie Demetrius James,2016-06-02,shot,knife,43,M,B,Norfolk County,VA,True,other,Not fleeing,True,-76.282,36.848,True
 1589,Rodney Rodriguez Smith,2016-06-02,shot,gun,18,M,B,Washington County,NC,False,other,Not fleeing,True,-80.757,35.291,True
 1590,Joshua Smith,2016-06-03,shot,knife,33,M,W,Matanuska Susitna County,AK,False,other,Not fleeing,False,-149.439,61.581,True
-1591,"Hubert Thomas Burns, Jr.",2016-06-03,shot,knife,34,M,N,Armstrong County,AZ,False,other,Not fleeing,False,-112.139,33.863,True
+1591,Hubert Thomas Burns Jr.,2016-06-03,shot,knife,34,M,N,Armstrong County,AZ,False,other,Not fleeing,False,-112.139,33.863,True
 1592,Daniel Jonathan Shaham,2016-06-04,shot,undetermined,31,M,W,Siskiyou County,CA,False,attack,Not fleeing,False,-122.634,41.735,True
 1594,Demarco Rhymes,2016-06-04,shot,gun,35,M,B,Barbour County,AL,False,attack,Other,True,,,True
 1598,Larry Dustin Stepp,2016-06-04,shot,knife,31,M,W,Delaware County,IN,True,other,Not fleeing,True,-85.401,40.173,True
@@ -3754,7 +3754,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4115,Sean Dutcher,2018-10-18,shot,vehicle,38,M,W,Mcdowell County,WI,False,attack,Car,False,-88.543,42.723,True
 4117,Jacob Servais,2018-10-18,shot,unarmed,19,M,B,Cumberland County,NJ,False,other,Not fleeing,False,-75.044,39.451,True
 4161,Mahlon Edward Summerour,2018-10-18,shot,toy weapon,63,M,B,Franklin County,GA,True,attack,Not fleeing,False,-83.711,33.804,True
-4116,"Neico Crooks, Jr",2018-10-19,shot,vehicle,21,M,B,Kanawha County,FL,False,attack,Car,False,-80.203,25.948,True
+4116,Neico Crooks Jr,2018-10-19,shot,vehicle,21,M,B,Kanawha County,FL,False,attack,Car,False,-80.203,25.948,True
 4124,Christopher Calabro,2018-10-19,shot,knife,25,M,W,Plymouth County,MA,True,other,Not fleeing,False,,,True
 4122,Edward Paul Zumski,2018-10-20,shot,gun,35,M,W,Oxford County,TX,False,attack,Not fleeing,False,-95.536,33.662,True
 4126,Robert Smith,2018-10-20,shot,gun,50,M,W,Pierce County,WA,False,other,Not fleeing,False,-122.438,47.111,True
@@ -3779,7 +3779,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4139,Ida Christy Stiles,2018-10-29,shot,toy weapon,42,F,W,Carroll County,GA,True,attack,Not fleeing,False,-84.027,33.174,True
 4143,John Wurms,2018-10-31,shot,gun,32,M,W,Volusia County,FL,False,attack,Not fleeing,True,-81.031,29.106,True
 4144,Tony Bernard Smith,2018-10-31,shot,gun,24,M,B,Windham County,FL,False,other,Foot,False,-81.686,30.372,True
-4145,"Jose Centeno, Jr.",2018-10-31,shot,toy weapon,17,M,H,Washington County,TX,False,attack,Car,True,-95.53,30.027,True
+4145,Jose Centeno Jr.,2018-10-31,shot,toy weapon,17,M,H,Washington County,TX,False,attack,Car,True,-95.53,30.027,True
 4146,Gonzalo Rico-Jimenez,2018-10-31,shot,vehicle,26,M,H,Clark County,NV,False,attack,Car,False,-115.105,36.195,True
 4158,Jesse J. Quinton,2018-11-02,shot,unarmed,35,M,B,Bonneville County,ID,False,attack,Foot,False,-112.032,43.498,True
 4159,Andrew Moore,2018-11-02,shot,knife,25,M,W,Penobscot County,WV,False,attack,Not fleeing,False,-81.666,38.378,True
@@ -3820,7 +3820,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4234,John David Manning,2018-11-14,shot,knife,29,M,W,Spartanburg County,SC,False,attack,Not fleeing,False,,,True
 4186,Allen Fanning,2018-11-15,shot,gun,18,M,B,Arapahoe County,CO,False,other,Not fleeing,False,-104.876,39.595,True
 4187,Agustin Gonsalez,2018-11-15,shot,straight edge razor,29,M,H,Sawyer County,CA,True,other,Not fleeing,False,-122.078,37.663,True
-4189,"Jack Fields, Jr.",2018-11-15,shot,knife,25,M,B,Kennebec County,GA,True,attack,Not fleeing,False,-82.083,33.48,True
+4189,Jack Fields Jr.,2018-11-15,shot,knife,25,M,B,Kennebec County,GA,True,attack,Not fleeing,False,-82.083,33.48,True
 4190,GD Hendrix,2018-11-15,shot,metal pipe,48,M,W,Lancaster County,CA,True,other,Car,False,-121.56,39.65,True
 4235,Steven Smith,2018-11-15,shot,gun,60,M,W,Marengo County,AL,False,attack,Not fleeing,False,,,True
 4191,,2018-11-16,shot,gun,,M,,Washington County,TX,False,attack,Not fleeing,False,-95.525,29.86,True
@@ -4224,7 +4224,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4641,Chadwick Dale Martin,2019-04-16,shot,vehicle,24,M,W,Greenville County,SC,False,attack,Car,False,-82.196,34.689,True
 5412,Patrick West,2019-04-16,shot,sword,42,M,W,Grays Harbor County,WA,True,other,Not fleeing,False,-123.594,46.981,True
 4642,Akeen Brown,2019-04-17,shot,gun,34,M,B,Steuben County,MI,False,attack,Not fleeing,False,-83.4,42.324,True
-4648,"John Stewart, Jr.",2019-04-17,shot,knife,46,M,W,Monongalia County,WV,True,attack,Foot,True,-80.17,39.708,True
+4648,John Stewart Jr.,2019-04-17,shot,knife,46,M,W,Monongalia County,WV,True,attack,Foot,True,-80.17,39.708,True
 4637,John Duane Fairbanks,2019-04-18,shot,gun,40,M,N,Carroll County,MN,False,attack,Foot,True,-93.276,45.174,True
 4646,Michael Allen Felch,2019-04-18,shot,gun,30,M,W,Rockingham County,CA,False,attack,Not fleeing,True,-121.976,37.554,True
 4647,Luiz Leizado,2019-04-18,shot,gun,42,M,H,New York County,NY,False,attack,Foot,False,-73.932,40.854,True
@@ -4289,7 +4289,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4729,Michael Nieto,2019-05-16,shot,gun,,M,H,Palm Beach County,FL,False,attack,Not fleeing,False,-80.105,26.838,True
 4733,Elizabeth Harris,2019-05-16,shot,gun,58,F,W,Hillsborough County,TX,True,attack,Not fleeing,False,-94.415,33.462,True
 4730,Luis Lomante,2019-05-17,shot,knife,39,M,H,Broward County,FL,False,other,Not fleeing,False,-80.244,26.065,True
-4732,"Donald Davis, Jr.",2019-05-17,shot,gun,40,M,B,Orleans County,LA,False,attack,,True,-89.999,30.024,True
+4732,Donald Davis Jr.,2019-05-17,shot,gun,40,M,B,Orleans County,LA,False,attack,,True,-89.999,30.024,True
 5007,Daniel Warren,2019-05-17,shot,gun,36,M,B,Anne Arundel County,CA,False,attack,Not fleeing,True,-118.155,34.172,True
 4728,Dion Grey Hat,2019-05-18,shot,undetermined,27,M,N,Coconino County,AZ,False,undetermined,,False,-110.963,36.322,True
 4731,Andrew Giovanni Meza,2019-05-18,shot,knife,20,M,H,Decatur County,CA,True,attack,Not fleeing,False,-117.922,33.794,True
@@ -4357,7 +4357,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 4832,William James Back,2019-06-09,shot,gun,41,M,W,Middlesex County,AR,False,attack,Not fleeing,False,,,True
 4833,Ysidro Osornio-Velasquez,2019-06-09,shot,gun,32,M,H,Conway County,CA,False,attack,Car,False,-117.154,33.651,True
 4771,Terry Frost,2019-06-10,shot,vehicle,,M,W,Sullivan County,TN,False,attack,Not fleeing,False,-82.574,36.499,True
-4778,"Vincense Williams, Jr.",2019-06-10,shot,gun,24,M,B,Oklahoma County,OK,False,other,Not fleeing,True,,,True
+4778,Vincense Williams Jr.,2019-06-10,shot,gun,24,M,B,Oklahoma County,OK,False,other,Not fleeing,True,,,True
 4779,Brent Durbin-Daniel,2019-06-10,shot,gun,19,M,B,Susquehanna County,OK,True,other,Car,False,-98.469,34.621,True
 4777,Jaquan Derrick Diijon Thompson,2019-06-11,shot,knife,27,M,B,Porteau,OK,False,attack,Not fleeing,False,-94.629,35.078,True
 4781,Eddie Humberto Segura,2019-06-11,shot,barstool,40,M,H,Lewis County,FL,True,attack,Not fleeing,False,-81.286,28.495,True
@@ -4826,7 +4826,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 5232,Donald James Eversen,2019-12-01,shot,knife,60,M,W,Middlesex County,CA,True,attack,Not fleeing,True,-122.039,37.942,True
 5233,Yemerson Melendez,2019-12-01,shot,gun and vehicle,16,M,H,Saint Lucie County,FL,False,attack,Other,False,-80.332,27.445,True
 5235,Steven Kerr,2019-12-01,shot,vehicle,25,M,W,Hillsborough County,FL,False,attack,Car,False,-82.144,28.023,True
-5384,Jordan Oliver,2019-12-01,shot and Tasered,"car, knife and mace",20,M,W,Luzerne County,PA,False,attack,Car,False,,,True
+5384,Jordan Oliver,2019-12-01,shot and Tasered,car knife and mace,20,M,W,Luzerne County,PA,False,attack,Car,False,,,True
 5230,Jerric Harris,2019-12-02,shot,gun,21,M,B,Volusia County,FL,False,attack,Foot,True,-81.06,29.214,True
 5246,Dai Phuoc Nguyen,2019-12-02,shot,knife,38,M,A,La Salle County,CA,False,other,,False,-118.056,34.065,True
 5249,Michael Dean,2019-12-02,shot,unarmed,28,M,B,Hillsborough County,TX,False,undetermined,Not fleeing,False,-97.337,31.061,True
@@ -5629,7 +5629,7 @@ id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_il
 6158,Robert Samuel Craig Lusk,2020-09-10,shot,gun,18,M,B,Gwinnett County,GA,False,attack,Foot,False,-84.175,33.926,True
 6163,Robert Ray Doss,2020-09-10,shot,gun,,M,W,Henderson County,NC,False,attack,Not fleeing,False,-82.506,35.377,True
 6164,Jonathan Darsaw,2020-09-10,shot,gun,49,M,B,Somerset County,TN,False,attack,Not fleeing,False,-89.404,35.062,True
-6165,"Samuel Herrera, Jr.",2020-09-10,shot,gun,41,M,H,La Salle County,CA,False,attack,Not fleeing,False,-118.203,33.892,True
+6165,Samuel Herrera Jr.,2020-09-10,shot,gun,41,M,H,La Salle County,CA,False,attack,Not fleeing,False,-118.203,33.892,True
 6166,Glenn Alvin Eldridge,2020-09-10,shot,gun,48,M,W,Onondaga County,NC,False,other,,False,-79.035,35.033,True
 6175,Joshua Clayton Brant,2020-09-11,shot,gun,31,M,,Christian County,WA,False,attack,Car,False,-117.319,47.664,True
 6159,Robert Coleman,2020-09-12,shot,gun,88,M,B,Yolo County,CA,True,other,Not fleeing,True,-121.534,38.58,True
