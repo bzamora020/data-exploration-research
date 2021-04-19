@@ -19,13 +19,13 @@ public:
         fleeingCases = 0;
         triedFleeing = 0;
 
-        if (inFleeing.compare("Not fleeing") == 0)
+        if ((inFleeing.compare("Not fleeing") == 0) || (inFleeing.compare("") == 0))
         {
             notFleeing++;
             fleeingCases++;
         }
 
-        if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0))
+        if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
         {
             triedFleeing++;
             fleeingCases++;

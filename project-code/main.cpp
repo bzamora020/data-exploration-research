@@ -86,6 +86,8 @@ int main()
     cout << "County data Pop under 5 and BA up: " << endl;
     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount); 
+
+    cout << endl;
     cout << "***** OUR COMPUTATIONS *****" << endl;
     
     cout << endl;
