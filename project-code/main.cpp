@@ -39,7 +39,7 @@ int main()
     //read in the hospital data
     read_csv(pileOfData, "hospitals.csv", HOSPITAL);
     //read in the demographic data
-    read_csv(pileOfData, "county_demographics.csv", DEMOG);
+    read_csv(pileOfData, "county_demographics_cleaned.csv", DEMOG);
     //read in the shooting data
     read_csv(pileOfData, "police_shootings_cleaned.csv", SHOOTING);
 
@@ -92,12 +92,6 @@ int main()
     
     cout << endl;
 
-<<<<<<< HEAD
-    statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerAfricanAme, &shootingData::getPerFleeing);
-    statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerAfricanAme, &shootingData::getPerMI);
-
-    
-=======
     cout << "Shooting compared with shooting: " << endl;
 
     statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerAfricanAme, &shootingData::getPerMI);
@@ -110,7 +104,7 @@ int main()
 
 
     cout << "*** Low Income Levels ***: " << "\n" << endl;
-
+    /*
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
 
 
@@ -119,12 +113,11 @@ int main()
 
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
-
+    */
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
 
 
     /*
->>>>>>> c65312d46f8fae9f2f5928c1a631dd7873b514e0
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerHispanics);
     /*
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);

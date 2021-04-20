@@ -100,18 +100,18 @@ public:
     void gatherPerStats(Visitor *theCounties, vector<double> &XPer, vector<double> &YPer,
                                 double (demogData::*f1)() const, double (shootingData::*f2)() const)
     {
-        for (auto entry : ((visitorCombineCounty *)theCounties)->countyDmap())
+        for (auto entry : ((visitorCombineCounty *)theCounties)->countySmap())
         {
             // cout << entry.first << endl;
-            comboShootingData *shootingForCounty = ((visitorCombineCounty *)theCounties)->countySmapEntry(entry.first);
+            comboDemogData *demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
             // <string, pointer> 
-            if(shootingForCounty == NULL){
-                cout << entry.first << "This county could not find a matching county for shooting" << endl;
+            if(demogForCounty == NULL){
+                cout << entry.first << " This county could not find a matching county for shooting" << endl;
             }
-            if(shootingForCounty != NULL)
+            if(demogForCounty != NULL)
             {
-                double X = (entry.second->*f1)(); // f1 function pointe, entry is demogData
-                double Y = (shootingForCounty->*f2)();
+                double X = (entry.second->*f2)(); // f1 function pointe, entry is demogData
+                double Y = (demogForCounty->*f1)();
 
                 //cout << entry.first << " " << X << " " << Y << "\n";
 
