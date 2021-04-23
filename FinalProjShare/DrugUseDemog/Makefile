@@ -1,7 +1,7 @@
-CXX=clang++
-#CXX=g++
+#CXX=clang++
+CXX=g++
 
-CXXFLAGS= -glldb -std=c++14 
+CXXFLAGS= -std=c++14 
 
 BINARIES=dataProj testStats1 testStatsData1
 
