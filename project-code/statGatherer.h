@@ -106,7 +106,7 @@ public:
             comboDemogData *demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
             // <string, pointer> 
             if(demogForCounty == NULL){
-                cout << entry.first << " This county could not find a matching county for shooting" << endl;
+                // cout << entry.first << " This county could not find a matching county for shooting" << endl;
             }
             if(demogForCounty != NULL)
             {
@@ -129,7 +129,7 @@ public:
             // cout << entry.first << endl;
             //comboShootingData *shootingForCounty = ((visitorCombineCounty *)theCounties)->countySmapEntry(entry.first);
             // <string, pointer> 
-            if(entry.second != NULL)
+            if((entry.second != NULL) && (entry.first.find("Unknown") == std::string::npos))
             {
                 double X = (entry.second->*f1)(); 
                 double Y = (entry.second->*f2)();

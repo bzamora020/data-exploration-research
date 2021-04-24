@@ -176,9 +176,10 @@ public:
             else
             {
                 unkCounter++;
-                cout << unkCounter << ". " << county << " " << e->getState() << " : Unknown" << endl;
+                // cout << unkCounter << ". " << county << " " << e->getState() << " : Unknown" << endl;
                 // cout << "Uh oh we are in here" << endl;
                 // City was not found in the csv (i think)
+                county = "Unknown";
             }
 
             countyKey = county + e->getState();

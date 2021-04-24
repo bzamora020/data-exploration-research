@@ -83,16 +83,16 @@ int main()
 
     cout << endl;
     */
-    cout << "County data Pop under 5 and BA up: " << endl;
+/*     cout << "County data Pop under 5 and BA up: " << endl;
     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount); 
 
-    cout << endl;
+    cout << endl; */
     cout << "***** OUR COMPUTATIONS *****" << endl;
     
     cout << endl;
 
-    cout << "Shooting compared with shooting: " << endl;
+/*     cout << "Shooting compared with shooting: " << endl;
 
     statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerAfricanAme, &shootingData::getPerMI);
 
@@ -100,29 +100,21 @@ int main()
     statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerWhite, &shootingData::getPerMI);
 
     statTool::computeStatsShootingRegionData(&theCounties, &fillCounties, &shootingData::getPerWhite, &shootingData::getPerMen);
-
+ */
 
 
     cout << "*** Low Income Levels ***: " << "\n" << endl;
-    /*
+
+    cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
-
-
-
+    cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as White" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerWhite);
-
-
+    cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as African American" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
-    */
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
-
-
-    /*
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerHispanics);
-    /*
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAfricanAme);
-
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerMen);
-    */
+    cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian" << "\n" << endl;
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAsians);
+    cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme);
+    
     return 0;
 }
