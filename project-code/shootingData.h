@@ -10,9 +10,8 @@ using namespace std;
 class shootingData : public placeData
 {
 public:
-    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender)
+    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge)
     {
-        age = 0;
         countedMI = 0;
         countedAge = 0;
         mentalI = 0;
@@ -133,7 +132,7 @@ public:
     }
 
     //Getter for percentage of mentall illness reported
-    double getPerMI() const
+    double getPerMentalI() const
     {
         if (countedMI == 0)
         {
@@ -185,6 +184,8 @@ public:
     race getRaceData() { return raceCounts; }
     gender getGenderData() { return genderCounts; }
 
+    int getNumberOfCases() { return numberOfCases; }
+
     string getState() { return this->getName(); }
 
     void accept(class Visitor &v) override;
@@ -200,6 +201,7 @@ protected:
     int triedFleeing;
     int notFleeing;
     int age;
+    int numberOfCases;
     race raceCounts;
     gender genderCounts;
 };

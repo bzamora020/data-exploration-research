@@ -1,46 +1,42 @@
 #ifndef GENDER_H
 #define GENDER_H
 
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-class gender
-{
+class gender {
 public:
-    gender(string inGender) : strGender(inGender)
-    {
-        numMen = 0;
-        numWomen = 0;
-        countedGender = 0;
+  gender(string inGender) : strGender(inGender) {
+    numMen = 0;
+    numWomen = 0;
+    countedGender = 0;
 
-        if (inGender.compare("M") == 0)
-        {
-            numMen++;
-            countedGender++;
-        }
-
-        if (inGender.compare("F") == 0)
-        {
-            numWomen++;
-            countedGender++;
-        }
+    if (inGender.compare("M") == 0) {
+      numMen++;
+      countedGender++;
     }
 
-    int getCountedGender() const { return countedGender; }
-    int getNumMen() const { return numMen; }
-    int getNumWomen() const { return numWomen; }
+    if (inGender.compare("F") == 0) {
+      numWomen++;
+      countedGender++;
+    }
+  }
 
-    string getGender() const { return strGender; }
+  int getCountedGender() const { return countedGender; }
+  int getNumMen() const { return numMen; }
+  int getNumWomen() const { return numWomen; }
 
-    gender &operator+=(const gender &g);
+  string getGender() const { return strGender; }
+
+  gender &operator+=(const gender &g);
 
 private:
-    string strGender;
-    int countedGender;
-    int numMen;
-    int numWomen;
+  string strGender;
+  int countedGender;
+  int numMen;
+  int numWomen;
 };
 
 #endif

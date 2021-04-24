@@ -180,10 +180,7 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
 }
 // Rewrite as one method - maybe replace typeFlag with functor on readline
 void read_csv(std::vector<shared_ptr<placeData>> &dataV, std::string filename, typeFlag fileType)
-{ // I think I fixed this
-    //the actual data
-    // std::vector<shared_ptr<placeData>> theData = dataV; //Replaced by input of placeData
-
+{ 
     // Create an input filestream
     std::ifstream myFile(filename);
 

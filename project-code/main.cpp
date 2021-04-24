@@ -58,36 +58,8 @@ int main()
     stateGather fillStates;
     countyGather fillCounties;
 
-    //Do stats work here these are examples...
 
-    //mixed data use 'sample'
 
-    //cout << "PROFFESSOR'S EXAMPLES" << endl;
-
-    cout << endl;
-
-    /* cout << "**State data over 65  and number Hospitals: " << endl;
-    statTool::computeStatsMixRegionData(&theStates, &fillStates, &demogData::getpopOver65, &comboHospitalData::getNumH);
-
-    cout << endl;
-
-    cout << "County data over 65 and number Hospitals: " << endl;
-    statTool::computeStatsMixRegionData(&theCounties, &fillCounties, &demogData::getpopOver65, &comboHospitalData::getNumH);
-
-    cout << endl;
-
-    //demogxdemog sample
-    cout << "State data Pop under 5 and BA up: " << endl;
-    statTool::computeStatsDemogRegionData(&theStates, &fillStates, &demogData::getpopUnder5, &demogData::getBAup,
-                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); // Use of function pointers right here
-
-    cout << endl;
-    */
-/*     cout << "County data Pop under 5 and BA up: " << endl;
-    statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
-                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); 
-
-    cout << endl; */
     cout << "***** OUR COMPUTATIONS *****" << endl;
     
     cout << endl;
@@ -103,6 +75,19 @@ int main()
  */
 
 
+    //Printing out the number of shooting cases per State
+ for(auto entry : theStates.stateSmap())
+ {
+     cout << "Number of cases: " << entry.second->getNumCases() << " State: " << entry.second->getState() << endl;
+
+ }
+    
+
+    // for (auto entry : theCounties.countySmap())
+    // {
+    //     cout << entry.second->getNumCases() << endl;
+    // }
+
     cout << "*** Low Income Levels ***: " << "\n" << endl;
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
@@ -116,5 +101,8 @@ int main()
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme);
     
+
+
     return 0;
 }
+

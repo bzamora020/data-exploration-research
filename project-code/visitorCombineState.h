@@ -57,7 +57,6 @@ public:
 
         allStateShootingData[stateName]->addShootingtoRegion(e);
 
-
     }
 
     // Getters
@@ -71,6 +70,11 @@ public:
         return allStateHospData;
     }
 
+    std::map<string, comboShootingData *> stateSmap() const
+    {
+        return allStateShootingData;
+    }
+
     comboDemogData *stateDmapEntry(string stateN)
     {
         return allStateDemogData[stateN];
@@ -81,15 +85,14 @@ public:
         return allStateHospData[stateN];
     }
 
-    std::map<string, comboShootingData *> stateSmap() const 
-    {
-        return allStateShootingData;
-    }
+
 
     comboShootingData *stateSmapEntry(string stateN)
     {
         return allStateShootingData[stateN];
     }
+
+    
 
 private:
     // Private data like maps and stuff
