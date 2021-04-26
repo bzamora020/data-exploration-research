@@ -77,11 +77,11 @@ int main()
 
 
     //Printing out the number of shooting cases per State
- for(auto entry : theStates.stateSmap())
+ /* or(auto entry : theStates.stateSmap())
  {
      cout << "Number of cases: " << entry.second->getNumCases() << " State: " << entry.second->getState() << endl;
     
- }
+ } */
     
     // int counter = 0;
     // for (auto entry : theCounties.countySmap())
@@ -91,7 +91,7 @@ int main()
     // }
 
     // cout << "Number of counties: " << counter << endl;
-    cout << "*** Low Income Levels ***: " << "\n" << endl;
+/*     cout << "*** Low Income Levels ***: " << "\n" << endl;
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
@@ -102,11 +102,14 @@ int main()
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAsians);
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme); */
 
-    cout << "Stats per County" << endl;
 
-    theCounties.mostShootingsCounty();
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerBodyCamOn);
+
+    /* cout << "Stats per County" << endl; */
+
+    /* theCounties.mostShootingsCounty();
         cout << endl;
     // theCounties.leastShootingsCounty();
 
@@ -118,7 +121,7 @@ int main()
 
     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount);
-
+ */
     return 0;
 }
 
