@@ -105,15 +105,20 @@ int main()
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme); */
 
+    cout << "*** Percentage of hispanics compared to percentage of cases of body cams on" << "\n" << endl;
 
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerBodyCamOn);
   
     cout << "*** Below Poverty compared to percentage of cases of fatal police shootings" << "\n" << endl;
     statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getBelowPoverty, &comboShootingData::getPerNumberCases);
 
+    cout << "*** cases of fatal police shootings compared to percentage of Below Poverty " << "\n" << endl;
+    statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getBelowPoverty, &comboShootingData::getPerHispanics);
 
 
-    cout << "Stats per County" << endl;
+    // cout << "Stats per County" << endl;
+
+
     /* cout << "Stats per County" << endl; */
 
     /* theCounties.mostShootingsCounty();
