@@ -119,7 +119,7 @@ double stats::computeCorCoeffSample(std::vector<double> inX, std::vector<double>
 	return corr;
 }
 
-double stats::computeChiSqGoodFit(vector<double> obs, vector<double> exp)
+double stats::computeChiSqGoodFit(vector<double> obs, vector<double> exp) // This should be counts 
 {
 
 	//over-writes observed data

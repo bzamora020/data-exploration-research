@@ -12,6 +12,7 @@
 #include <memory>
 #include <string>
 
+
 class visitorCombineCounty : public Visitor {
 
 public:
@@ -160,6 +161,19 @@ public:
   comboShootingData *countySmapEntry(string countyN) {
     return allCountySData[countyN];
   }
+  
+  std::string mostShootingsCounty() {
+    std::vector<comboShootingData*> theCounties;
+    for(const auto entry : allCountySData){
+      theCounties.push_back(entry.second);
+    }
+    std::sort(theCounties.begin(), theCounties.end(), compareNumShootings);
+
+    cout << "Counties with most police shootings: \n" 
+         << "1.) " << theCounties[0]->getRegionType() << " in this state ->" << theCounties[0]->getState() << " had this many fatal police shootings ->" << theCounties[0]->getNumCases() << endl
+         << "2.) " << theCounties[1]->getRegionType() << " in this state ->" << theCounties[0]->getState() << " had this many fatal police shootings ->" << theCounties[1]->getNumCases() << endl
+         << "3.) " << theCounties[2]->getRegionType() << " in this state ->" << theCounties[0]->getState() << " had this many fatal police shootings ->" << theCounties[2]->getNumCases() << endl;
+  }
 
 private:
   // Private data like maps and stuff
@@ -172,6 +186,10 @@ private:
 
   // helper map to create aggregates from city -> county
   std::map<string, string> cityToCounty;
+
+  static bool compareNumShootings(comboShootingData* a, comboShootingData* b){
+    return (a->getNumCases() > b->getNumCases());
+  }
 };
 
 #endif
