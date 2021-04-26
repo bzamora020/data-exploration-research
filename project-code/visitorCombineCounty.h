@@ -16,6 +16,18 @@
 class visitorCombineCounty : public Visitor {
 
 public:
+  ~visitorCombineCounty() {
+    for(auto entry : allCountySData){
+      delete entry.second;
+    }
+    for(auto entry : allCountyDData){
+      delete entry.second;
+    }
+    for(auto entry : allCountyHData){
+      delete entry.second;
+    }
+  }
+
   visitorCombineCounty(string fileName) // Creates helper map when instantiated
                                         // with the uscities file
   {
@@ -150,16 +162,22 @@ public:
   std::map<string, comboDemogData *> countyDmap() { return allCountyDData; }
 
   comboDemogData *countyDmapEntry(string countyN) {
-    return allCountyDData[countyN];
+    if(allCountyDData.count(countyN) == 1){ // Check if the county exists in the map already before returning a value for it, could create new entries unwillingly
+      return allCountyDData[countyN];
+    }
   }
 
   std::map<string, comboHospitalData *> countyHmap() { return allCountyHData; }
   comboHospitalData *countyHmapEntry(string countyN) {
-    return allCountyHData[countyN];
+    if(allCountyHData.count(countyN) == 1){
+      return allCountyHData[countyN];
+    }
   }
   std::map<string, comboShootingData *> countySmap() { return allCountySData; }
   comboShootingData *countySmapEntry(string countyN) {
-    return allCountySData[countyN];
+    if(allCountySData.count(countyN) == 1){
+      return allCountySData[countyN];
+    }
   }
   
   std::string mostShootingsCounty() {

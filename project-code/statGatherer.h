@@ -103,7 +103,11 @@ public:
         for (auto entry : ((visitorCombineCounty *)theCounties)->countySmap())
         {
             // cout << entry.first << endl;
-            comboDemogData *demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
+            comboDemogData *demogForCounty;
+            if(((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first) != NULL){
+                demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
+            }
+            
             // <string, pointer> 
             if(demogForCounty == NULL){
                 // cout << entry.first << " This county could not find a matching county for shooting" << endl;

@@ -39,7 +39,7 @@ int main()
     //read in the hospital data
     read_csv(pileOfData, "hospitals.csv", HOSPITAL);
     //read in the demographic data
-    read_csv(pileOfData, "county_demographics.csv", DEMOG);
+    read_csv(pileOfData, "county_demographics_cleaned.csv", DEMOG);
     //read in the shooting data
     read_csv(pileOfData, "police_shootings_cleaned.csv", SHOOTING);
 
@@ -58,6 +58,7 @@ int main()
     stateGather fillStates;
     countyGather fillCounties;
 
+    // cleaning, removed the end of some of the county names, like Parish, city, stuff like dat, so there might be conflicts with something CountyNCA and CountyNCA
 
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
