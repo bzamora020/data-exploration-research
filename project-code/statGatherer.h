@@ -37,6 +37,10 @@ public:
                                 double (demogData::*f1)() const, double (shootingData::*f2)() const) = 0;
     virtual void gatherPerStats(Visitor *Regions, vector<double> &XPer, vector<double> &YPer,
                                 double (shootingData::*f1)() const, double (shootingData::*f2)() const) = 0;
+
+    virtual void gatherPerStats(Visitor *Regions, vector<double> &XPer, vector<double> &YPer,
+                                double (demogData::*f1)() const, double (comboShootingData::*f2)() const) = 0;
+
     //function to gather two demog datas (percentages and counts - for accuracy with populations)
     virtual int gatherBothStats(Visitor *Regions, vector<double> &XPer, vector<double> &YPer,
                                 vector<double> &XCount, vector<double> &Ycount,
@@ -125,6 +129,34 @@ public:
         }
     }
 
+     void gatherPerStats(Visitor *theCounties, vector<double> &XPer, vector<double> &YPer,
+                                double (demogData::*f1)() const, double (comboShootingData::*f2)() const)
+    {
+        for (auto entry : ((visitorCombineCounty *)theCounties)->countySmap())
+        {
+            // cout << entry.first << endl;
+            comboDemogData *demogForCounty;
+            if(((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first) != NULL){
+                demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
+            }
+            
+            // <string, pointer> 
+            if(demogForCounty == NULL){
+                // cout << entry.first << " This county could not find a matching county for shooting" << endl;
+            }
+            if(demogForCounty != NULL)
+            {
+                double X = (entry.second->*f2)(); // f1 function pointe, entry is demogData
+                double Y = (demogForCounty->*f1)();
+
+                //cout << entry.first << " " << X << " " << Y << "\n";
+
+                XPer.push_back(X);
+                YPer.push_back(Y);
+            }
+        }
+    }
+
     void gatherPerStats(Visitor *theCounties, vector<double> &XPer, vector<double> &YPer,
                                 double (shootingData::*f1)() const, double (shootingData::*f2)() const)
     {
@@ -145,6 +177,9 @@ public:
             }
         }
     }
+
+
+
 
     //function to gather two demog datas (percentages and counts)
     int gatherBothStats(Visitor *theCounties, vector<double> &XPer, vector<double> &YPer,
@@ -212,6 +247,27 @@ public:
     //function to gather one demog data and one shooting data
     void gatherPerStats(Visitor *theStates, vector<double> &XPer, vector<double> &YPer,
                         double (demogData::*f1)() const, double (shootingData::*f2)() const)
+    {
+        for (auto entry : ((visitorCombineState *)theStates)->stateDmap())
+        {
+            // cout << entry.first << endl;
+            comboShootingData *shootingForState = ((visitorCombineState *)theStates)->stateSmapEntry(entry.first);
+            if(shootingForState != NULL)
+            {
+                double X = (entry.second->*f1)();
+                double Y = (shootingForState->*f2)();
+
+                // cout << X << " " << Y << "\n";
+
+                XPer.push_back(X);
+                YPer.push_back(Y);
+            }
+        }
+    }
+
+    //function to gather one demog data and one shooting data
+    void gatherPerStats(Visitor *theStates, vector<double> &XPer, vector<double> &YPer,
+                        double (demogData::*f1)() const, double (comboShootingData::*f2)() const)
     {
         for (auto entry : ((visitorCombineState *)theStates)->stateDmap())
         {
