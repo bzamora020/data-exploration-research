@@ -10,7 +10,7 @@ using namespace std;
 class shootingData : public placeData
 {
 public:
-    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge)
+    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge)
     {
         countedMI = 0;
         countedAge = 0;
@@ -18,6 +18,9 @@ public:
         fleeingCases = 0;
         triedFleeing = 0;
         notFleeing = 0;
+        bodyCamCount = 0;
+        hadBodyCamOff = 0;
+        hadBodyCamOn = 0;
         
 
         if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
@@ -38,6 +41,17 @@ public:
         else {
             countedMI++;
         }
+        if (inBodyCam.compare("True") == 0)
+        {
+           
+            hadBodyCamOn++;
+            bodyCamCount++;
+        }
+        if (inBodyCam.compare("False") == 0){
+            
+            hadBodyCamOff++;
+            bodyCamCount++;
+        }
 
         if (inAge > 0)
         {
@@ -54,6 +68,9 @@ public:
         fleeingCases = 0;
         triedFleeing = 0;
         countedMI = 0;
+        hadBodyCamOff = 0;
+        hadBodyCamOn = 0;
+
     }
 
     // These return percentage of police shootings by race
@@ -159,6 +176,24 @@ public:
         }
         return (100.0f * (double)(notFleeing) / fleeingCases);
     }
+    double getPerBodyCamOn() const
+    {
+        if (bodyCamCount == 0)
+        {
+            cout << "God why" << endl;
+            return 0;
+        }
+        return (100.0f * (double)(hadBodyCamOn) / bodyCamCount);
+    }
+
+    double getPerBodyCamOff() const
+    {
+        if (bodyCamCount == 0)
+        {
+            return 0;
+        }
+        return (100.0f * (double)(hadBodyCamOff) / bodyCamCount);
+    }
 
 
     // Getter to obtain the average age
@@ -176,10 +211,13 @@ public:
     int getCountedAge() { return countedAge; }
     int getFleeingCases() { return fleeingCases; }
     int getCountedMI() { return countedMI; }
+    int getCountedBodyCam() { return bodyCamCount; }
 
     int getMentalI() { return mentalI; }
     int getTriedFleeing() { return triedFleeing; }
     int getNotTriedFleeing() { return notFleeing; }
+    int getHadBodyCamOff() { return hadBodyCamOff; }
+    int getHadBodyCamOn() { return hadBodyCamOn; }
     int getAge() { return age; }
     race getRaceData() { return raceCounts; }
     gender getGenderData() { return genderCounts; }
@@ -195,11 +233,14 @@ protected:
     int countedAge;
     int fleeingCases;
     int countedMI;
+    int bodyCamCount;
 
     // Numbers per categories
     int mentalI;
     int triedFleeing;
     int notFleeing;
+    int hadBodyCamOn;
+    int hadBodyCamOff;
     int age;
     int numberOfCases;
     race raceCounts;

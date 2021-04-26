@@ -77,11 +77,11 @@ int main()
 
 
     //Printing out the number of shooting cases per State
- for(auto entry : theStates.stateSmap())
+ /* or(auto entry : theStates.stateSmap())
  {
      cout << "Number of cases: " << entry.second->getNumCases() << " State: " << entry.second->getState() << endl;
     
- }
+ } */
     
     // int counter = 0;
     // for (auto entry : theCounties.countySmap())
@@ -91,7 +91,7 @@ int main()
     // }
 
     // cout << "Number of counties: " << counter << endl;
-    cout << "*** Low Income Levels ***: " << "\n" << endl;
+/*     cout << "*** Low Income Levels ***: " << "\n" << endl;
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
@@ -103,16 +103,20 @@ int main()
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAsians);
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme); */
 
+
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHispanicPerc, &shootingData::getPerBodyCamOn);
+  
     cout << "*** Below Poverty compared to percentage of cases of fatal police shootings" << "\n" << endl;
     statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getBelowPoverty, &comboShootingData::getPerNumberCases);
 
 
 
     cout << "Stats per County" << endl;
+    /* cout << "Stats per County" << endl; */
 
-    theCounties.mostShootingsCounty();
+    /* theCounties.mostShootingsCounty();
         cout << endl;
     // theCounties.leastShootingsCounty();
 
@@ -128,7 +132,7 @@ int main()
 
     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount);
-
+ */
     return 0;
 }
 
