@@ -9,6 +9,10 @@ void comboShootingData::addShootingtoRegion(shootingData *CD) {
   triedFleeing += CD->getTriedFleeing();
   notFleeing += CD->getNotTriedFleeing();
 
+  bodyCamCount += CD->getCountedBodyCam();
+  hadBodyCamOff += CD->getHadBodyCamOff();
+  hadBodyCamOn += CD->getHadBodyCamOn();
+
   countedMI += CD->getCountedMI();
   mentalI += CD->getMentalI();
   age += CD->getAge();

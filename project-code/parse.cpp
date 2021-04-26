@@ -175,8 +175,10 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
 
     string fleeing = getFieldNQ(ss);
 
+    string bodyCam = getFieldNQ(ss);
 
-    return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing);
+
+    return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing, bodyCam);
 }
 // Rewrite as one method - maybe replace typeFlag with functor on readline
 void read_csv(std::vector<shared_ptr<placeData>> &dataV, std::string filename, typeFlag fileType)
