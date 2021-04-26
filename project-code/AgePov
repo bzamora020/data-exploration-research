@@ -1,0 +1,186 @@
+***** OUR COMPUTATIONS *****
+
+*** Low Income Levels ***: 
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 9.34 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 23.69
+std dev mean Y: 6.08
+Correlation Coeff (sample): 0.02
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as White
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 63.23 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 41.06
+std dev mean Y: 6.08
+Correlation Coeff (sample): -0.15
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as African American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 19.47 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 32.98
+std dev mean Y: 6.08
+Correlation Coeff (sample): 0.10
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.36 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 9.85
+std dev mean Y: 6.08
+Correlation Coeff (sample): -0.02
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 2.20 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 12.84
+std dev mean Y: 6.08
+Correlation Coeff (sample): 0.11
+
+*** Age Levels ***: 
+
+*** Pop Under 5 compared to percentage of fatal police shootings where the victim was classified as Hispanic
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 9.34 size of vector: 1419
+stats mean Y: 6.04 size of vector: 1419
+std dev mean X: 23.69
+std dev mean Y: 1.10
+Correlation Coeff (sample): 0.20
+
+***  Pop Under 5  compared to percentage of fatal police shootings where the victim was classified as White
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 63.23 size of vector: 1419
+stats mean Y: 6.04 size of vector: 1419
+std dev mean X: 41.06
+std dev mean Y: 1.10
+Correlation Coeff (sample): -0.23
+
+***  Pop Under 5 compared to percentage of fatal police shootings where the victim was classified as African American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 19.47 size of vector: 1419
+stats mean Y: 6.04 size of vector: 1419
+std dev mean X: 32.98
+std dev mean Y: 1.10
+Correlation Coeff (sample): 0.09
+
+***  Pop Under 5 compared to percentage of fatal police shootings where the victim was classified as Asian
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.36 size of vector: 1419
+stats mean Y: 6.04 size of vector: 1419
+std dev mean X: 9.85
+std dev mean Y: 1.10
+Correlation Coeff (sample): 0.03
+
+***  Pop Under 5 compared to percentage of fatal police shootings where the victim was classified as Natice American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 2.20 size of vector: 1419
+stats mean Y: 6.04 size of vector: 1419
+std dev mean X: 12.84
+std dev mean Y: 1.10
+Correlation Coeff (sample): 0.20
+
+*** Pop Under 18 compared to percentage of fatal police shootings where the victim was classified as Hispanic
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 9.34 size of vector: 1419
+stats mean Y: 22.85 size of vector: 1419
+std dev mean X: 23.69
+std dev mean Y: 3.22
+Correlation Coeff (sample): 0.18
+
+***  Pop Under 18 compared to percentage of fatal police shootings where the victim was classified as White
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 63.23 size of vector: 1419
+stats mean Y: 22.85 size of vector: 1419
+std dev mean X: 41.06
+std dev mean Y: 3.22
+Correlation Coeff (sample): -0.17
+
+***  Pop Under 18 compared to percentage of fatal police shootings where the victim was classified as African American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 19.47 size of vector: 1419
+stats mean Y: 22.85 size of vector: 1419
+std dev mean X: 32.98
+std dev mean Y: 3.22
+Correlation Coeff (sample): 0.04
+
+***  Pop Under 18 compared to percentage of fatal police shootings where the victim was classified as Asian
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.36 size of vector: 1419
+stats mean Y: 22.85 size of vector: 1419
+std dev mean X: 9.85
+std dev mean Y: 3.22
+Correlation Coeff (sample): 0.05
+
+***  Pop Under 18 compared to percentage of fatal police shootings where the victim was classified as Natice American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 2.20 size of vector: 1419
+stats mean Y: 22.85 size of vector: 1419
+std dev mean X: 12.84
+std dev mean Y: 3.22
+Correlation Coeff (sample): 0.17
+
+*** Pop Over 65 compared to percentage of fatal police shootings where the victim was classified as Hispanic
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 9.34 size of vector: 1419
+stats mean Y: 16.34 size of vector: 1419
+std dev mean X: 23.69
+std dev mean Y: 4.21
+Correlation Coeff (sample): -0.09
+
+***  Pop Over 65 compared to percentage of fatal police shootings where the victim was classified as White
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 63.23 size of vector: 1419
+stats mean Y: 16.34 size of vector: 1419
+std dev mean X: 41.06
+std dev mean Y: 4.21
+Correlation Coeff (sample): 0.15
+
+***  Pop Over 65 compared to percentage of fatal police shootings where the victim was classified as African American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 19.47 size of vector: 1419
+stats mean Y: 16.34 size of vector: 1419
+std dev mean X: 32.98
+std dev mean Y: 4.21
+Correlation Coeff (sample): -0.14
+
+***  Pop Over 65 compared to percentage of fatal police shootings where the victim was classified as Asian
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.36 size of vector: 1419
+stats mean Y: 16.34 size of vector: 1419
+std dev mean X: 9.85
+std dev mean Y: 4.21
+Correlation Coeff (sample): -0.04
+
+***  Pop Over 65 compared to percentage of fatal police shootings where the victim was classified as Natice American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 2.20 size of vector: 1419
+stats mean Y: 16.34 size of vector: 1419
+std dev mean X: 12.84
+std dev mean Y: 4.21
+Correlation Coeff (sample): -0.06
+
