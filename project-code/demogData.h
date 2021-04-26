@@ -23,7 +23,8 @@ class demogData: public placeData {
     demogData(string inS) : placeData{inS, 8},
             popOver65(0), popUnder18(0),
             popUnder5(0), bachelorDegreeUp(0), highSchoolUp(0),
-            belowPoverty(0), population2014(0) {
+            belowPoverty(0), population2014(0), racial(){
+  
     }
 
   string getState() const { return this->getName(); } //call placeName

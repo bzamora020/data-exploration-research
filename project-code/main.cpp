@@ -58,6 +58,7 @@ int main()
     stateGather fillStates;
     countyGather fillCounties;
 
+    // cleaning, removed the end of some of the county names, like Parish, city, stuff like dat, so there might be conflicts with something CountyNCA and CountyNCA
 
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
@@ -79,15 +80,17 @@ int main()
  for(auto entry : theStates.stateSmap())
  {
      cout << "Number of cases: " << entry.second->getNumCases() << " State: " << entry.second->getState() << endl;
-
+    
  }
     
-
+    // int counter = 0;
     // for (auto entry : theCounties.countySmap())
     // {
-    //     cout << entry.second->getNumCases() << endl;
+    //     cout << "County name? " << entry.second->getRegionType() << " State: " << entry.second->getState() << " Cases: " << entry.second->getNumCases() << endl;
+    //     counter++;
     // }
 
+    // cout << "Number of counties: " << counter << endl;
     cout << "*** Low Income Levels ***: " << "\n" << endl;
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
@@ -104,8 +107,17 @@ int main()
     cout << "Stats per County" << endl;
 
     theCounties.mostShootingsCounty();
-    
+        cout << endl;
+    // theCounties.leastShootingsCounty();
 
+    // theCounties.leastHSGraduates();
+
+
+
+    cout << "TESTSSSSSS: \n";
+
+    statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
+                                          &demogData::getpopUnder5Count, &demogData::getBAupCount);
 
     return 0;
 }

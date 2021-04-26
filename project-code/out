@@ -1,0 +1,113 @@
+***** OUR COMPUTATIONS *****
+
+Number of cases: 44 State: AK
+Number of cases: 115 State: AL
+Number of cases: 90 State: AR
+Number of cases: 291 State: AZ
+Number of cases: 924 State: CA
+Number of cases: 219 State: CO
+Number of cases: 24 State: CT
+Number of cases: 16 State: DC
+Number of cases: 16 State: DE
+Number of cases: 417 State: FL
+Number of cases: 213 State: GA
+Number of cases: 32 State: HI
+Number of cases: 37 State: IA
+Number of cases: 49 State: ID
+Number of cases: 122 State: IL
+Number of cases: 116 State: IN
+Number of cases: 56 State: KS
+Number of cases: 111 State: KY
+Number of cases: 125 State: LA
+Number of cases: 40 State: MA
+Number of cases: 90 State: MD
+Number of cases: 25 State: ME
+Number of cases: 96 State: MI
+Number of cases: 73 State: MN
+Number of cases: 155 State: MO
+Number of cases: 75 State: MS
+Number of cases: 38 State: MT
+Number of cases: 176 State: NC
+Number of cases: 13 State: ND
+Number of cases: 28 State: NE
+Number of cases: 17 State: NH
+Number of cases: 73 State: NJ
+Number of cases: 120 State: NM
+Number of cases: 106 State: NV
+Number of cases: 114 State: NY
+Number of cases: 177 State: OH
+Number of cases: 184 State: OK
+Number of cases: 99 State: OR
+Number of cases: 125 State: PA
+Number of cases: 4 State: RI
+Number of cases: 95 State: SC
+Number of cases: 19 State: SD
+Number of cases: 161 State: TN
+Number of cases: 551 State: TX
+Number of cases: 75 State: UT
+Number of cases: 109 State: VA
+Number of cases: 9 State: VT
+Number of cases: 175 State: WA
+Number of cases: 101 State: WI
+Number of cases: 59 State: WV
+Number of cases: 15 State: WY
+*** Low Income Levels ***: 
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 9.44 size of vector: 1368
+stats mean Y: 16.95 size of vector: 1368
+std dev mean X: 23.76
+std dev mean Y: 6.13
+Correlation Coeff (sample): 0.02
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as White
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 63.70 size of vector: 1368
+stats mean Y: 16.95 size of vector: 1368
+std dev mean X: 40.93
+std dev mean Y: 6.13
+Correlation Coeff (sample): -0.15
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as African American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 19.64 size of vector: 1368
+stats mean Y: 16.95 size of vector: 1368
+std dev mean X: 33.15
+std dev mean Y: 6.13
+Correlation Coeff (sample): 0.10
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.11 size of vector: 1368
+stats mean Y: 16.95 size of vector: 1368
+std dev mean X: 8.49
+std dev mean Y: 6.13
+Correlation Coeff (sample): -0.03
+
+*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 1.90 size of vector: 1368
+stats mean Y: 16.95 size of vector: 1368
+std dev mean X: 11.85
+std dev mean Y: 6.13
+Correlation Coeff (sample): 0.12
+
+Stats per County
+Counties with most police shootings: 
+0.) Los Angeles County in this state ->CA had this many fatal police shootings ->252
+1.) Maricopa County in this state ->AZ had this many fatal police shootings ->173
+2.) Harris County in this state ->TX had this many fatal police shootings ->85
+3.) San Bernardino County in this state ->CA had this many fatal police shootings ->79
+4.) Clark County in this state ->NV had this many fatal police shootings ->71
+5.) Riverside County in this state ->CA had this many fatal police shootings ->66
+6.) Cook County in this state ->IL had this many fatal police shootings ->59
+7.) Bexar County in this state ->TX had this many fatal police shootings ->56
+8.) Miami-Dade County in this state ->FL had this many fatal police shootings ->55
+9.) Orange County in this state ->CA had this many fatal police shootings ->51
+
