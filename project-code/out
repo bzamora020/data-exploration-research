@@ -1,51 +1,51 @@
 ***** OUR COMPUTATIONS *****
 
-*** Low Income Levels ***: 
+*** HS Levels ***: 
 
-*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic
+*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as Hispanic
 
 REGION stats comparing demographic and shooting data 
 stats mean X: 9.34 size of vector: 1419
-stats mean Y: 17.00 size of vector: 1419
+stats mean Y: 84.55 size of vector: 1419
 std dev mean X: 23.69
-std dev mean Y: 6.08
-Correlation Coeff (sample): 0.02
+std dev mean Y: 6.58
+Correlation Coeff (sample): -0.16
 
-*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as White
+*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as White
 
 REGION stats comparing demographic and shooting data 
 stats mean X: 63.23 size of vector: 1419
-stats mean Y: 17.00 size of vector: 1419
+stats mean Y: 84.55 size of vector: 1419
 std dev mean X: 41.06
-std dev mean Y: 6.08
-Correlation Coeff (sample): -0.15
+std dev mean Y: 6.58
+Correlation Coeff (sample): 0.16
 
-*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as African American
+*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as African American
 
 REGION stats comparing demographic and shooting data 
 stats mean X: 19.47 size of vector: 1419
-stats mean Y: 17.00 size of vector: 1419
+stats mean Y: 84.55 size of vector: 1419
 std dev mean X: 32.98
-std dev mean Y: 6.08
-Correlation Coeff (sample): 0.10
+std dev mean Y: 6.58
+Correlation Coeff (sample): -0.05
 
-*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian
+*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as Asian
 
 REGION stats comparing demographic and shooting data 
 stats mean X: 1.36 size of vector: 1419
-stats mean Y: 17.00 size of vector: 1419
+stats mean Y: 84.55 size of vector: 1419
 std dev mean X: 9.85
-std dev mean Y: 6.08
-Correlation Coeff (sample): -0.02
+std dev mean Y: 6.58
+Correlation Coeff (sample): -0.01
 
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American
 
 REGION stats comparing demographic and shooting data 
 stats mean X: 2.20 size of vector: 1419
-stats mean Y: 17.00 size of vector: 1419
+stats mean Y: 84.55 size of vector: 1419
 std dev mean X: 12.84
-std dev mean Y: 6.08
-Correlation Coeff (sample): 0.11
+std dev mean Y: 6.58
+Correlation Coeff (sample): 0.02
 
 *** Age Levels ***: 
 
@@ -240,4 +240,24 @@ stats mean Y: 17.00 size of vector: 1419
 std dev mean X: 23.69
 std dev mean Y: 6.08
 Correlation Coeff (sample): 0.02
+
+Stats per County
+Counties with least HS graduates: 
+0.) Starr County in this state ->TX had this % of HS graduates ->45.00
+1.) La Salle County in this state ->TX had this % of HS graduates ->52.90
+2.) Hudspeth County in this state ->TX had this % of HS graduates ->54.00
+3.) Presidio County in this state ->TX had this % of HS graduates ->54.70
+4.) Zapata County in this state ->TX had this % of HS graduates ->54.80
+5.) Holmes County in this state ->OH had this % of HS graduates ->55.20
+6.) Issaquena County in this state ->MS had this % of HS graduates ->56.41
+7.) Maverick County in this state ->TX had this % of HS graduates ->56.60
+8.) Gaines County in this state ->TX had this % of HS graduates ->59.30
+9.) Zavala County in this state ->TX had this % of HS graduates ->60.30
+
+REGION demographic statistics:
+stats mean X: 0.06 size of vector: 3137
+stats mean Y: 0.29 size of vector: 3137
+std dev mean X: 1.26
+std dev mean Y: 12.72
+Population Coeff: 0.14
 
