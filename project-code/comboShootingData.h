@@ -16,6 +16,7 @@ public:
 
   int getNumCases() { return cases; }
   string getRegionType() { return region; }
+  double getPerNumberCases() const { return 100.0f*(double)(cases)/6214 ;}
 
 private:
   string region;

@@ -1,7 +1,7 @@
 #CXX=clang++
 CXX=g++
 
-CXXFLAGS= -g -std=c++14 
+CXXFLAGS= -g -std=c++14
 
 BINARIES=dataProj
 

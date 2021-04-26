@@ -56,58 +56,91 @@ Number of cases: 15 State: WY
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic
 
 REGION stats comparing demographic and shooting data 
-stats mean X: 9.44 size of vector: 1368
-stats mean Y: 16.95 size of vector: 1368
-std dev mean X: 23.76
-std dev mean Y: 6.13
+stats mean X: 9.34 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 23.69
+std dev mean Y: 6.08
 Correlation Coeff (sample): 0.02
 
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as White
 
 REGION stats comparing demographic and shooting data 
-stats mean X: 63.70 size of vector: 1368
-stats mean Y: 16.95 size of vector: 1368
-std dev mean X: 40.93
-std dev mean Y: 6.13
+stats mean X: 63.23 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 41.06
+std dev mean Y: 6.08
 Correlation Coeff (sample): -0.15
 
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as African American
 
 REGION stats comparing demographic and shooting data 
-stats mean X: 19.64 size of vector: 1368
-stats mean Y: 16.95 size of vector: 1368
-std dev mean X: 33.15
-std dev mean Y: 6.13
+stats mean X: 19.47 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 32.98
+std dev mean Y: 6.08
 Correlation Coeff (sample): 0.10
 
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Asian
 
 REGION stats comparing demographic and shooting data 
-stats mean X: 1.11 size of vector: 1368
-stats mean Y: 16.95 size of vector: 1368
-std dev mean X: 8.49
-std dev mean Y: 6.13
-Correlation Coeff (sample): -0.03
+stats mean X: 1.36 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 9.85
+std dev mean Y: 6.08
+Correlation Coeff (sample): -0.02
 
 *** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American
 
 REGION stats comparing demographic and shooting data 
-stats mean X: 1.90 size of vector: 1368
-stats mean Y: 16.95 size of vector: 1368
-std dev mean X: 11.85
-std dev mean Y: 6.13
-Correlation Coeff (sample): 0.12
+stats mean X: 2.20 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 12.84
+std dev mean Y: 6.08
+Correlation Coeff (sample): 0.11
+
+*** Below Poverty compared to percentage of cases of fatal police shootings
+
+REGION stats comparing demographic and shooting data 
+stats mean X: 0.07 size of vector: 1419
+stats mean Y: 17.00 size of vector: 1419
+std dev mean X: 0.18
+std dev mean Y: 6.08
+Correlation Coeff (sample): -0.01
 
 Stats per County
 Counties with most police shootings: 
-0.) Los Angeles County in this state ->CA had this many fatal police shootings ->252
-1.) Maricopa County in this state ->AZ had this many fatal police shootings ->173
-2.) Harris County in this state ->TX had this many fatal police shootings ->85
-3.) San Bernardino County in this state ->CA had this many fatal police shootings ->79
-4.) Clark County in this state ->NV had this many fatal police shootings ->71
-5.) Riverside County in this state ->CA had this many fatal police shootings ->66
-6.) Cook County in this state ->IL had this many fatal police shootings ->59
-7.) Bexar County in this state ->TX had this many fatal police shootings ->56
-8.) Miami-Dade County in this state ->FL had this many fatal police shootings ->55
-9.) Orange County in this state ->CA had this many fatal police shootings ->51
+1.) Los Angeles County in this state ->CA had this many fatal police shootings ->252
+2.) Maricopa County in this state ->CA had this many fatal police shootings ->173
+3.) Harris County in this state ->CA had this many fatal police shootings ->85
+
+Counties with least HS graduates: 
+0.) Starr County in this state ->TX had this % of HS graduates ->45.00
+1.) La Salle County in this state ->TX had this % of HS graduates ->52.90
+2.) Hudspeth County in this state ->TX had this % of HS graduates ->54.00
+3.) Presidio County in this state ->TX had this % of HS graduates ->54.70
+4.) Zapata County in this state ->TX had this % of HS graduates ->54.80
+5.) Holmes County in this state ->OH had this % of HS graduates ->55.20
+6.) Issaquena County in this state ->MS had this % of HS graduates ->56.41
+7.) Maverick County in this state ->TX had this % of HS graduates ->56.60
+8.) Gaines County in this state ->TX had this % of HS graduates ->59.30
+9.) Zavala County in this state ->TX had this % of HS graduates ->60.30
+
+Counties with highest poverty levels: 
+0.) Shannon County in this state ->SD had this % below poverty level ->53.20
+1.) East Carroll in this state ->LA had this % below poverty level ->48.00
+2.) Humphreys County in this state ->MS had this % below poverty level ->44.90
+3.) Todd County in this state ->SD had this % below poverty level ->44.60
+4.) Clay County in this state ->GA had this % below poverty level ->44.49
+5.) Corson County in this state ->SD had this % below poverty level ->44.19
+6.) Hudspeth County in this state ->TX had this % below poverty level ->44.10
+7.) Holmes County in this state ->MS had this % below poverty level ->43.50
+8.) Ziebach County in this state ->SD had this % below poverty level ->42.29
+9.) Quitman County in this state ->MS had this % below poverty level ->40.70
+
+REGION demographic statistics:
+stats mean X: 0.06 size of vector: 3137
+stats mean Y: 0.29 size of vector: 3137
+std dev mean X: 1.26
+std dev mean Y: 12.72
+Population Coeff: 0.14
 
