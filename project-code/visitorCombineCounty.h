@@ -151,7 +151,7 @@ public:
 
   comboDemogData *countyDmapEntry(string countyN) {
     return allCountyDData[countyN];
-  };
+  }
 
   std::map<string, comboHospitalData *> countyHmap() { return allCountyHData; }
   comboHospitalData *countyHmapEntry(string countyN) {
