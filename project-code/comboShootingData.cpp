@@ -13,6 +13,12 @@ void comboShootingData::addShootingtoRegion(shootingData *CD) {
   hadBodyCamOff += CD->getHadBodyCamOff();
   hadBodyCamOn += CD->getHadBodyCamOn();
 
+  armedCount += CD->getCountedArmed();
+  wasArmed += CD->getWasArmed();
+  notArmed += CD->getNotArmed();
+  armedGun += CD->getArmedWithGun(); 
+  armedUnknown += CD->getArmedUnknown();
+
   countedMI += CD->getCountedMI();
   mentalI += CD->getMentalI();
   age += CD->getAge();

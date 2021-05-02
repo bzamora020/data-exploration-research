@@ -11,7 +11,7 @@ using namespace std;
 class cityShootingData : public shootingData
 {
 public:
-    cityShootingData(string inState, string inCity, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam) : shootingData{inState, inAge, inRace, inGender, inMI, inFleeing, inBodyCam}, cityName(inCity), hadMentalIllness(inMI)
+    cityShootingData(string inState, string inCity, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string armed) : shootingData{inState, inAge, inRace, inGender, inMI, inFleeing, inBodyCam, armed}, cityName(inCity), hadMentalIllness(inMI)
     {
     }
 

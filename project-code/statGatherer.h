@@ -112,7 +112,7 @@ public:
                 demogForCounty = ((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first);
             }
              if(((visitorCombineCounty *)theCounties)->countyDmapEntry(entry.first) == NULL){
-                cout << entry.first << " This county could not find a matching county for shooting" << endl;
+                // cout << entry.first << " This county could not find a matching county for shooting" << endl;
              }
             
             // <string, pointer> 

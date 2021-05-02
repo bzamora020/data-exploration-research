@@ -61,12 +61,12 @@ int main()
     // cleaning, removed the end of some of the county names, like Parish, city, stuff like dat, so there might be conflicts with something CountyNCA and CountyNCA
 
 
-    cout << "***** OUR COMPUTATIONS *****" << endl;
+    //cout << "***** OUR COMPUTATIONS *****" << endl;
     
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getWhitePerc, &shootingData::getPerArmedUnknown);
 
     
-    cout << endl;
+    //cout << endl;
 
 /*     cout << "Shooting compared with shooting: " << endl;
 
@@ -80,11 +80,25 @@ int main()
 
 
     //Printing out the number of shooting cases per State
- /* or(auto entry : theStates.stateSmap())
- {
-     cout << "Number of cases: " << entry.second->getNumCases() << " State: " << entry.second->getState() << endl;
-    
- } */
+    /*
+    for(auto entry : theCounties.countySmap())
+    {
+        if(entry.first.find("Unknown") != std::string::npos){
+            cout << entry.first << "\nNumber of cases: " << entry.second->getNumCases() 
+                 << "\nPercentage that were White: " << entry.second->getPerWhite()
+                 << "\nPercentage that were Hispanic: " << entry.second->getPerHispanics()
+                 << "\nPercentage that were Black: " << entry.second->getPerAfricanAme()
+                 << "\nPercentage that were Native American: " << entry.second->getPerNativeAme()
+                 << "\nPercentage that were Asian: " << entry.second->getPerAsians()
+                 << "\nPercentage that were Other: " << entry.second->getPerOther()
+                 << "\nPercentage that were Body Cam off: " << entry.second->getPerBodyCamOff()
+                 << "\nPercentage that were Fleeing: " << entry.second->getPerFleeing()
+                 << "\nPercentage that were reported with a mental illness: " << entry.second->getPerMentalI()
+                 << endl;
+        }
+        
+    } 
+    */
     
     // int counter = 0;
     // for (auto entry : theCounties.countySmap())
@@ -182,7 +196,13 @@ int main()
 
     cout << "Stats per County" << endl; */
 
-    //  theCounties.mostShootingsCounty();
+/*     theCounties.mostShootingsCounty();
+    cout << theCounties.countySmapEntry("Los AngelesCA")->getPerWhite() << endl;
+
+    cout << theCounties.countySmapEntry("MaricopaAZ")->getPerWhite() << endl;
+    
+    cout << theCounties.countySmapEntry("HarrisTX")->getPerWhite() << endl; */
+
     //     cout << endl;
     // theCounties.leastShootingsCounty();
 

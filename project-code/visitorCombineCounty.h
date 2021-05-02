@@ -166,7 +166,7 @@ public:
       else
       {
         unkCounter++;
-        cout << county << " " << e->getState() << endl;
+        // cout << county << " " << e->getState() << endl;
         county = "Unknown";
       }
 
@@ -196,6 +196,9 @@ public:
     if (allCountyDData.count(countyN) == 1)
     { // Check if the county exists in the map already before returning a value for it, could create new entries unwillingly
       return allCountyDData[countyN];
+    }   
+    else{
+      return NULL;
     }
   }
 
@@ -206,6 +209,9 @@ public:
     {
       return allCountyHData[countyN];
     }
+    else{
+      return NULL;
+    }
   }
   std::map<string, comboShootingData *> countySmap() { return allCountySData; }
   comboShootingData *countySmapEntry(string countyN)
@@ -213,6 +219,9 @@ public:
     if (allCountySData.count(countyN) == 1)
     {
       return allCountySData[countyN];
+    }
+    else{
+      return NULL;
     }
   }
 
