@@ -42,7 +42,7 @@ with open("county_demographics_cleaned.csv", mode = 'w') as demog_file:
     myFields = ["County","State","Age.Percent 65 and Older","Age.Percent Under 18 Years","Age.Percent Under 5 Years","Education.Bachelor's Degree or Higher","Education.High School or Higher","Employment.Nonemployer Establishments","Employment.Private Non-farm Employment","Employment.Private Non-farm Employment Percent Change","Employment.Private Non-farm Establishments","Ethnicities.American Indian and Alaska Native Alone","Ethnicities.Asian Alone","Ethnicities.Black Alone","Ethnicities.Hispanic or Latino","Ethnicities.Native Hawaiian and Other Pacific Islander Alone","Ethnicities.Two or More Races","Ethnicities.White Alone","Ethnicities.White Alone, not Hispanic or Latino","Housing.Homeownership Rate","Housing.Households","Housing.Housing Units","Housing.Median Value of Owner-Occupied Units","Housing.Persons per Household","Housing.Units in Multi-Unit Structures","Income.Median Houseold Income","Income.Per Capita Income","Income.Persons Below Poverty Level","Miscellaneous.Building Permits","Miscellaneous.Foreign Born","Miscellaneous.Land Area","Miscellaneous.Language Other than English at Home","Miscellaneous.Living in Same House +1 Years","Miscellaneous.Manufacturers Shipments","Miscellaneous.Mean Travel Time to Work","Miscellaneous.Percent Female","Miscellaneous.Veterans","Population.2010 Population","Population.2014 Population","Population.Population Percent Change","Population.Population per Square Mile","Sales.Accommodation and Food Services Sales","Sales.Merchant Wholesaler Sales","Sales.Retail Sales","Sales.Retail Sales per Capita","Employment.Firms.American Indian-Owned","Employment.Firms.Asian-Owned","Employment.Firms.Black-Owned","Employment.Firms.Hispanic-Owned","Employment.Firms.Native Hawaiian and Other Pacific Islander-Owned","Employment.Firms.Total","Employment.Firms.Women-Owned"]
     writer = csv.DictWriter(demog_file, fieldnames = myFields, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL, escapechar='\n')
     writer.writeheader()
-    with open("county_demographics.csv", 'r') as file1:
+    with open("county_demographics.csv", 'r', encoding="utf8", errors='ignore') as file1:
         demog = csv.DictReader(file1)
         for row in demog:
             if(row["County"].find("County") != -1):
@@ -50,15 +50,16 @@ with open("county_demographics_cleaned.csv", mode = 'w') as demog_file:
                     row["County"] = row["County"].replace("St.", "Saint")
             elif(row["County"].find("city") != -1):
                 row["County"] = row["County"].replace(" city", "")
-            elif(row["County"].find("Parish") != -1):
+            """ elif(row["County"].find("Parish") != -1):
                 row["County"] = row["County"].replace(" Parish", "")
                 if(row["County"].find("St.") != -1):
-                    row["County"] = row["County"].replace("St.", "Saint")
+                    row["County"] = row["County"].replace("St.", "Saint") """
             writer.writerow(row)
  
 
 
 # Clean Police_shooting csv,
+print(cityToCountyDict["Saint PaulMN"])
 
 with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
     #Header fields from WP fatal police shootings csv
@@ -72,12 +73,14 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
         shooting = csv.DictReader(file)
         # read through every row in the dictionary created, every entry is a dictionary Ex. {"city":" Los Angeles"}
         for row in shooting:
-            incidentCity = row["city"] + row["state"]
             #Check if entries have a problematic comma, this is a good for loop to do any checking for all the entries
             for i in range(len(myFields)):
                 if(row[myFields[i]].find(",") != -1):
                     row[myFields[i]] = row[myFields[i]].replace(",", "")
-
+                if(myFields[i] == "city"):
+                    if(row["city"].find("St.") != -1):
+                        row["city"] = row["city"].replace("St.", "Saint")
+            incidentCity = row["city"] + row["state"]
             #Some entries already have a county skip these rows
             if (row["city"].find("County") != -1):
                 writer.writerow(row)
@@ -87,7 +90,10 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
                 #If its a city we know a mapping to, replace it with its respective county
                 if (incidentCity ) in cityToCountyDict:
                     #print("We know this city")
-                    row["city"] = cityToCountyDict[incidentCity][0] + " County"
+                    if(incidentCity.find("LA") != -1):
+                        row["city"] = cityToCountyDict[incidentCity][0] + " Parish"
+                    else:
+                        row["city"] = cityToCountyDict[incidentCity][0] + " County"
                     #print("{0} was placed in this county ->{1}, within this state {2}".format(tmp, cityToCountyDict[tmp], countyToStateDict[cityToCountyDict[tmp]]))
                 #Else we have to do some fuzzy string matching
                 else:
@@ -102,7 +108,8 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
                                 replacingCounty = cityToCountyDict[key][0] + " County" 
                     #print("{0} was replaced by {1}".format(row["Incident.Location.City"], replacingCounty))  
                     # Only replace if the max partial ratio was greater than 88 (used as an index bc that's the partial ratio between St. Louis and St Louis)  
-                    if(highestFuzzPartialRatio > 88):        
-                        row["city"] = replacingCounty
+                    if(highestFuzzPartialRatio > 88):
+                        pass        
+                        #row["city"] = replacingCounty
                 
                 writer.writerow(row)

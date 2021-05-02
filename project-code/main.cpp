@@ -63,6 +63,9 @@ int main()
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
     
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
+
+    
     cout << endl;
 
 /*     cout << "Shooting compared with shooting: " << endl;
@@ -105,7 +108,7 @@ int main()
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme); */
 
-    cout << "*** HS Levels ***: " << "\n" << endl;
+/*     cout << "*** HS Levels ***: " << "\n" << endl;
 
     cout << "*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHSup, &shootingData::getPerHispanics);
@@ -177,14 +180,14 @@ int main()
     // cout << "Stats per County" << endl;
 
 
-    cout << "Stats per County" << endl;
+    cout << "Stats per County" << endl; */
 
     //  theCounties.mostShootingsCounty();
     //     cout << endl;
     // theCounties.leastShootingsCounty();
 
-    theCounties.leastHSGraduates();
-        cout << endl;
+    // theCounties.leastHSGraduates();
+    //     cout << endl;
 
     // theCounties.highestPovLevels();
     //     cout << endl;
@@ -193,8 +196,8 @@ int main()
 
     // cout << "TESTSSSSSS: \n";
 
-    statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
-                                          &demogData::getpopUnder5Count, &demogData::getBAupCount);
+/*     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
+                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); */
  
     return 0;
 }

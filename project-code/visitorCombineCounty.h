@@ -160,9 +160,13 @@ public:
         test.erase(found, 7);
         county = test;
       }
+      else if(county.find(" Parish") != std::string::npos){
+        // Do Nothing
+      }
       else
       {
         unkCounter++;
+        cout << county << " " << e->getState() << endl;
         county = "Unknown";
       }
 
