@@ -109,11 +109,11 @@ int main()
             otherTot += temp.getnumOther();
         }
     }
-        tot = whiteTot + hispTot + blackTot + asianTot + nativeTot + otherTot;
+    tot = whiteTot + hispTot + blackTot + asianTot + nativeTot + otherTot;
     cout << "Totals per category: " << endl;
     cout << "Whites: " << whiteTot << "\nHispanics: " << hispTot << "\nBlacks: " << blackTot << "\nAsians: " << asianTot << "\nNatives: " << nativeTot << "\nOthers: " << otherTot << endl;
     cout << "total: " << tot << endl;
-    cout << "white per: " << (whiteTot/(double)tot) << endl;
+    cout << "white per: " << (whiteTot / (double)tot) << endl;
     // int counter = 0;
     // for (auto entry : theCounties.countySmap())
     // {
