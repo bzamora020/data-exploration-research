@@ -63,7 +63,7 @@ int main()
 
     //cout << "***** OUR COMPUTATIONS *****" << endl;
     
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getWhitePerc, &shootingData::getPerArmedUnknown);
+    statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getWhitePerc, &comboShootingData::getPerArmedUnknown);
 
     
     //cout << endl;

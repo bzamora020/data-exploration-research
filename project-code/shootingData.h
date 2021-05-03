@@ -32,7 +32,7 @@ public:
                 armedGun++;
                 wasArmed++;
             }
-            if(inArmed.compare("unarmed") == 0){
+            else if(inArmed.compare("unarmed") == 0){
                 notArmed++;
             }
             else{
@@ -40,10 +40,10 @@ public:
             }
             armedCount++;
         }
-        else if((inArmed.compare("") == 0) || (inArmed.compare("undetermined") == 0)){
+        /* else if((inArmed.compare("") == 0) || (inArmed.compare("undetermined") == 0)){
             armedUnknown++;
         }
-
+ */
         if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
         {
             triedFleeing++;
@@ -223,19 +223,11 @@ public:
 
     double getPerArmedUnknown() const
     {
-        if(armedUnknown == 0)
+        /* if(armedUnknown == 0)
         {
             return 0;
-        }
-        return (100.0f * (double)(armedUnknown) / numberOfCases);
-    }
-    double getPerUnarmed() const
-    {
-        if(notArmed == 0)
-        {
-            return 0;
-        }
-        return (100.0f * (double)(notArmed) / armedCount);
+        } */
+        return (100.0f * (double)(numberOfCases - wasArmed) / armedCount);
     }
     double getPerArmed() const
     {
