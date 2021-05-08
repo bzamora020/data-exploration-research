@@ -4,13 +4,14 @@
 #include "placeData.h"
 #include "race.h"
 #include "gender.h"
+#include "armed.h"
 
 using namespace std;
 
 class shootingData : public placeData
 {
 public:
-    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge)
+    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed)
     {
         countedMI = 0;
         countedAge = 0;
@@ -21,35 +22,14 @@ public:
         bodyCamCount = 0;
         hadBodyCamOff = 0;
         hadBodyCamOn = 0;
-        armedCount = 0;
-        wasArmed = 0;
-        notArmed = 0;
-        armedGun = 0;
-        armedUnknown = 0;
-        
-        if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0)){
-            if(inArmed.compare("gun") == 0){
-                armedGun++;
-                wasArmed++;
-            }
-            else if(inArmed.compare("unarmed") == 0){
-                notArmed++;
-            }
-            else{
-                wasArmed++;
-            }
-            armedCount++;
-        }
-        /* else if((inArmed.compare("") == 0) || (inArmed.compare("undetermined") == 0)){
-            armedUnknown++;
-        }
- */
+
         if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
         {
             triedFleeing++;
             fleeingCases++;
         }
-        else {
+        else
+        {
             fleeingCases++;
             notFleeing++;
         }
@@ -59,17 +39,19 @@ public:
             mentalI++;
             countedMI++;
         }
-        else {
+        else
+        {
             countedMI++;
         }
         if (inBodyCam.compare("True") == 0)
         {
-           
+
             hadBodyCamOn++;
             bodyCamCount++;
         }
-        if (inBodyCam.compare("False") == 0){
-            
+        if (inBodyCam.compare("False") == 0)
+        {
+
             hadBodyCamOff++;
             bodyCamCount++;
         }
@@ -81,7 +63,7 @@ public:
         }
     }
 
-    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts("")
+    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts("")
     {
         countedAge = 0;
         mentalI = 0;
@@ -91,12 +73,6 @@ public:
         countedMI = 0;
         hadBodyCamOff = 0;
         hadBodyCamOn = 0;
-        armedCount = 0;
-        wasArmed = 0;
-        notArmed = 0;
-        armedGun = 0;
-        armedUnknown = 0;
-
     }
 
     // These return percentage of police shootings by race
@@ -202,6 +178,9 @@ public:
         }
         return (100.0f * (double)(notFleeing) / fleeingCases);
     }
+
+    //Getters for body cams
+
     double getPerBodyCamOn() const
     {
         if (bodyCamCount == 0)
@@ -221,31 +200,29 @@ public:
         return (100.0f * (double)(hadBodyCamOff) / bodyCamCount);
     }
 
+    //Getters for armed counts
+
     double getPerArmedUnknown() const
     {
-        /* if(armedUnknown == 0)
-        {
-            return 0;
-        } */
-        return (100.0f * (double)(numberOfCases - wasArmed) / armedCount);
+
+        return (100.0f * (double)(numberOfCases - armedCounts.getWasArmed()) / armedCounts.getArmedCount());
     }
     double getPerArmed() const
     {
-        if(wasArmed == 0)
+        if (armedCounts.getWasArmed() == 0)
         {
             return 0;
         }
-        return (100.0f * (double)(wasArmed) / armedCount);
+        return (100.0f * (double)(armedCounts.getWasArmed()) / armedCounts.getArmedCount());
     }
     double getPerArmedGun() const
     {
-        if(armedGun == 0)
+        if (armedCounts.getArmedGun() == 0)
         {
             return 0;
         }
-        return (100.0f * (double)(armedGun) / armedCount);
+        return (100.0f * (double)(armedCounts.getArmedGun()) / armedCounts.getArmedCount());
     }
-
 
     // Getter to obtain the average age
     double getAverageAge() const
@@ -263,18 +240,15 @@ public:
     int getFleeingCases() { return fleeingCases; }
     int getCountedMI() { return countedMI; }
     int getCountedBodyCam() { return bodyCamCount; }
-    int getCountedArmed() { return armedCount; }
 
     int getMentalI() { return mentalI; }
     int getTriedFleeing() { return triedFleeing; }
     int getNotTriedFleeing() { return notFleeing; }
     int getHadBodyCamOff() { return hadBodyCamOff; }
     int getHadBodyCamOn() { return hadBodyCamOn; }
-    int getWasArmed() { return wasArmed; }
-    int getNotArmed() { return notArmed; }
-    int getArmedWithGun() { return armedGun; }
-    int getArmedUnknown() { return armedUnknown; }
+
     int getAge() { return age; }
+    armed getArmedData() { return armedCounts; }
     race getRaceData() { return raceCounts; }
     gender getGenderData() { return genderCounts; }
 
@@ -290,7 +264,8 @@ protected:
     int fleeingCases;
     int countedMI;
     int bodyCamCount;
-    int armedCount;
+
+    //int armedCount;
 
     // Numbers per categories
     int mentalI;
@@ -298,12 +273,15 @@ protected:
     int notFleeing;
     int hadBodyCamOn;
     int hadBodyCamOff;
-    int wasArmed;
-    int notArmed;
-    int armedGun;
-    int armedUnknown;
+
+    // int wasArmed;
+    // int notArmed;
+    // int armedGun;
+    // int armedUnknown;
+
     int age;
     int numberOfCases;
+    armed armedCounts;
     race raceCounts;
     gender genderCounts;
 };
