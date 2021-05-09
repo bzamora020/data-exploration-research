@@ -7,7 +7,8 @@
 #include <memory>
 #include <string>
 
-class comboShootingData : public shootingData {
+class comboShootingData : public shootingData
+{
 public:
   comboShootingData(string inRegtype, string inS)
       : shootingData(inS), region(inRegtype), cases(0) {}
@@ -16,19 +17,19 @@ public:
 
   int getNumCases() { return cases; }
   string getRegionType() { return region; }
-  double getPerNumberCases() const { return 100.0f*(double)(cases)/6214 ;}
+  double getPerNumberCases() const { return 100.0f * (double)(cases) / 6214; }
 
   double getPerArmedUnknown() const
-    {
-        /* if(armedUnknown == 0)
+  {
+    /* if(armedUnknown == 0)
         {
             return 0;
         } */
-        cout << "Num cases: " << cases << endl
-             << "wasArmed num: " << wasArmed << endl;
-             
-        return (100.0f * (double)(cases - wasArmed) / cases);
-    }
+    cout << "Num cases: " << cases << endl
+         << "wasArmed num: " << armedCounts.getWasArmed() << endl;
+
+    return (100.0f * (double)(cases - armedCounts.getWasArmed()) / cases);
+  }
 
 private:
   string region;
