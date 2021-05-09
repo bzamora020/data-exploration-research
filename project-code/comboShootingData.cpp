@@ -9,17 +9,6 @@ void comboShootingData::addShootingtoRegion(shootingData *CD)
   fleeingCases += CD->getFleeingCases();
   triedFleeing += CD->getTriedFleeing();
   notFleeing += CD->getNotTriedFleeing();
-
-  bodyCamCount += CD->getCountedBodyCam();
-  hadBodyCamOff += CD->getHadBodyCamOff();
-  hadBodyCamOn += CD->getHadBodyCamOn();
-
-  // armedCount += CD->getCountedArmed();
-  // wasArmed += CD->getWasArmed();
-  // notArmed += CD->getNotArmed();
-  // armedGun += CD->getArmedWithGun();
-  // armedUnknown += CD->getArmedUnknown();
-
   armedCounts += CD->getArmedData();
 
   countedMI += CD->getCountedMI();
@@ -27,5 +16,6 @@ void comboShootingData::addShootingtoRegion(shootingData *CD)
   age += CD->getAge();
   genderCounts += CD->getGenderData();
   raceCounts += CD->getRaceData();
+  bodyCamCounts += CD->getBodyCamData();
   cases++;
 }
