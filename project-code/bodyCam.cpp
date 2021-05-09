@@ -6,4 +6,5 @@ bodyCam &bodyCam::operator+=(const bodyCam &b)
     hadBodyCamOff += b.hadBodyCamOff;
     hadBodyCamOn += b.hadBodyCamOn;
     return *(this);
+    
 };
