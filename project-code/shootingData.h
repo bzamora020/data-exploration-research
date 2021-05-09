@@ -6,41 +6,17 @@
 #include "gender.h"
 #include "armed.h"
 #include "bodyCam.h"
+#include "fleeing.h"
+#include "mental.h"
 
 using namespace std;
 
 class shootingData : public placeData
 {
 public:
-    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed), bodyCamCounts(inBodyCam)
+    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed), bodyCamCounts(inBodyCam), fleeingCounts(inFleeing), mentalCounts(inMI)
     {
-        countedMI = 0;
         countedAge = 0;
-        mentalI = 0;
-        fleeingCases = 0;
-        triedFleeing = 0;
-        notFleeing = 0;
-
-        if ((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0))
-        {
-            triedFleeing++;
-            fleeingCases++;
-        }
-        else
-        {
-            fleeingCases++;
-            notFleeing++;
-        }
-
-        if (inMI.compare("True") == 0)
-        {
-            mentalI++;
-            countedMI++;
-        }
-        else
-        {
-            countedMI++;
-        }
 
         if (inAge > 0)
         {
@@ -49,14 +25,10 @@ public:
         }
     }
 
-    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts(""), bodyCamCounts("")
+    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts(""), bodyCamCounts(""), fleeingCounts(""), mentalCounts("")
     {
         countedAge = 0;
-        mentalI = 0;
         age = 0;
-        fleeingCases = 0;
-        triedFleeing = 0;
-        countedMI = 0;
     }
 
     // These return percentage of police shootings by race
@@ -138,30 +110,30 @@ public:
     //Getter for percentage of mentall illness reported
     double getPerMentalI() const
     {
-        if (countedMI == 0)
+        if (mentalCounts.getCountedMI() == 0)
         {
             return 0;
         }
-        return (100.0f * (double)(mentalI) / countedMI);
+        return (100.0f * (double)(mentalCounts.getMentalI()) / mentalCounts.getCountedMI());
     }
 
     //Getter in case the individual tried fleeing
     double getPerFleeing() const
     {
-        if (fleeingCases == 0)
+        if (fleeingCounts.getFleeingCases() == 0)
         {
             return 0;
         }
-        return (100.0f * (double)(triedFleeing) / fleeingCases);
+        return (100.0f * (double)(fleeingCounts.getNotTriedFleeing()) / fleeingCounts.getFleeingCases());
     }
 
     double getPerNotFleeing() const
     {
-        if (fleeingCases == 0)
+        if (fleeingCounts.getFleeingCases() == 0)
         {
             return 0;
         }
-        return (100.0f * (double)(notFleeing) / fleeingCases);
+        return (100.0f * (double)(fleeingCounts.getNotTriedFleeing()) / fleeingCounts.getFleeingCases());
     }
 
     //Getters for body cams
@@ -221,18 +193,13 @@ public:
 
     //counters getters
     int getCountedAge() { return countedAge; }
-    int getFleeingCases() { return fleeingCases; }
-    int getCountedMI() { return countedMI; }
-
-    int getMentalI() { return mentalI; }
-    int getTriedFleeing() { return triedFleeing; }
-    int getNotTriedFleeing() { return notFleeing; }
-
     int getAge() { return age; }
     armed getArmedData() { return armedCounts; }
     race getRaceData() { return raceCounts; }
     gender getGenderData() { return genderCounts; }
     bodyCam getBodyCamData() { return bodyCamCounts; }
+    fleeing getFleeingData() { return fleeingCounts; }
+    mental getMIData() { return mentalCounts; }
 
     int getNumberOfCases() { return numberOfCases; }
 
@@ -243,16 +210,13 @@ public:
 protected:
     // Counted cases per category
     int countedAge;
-    int fleeingCases;
-    int countedMI;
 
     // Numbers per categories
-    int mentalI;
-    int triedFleeing;
-    int notFleeing;
 
     int age;
     int numberOfCases;
+    mental mentalCounts;
+    fleeing fleeingCounts;
     bodyCam bodyCamCounts;
     armed armedCounts;
     race raceCounts;
