@@ -1,5 +1,5 @@
-#CXX=clang++
-CXX=g++
+CXX=clang++
+# CXX=g++
 
 CXXFLAGS= -g -std=c++14
 
@@ -9,7 +9,7 @@ all: ${BINARIES}
 
 
 
-dataProj: statTool.o placeData.o rating.o stats.o comboHospitalData.o hospitalData.o comboDemogData.o demogData.o parse.o  main.o comboShootingData.o shootingData.o race.o gender.o 
+dataProj: statTool.o placeData.o rating.o stats.o comboHospitalData.o hospitalData.o comboDemogData.o demogData.o parse.o  main.o comboShootingData.o shootingData.o race.o gender.o armed.o bodyCam.o fleeing.o mental.o
 	${CXX} $^ -o $@
 
 

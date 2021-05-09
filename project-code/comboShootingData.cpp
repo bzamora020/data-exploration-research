@@ -2,27 +2,17 @@
 #include <sstream>
 #include <string>
 
-void comboShootingData::addShootingtoRegion(shootingData *CD) {
+void comboShootingData::addShootingtoRegion(shootingData *CD)
+{
   countedAge += CD->getCountedAge();
 
-  fleeingCases += CD->getFleeingCases();
-  triedFleeing += CD->getTriedFleeing();
-  notFleeing += CD->getNotTriedFleeing();
+  armedCounts += CD->getArmedData();
 
-  bodyCamCount += CD->getCountedBodyCam();
-  hadBodyCamOff += CD->getHadBodyCamOff();
-  hadBodyCamOn += CD->getHadBodyCamOn();
-
-  armedCount += CD->getCountedArmed();
-  wasArmed += CD->getWasArmed();
-  notArmed += CD->getNotArmed();
-  armedGun += CD->getArmedWithGun(); 
-  armedUnknown += CD->getArmedUnknown();
-
-  countedMI += CD->getCountedMI();
-  mentalI += CD->getMentalI();
   age += CD->getAge();
   genderCounts += CD->getGenderData();
   raceCounts += CD->getRaceData();
+  bodyCamCounts += CD->getBodyCamData();
+  fleeingCounts += CD->getFleeingData();
+  mentalCounts += CD->getMIData();
   cases++;
 }
