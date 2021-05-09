@@ -221,14 +221,6 @@ public:
         return (100.0f * (double)(hadBodyCamOff) / bodyCamCount);
     }
 
-    double getPerArmedUnknown() const
-    {
-        /* if(armedUnknown == 0)
-        {
-            return 0;
-        } */
-        return (100.0f * (double)(numberOfCases - wasArmed) / armedCount);
-    }
     double getPerArmed() const
     {
         if(wasArmed == 0)
