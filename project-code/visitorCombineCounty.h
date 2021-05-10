@@ -238,7 +238,7 @@ public:
     myFile.open ("theCountiesSortedOnNumShootings.csv");
     myFile << "State,County,NumShootings\n";
     for(auto obj: theCounties){
-      myFile <<  obj->getName() << "," << obj->getRegionType() << "," << obj->() << "\n";
+      myFile <<  obj->getName() << "," << obj->getRegionType() << "," << obj->getNumCases() << "\n";
     }
     myFile.close();
 

@@ -62,7 +62,9 @@ int main()
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
 
-    theCounties.sortRacialDemogDemogCounties();
+/*     theCounties.sortRacialDemogDemogCounties();
+    theCounties.mostShootingsCounty(); */
+    theStates.mostShootingsState();
 
  /*     cout << "Stats per County" << endl;
 

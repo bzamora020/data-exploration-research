@@ -12,6 +12,7 @@
 #include <memory>
 #include <fstream>
 #include "comboShootingData.h"
+#include <algorithm>
 
 class visitorCombineState : public Visitor
 {
@@ -59,6 +60,8 @@ public:
 
     }
 
+    
+
     // Getters
     std::map<string, comboDemogData *> stateDmap() const
     {
@@ -92,6 +95,46 @@ public:
         return allStateShootingData[stateN];
     }
 
+    void mostShootingsState()
+    {
+    std::vector<comboShootingData *> theStatesShootingData;
+    std::vector<comboDemogData*> theStatesDemogData;
+    for (const auto entry : allStateShootingData)
+    {
+      theStatesShootingData.push_back(entry.second);
+    }
+    std::sort(theStatesShootingData.begin(), theStatesShootingData.end(), compareNumShootings);
+
+    for(const auto entry : theStatesShootingData){
+        theStatesDemogData.push_back(stateDmapEntry(entry->getName()));
+    }
+
+    std::ofstream myFile;
+    myFile.open ("statesSortedOnNumShootings.csv");
+    myFile << "State,numShootings,Black Perc,OnlyWhite Perc,Hispanic Perc,NativeAmer Perc,Asian Perc\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theStatesShootingData.size(); i++){
+        auto shootingObj = theStatesShootingData[i];
+        auto demogObj = theStatesDemogData[i];
+        if(shootingObj->getName() == demogObj->getName()){
+            myFile <<  shootingObj->getName() << "," 
+                   << shootingObj->getNumCases() << "," 
+                   << demogObj->getBlackPerc() << "," 
+                   << demogObj->getOnlyWhitePerc() << ","
+                   << demogObj->getHispanicPerc() << ","
+                   << demogObj->getNativePerc() << ","
+                   << demogObj->getAsianPerc() 
+                   << "\n";
+        }
+    }
+    myFile.close();
+
+/*     myFile.open("statesBlackPercShooting.csv");
+    myFile << "State" */
+
+  }
+
+
     
 
 private:
@@ -101,6 +144,11 @@ private:
     std::map<string, comboDemogData *> allStateDemogData;
     std::map<string, comboHospitalData *> allStateHospData;
     std::map<string, comboShootingData *> allStateShootingData;
+
+      static bool compareNumShootings(comboShootingData *a, comboShootingData *b)
+  {
+    return (a->getNumCases() > b->getNumCases());
+  }
 };
 
 #endif
