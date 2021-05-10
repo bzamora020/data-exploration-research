@@ -1,11 +1,15 @@
 # library & dataset
+import matplotlib
+matplotlib.use('Agg')
+
 import seaborn as sns
-import pandas as pd
+df = sns.load_dataset('iris')
 
-states = pd.read_csv('numShootings.csv')
-df = sns.load_dataset('numShootings.csv')
+
+
+# use the function regplot to make a scatterplot
+sns.regplot(x=df["sepal_length"], y=df["sepal_width"])
+
 import matplotlib.pyplot as plt
+plt.show()
 
-# Basic correlogram
-sns.pairplot(data = df, hue = "State")
-sns.plt.show()
