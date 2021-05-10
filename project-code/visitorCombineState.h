@@ -92,7 +92,36 @@ public:
         return allStateShootingData[stateN];
     }
 
-    
+  void mostShootingsState()
+  {
+    std::vector<comboShootingData *> theStates;
+    for (const auto entry : allStateShootingData)
+    {
+      theStates.push_back(entry.second);
+    }
+    std::sort(theStates.begin(), theStates.end(), compareNumShootings);
+
+    cout << "Counties with most police shootings: \n"
+         << "1.) " << theStates[0]->getRegionType() << " in this state ->" << theStates[0]->getState() << " had this many fatal police shootings ->" << theStates[0]->getNumCases() << endl
+         << "2.) " << theStates[1]->getRegionType() << " in this state ->" << theStates[1]->getState() << " had this many fatal police shootings ->" << theStates[1]->getNumCases() << endl
+         << "3.) " << theStates[2]->getRegionType() << " in this state ->" << theStates[2]->getState() << " had this many fatal police shootings ->" << theStates[2]->getNumCases() << endl;
+  }
+
+  void leastShootingsState()
+  {
+    std::vector<comboShootingData *> theStates;
+    for (const auto entry : allStateShootingData)
+    {
+      theStates.push_back(entry.second);
+    }
+    std::sort(theStates.begin(), theStates.end(), compareLeastNumShootings);
+
+    cout << "Counties with least police shootings: \n"
+         << "1.) " << theStates[0]->getRegionType() << " in this state ->" << theStates[0]->getState() << " had this many fatal police shootings ->" << theStates[0]->getNumCases() << endl
+         << "2.) " << theStates[1]->getRegionType() << " in this state ->" << theStates[1]->getState() << " had this many fatal police shootings ->" << theStates[1]->getNumCases() << endl
+         << "3.) " << theStates[2]->getRegionType() << " in this state ->" << theStates[2]->getState() << " had this many fatal police shootings ->" << theStates[2]->getNumCases() << endl;
+  }
+
 
 private:
     // Private data like maps and stuff
@@ -101,6 +130,17 @@ private:
     std::map<string, comboDemogData *> allStateDemogData;
     std::map<string, comboHospitalData *> allStateHospData;
     std::map<string, comboShootingData *> allStateShootingData;
+
+  static bool compareNumShootings(comboShootingData *a, comboShootingData *b)
+  {
+    return (a->getNumCases() > b->getNumCases());
+  }
+
+  static bool compareLeastNumShootings(comboShootingData *a, comboShootingData *b)
+  {
+    return (a->getNumCases() < b->getNumCases());
+  }
+
 };
 
 #endif
