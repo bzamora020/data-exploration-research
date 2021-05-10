@@ -112,7 +112,7 @@ public:
     std::ofstream myFile;
     myFile.open ("statesSortedOnNumShootings.csv");
     // Header Line
-    myFile << "State,NUmber of Shootings,Percentage of Armed Shootings,Percentage of Shootings on Black,Percentage of Shootings on Hispanic,Percentage of Shootings on White,Percentage ofS hootings on Native,Percentage of Shootings on Asian,Percentage of Demog is Black,Percentage of Demog is White,Percentage of Demog is Hispanic,Percentage of Demog is Native,Percentage of Demog is Asian\n";
+    myFile << "State,Number of Shootings,Percentage of Armed Shootings,Percentage of Shootings on Black,Percentage of Shootings on Hispanic,Percentage of Shootings on White,Percentage ofS hootings on Native,Percentage of Shootings on Asian,Percentage of Demog is Black,Percentage of Demog is White,Percentage of Demog is Hispanic,Percentage of Demog is Native,Percentage of Demog is Asian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theStatesShootingData.size(); i++){
         auto shootingObj = theStatesShootingData[i];
