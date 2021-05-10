@@ -111,7 +111,8 @@ public:
 
     std::ofstream myFile;
     myFile.open ("statesSortedOnNumShootings.csv");
-    myFile << "State,numShootings,Black Perc,OnlyWhite Perc,Hispanic Perc,NativeAmer Perc,Asian Perc\n";
+    // Header Line
+    myFile << "State,NUmber of Shootings,Percentage of Armed Shootings,Percentage of Shootings on Black,Percentage of Shootings on Hispanic,Percentage of Shootings on White,Percentage ofS hootings on Native,Percentage of Shootings on Asian,Percentage of Demog is Black,Percentage of Demog is White,Percentage of Demog is Hispanic,Percentage of Demog is Native,Percentage of Demog is Asian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theStatesShootingData.size(); i++){
         auto shootingObj = theStatesShootingData[i];
@@ -119,6 +120,12 @@ public:
         if(shootingObj->getName() == demogObj->getName()){
             myFile <<  shootingObj->getName() << "," 
                    << shootingObj->getNumCases() << "," 
+                   << shootingObj->getPerArmed() << "," 
+                   << shootingObj->getPerAfricanAme() << "," 
+                   << shootingObj->getPerHispanics() << "," 
+                   << shootingObj->getPerWhite() << "," 
+                   << shootingObj->getPerNativeAme() << "," 
+                   << shootingObj->getPerAsians() << "," 
                    << demogObj->getBlackPerc() << "," 
                    << demogObj->getOnlyWhitePerc() << ","
                    << demogObj->getHispanicPerc() << ","
