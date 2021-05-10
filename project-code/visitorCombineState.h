@@ -86,8 +86,6 @@ public:
         return allStateHospData[stateN];
     }
 
-
-
     comboShootingData *stateSmapEntry(string stateN)
     {
         return allStateShootingData[stateN];
@@ -108,9 +106,9 @@ public:
     }
 
     cout << "Counties with most police shootings: \n";
-    for(int i = 1; i <= 5; i++){
+    for(int i = 0; i < 5; i++){
 
-         cout << i << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
+         cout << i+1 << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
          << "\nBlack Demog Perc: " << theStatesD[i]->getBlackPerc() 
          << "\nHispanic Demog Perc: " << theStatesD[i]->getHispanicPerc() 
          << "\nWhite Demog Perc: " << theStatesD[i]->getWhitePerc() 
@@ -135,8 +133,8 @@ public:
     }
 
     cout << "Counties with least police shootings: \n";
-    for(int i = 1; i <= 5; i++){
-         cout << i << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
+    for(int i = 0; i < theStates.size(); i++){
+         cout << i+1 << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
          << "\nBlack Demog Perc: " << theStatesD[i]->getBlackPerc() 
          << "\nHispanic Demog Perc: " << theStatesD[i]->getHispanicPerc() 
          << "\nWhite Demog Perc: " << theStatesD[i]->getWhitePerc() 
