@@ -156,8 +156,6 @@ public:
         return (100.0f * (double)(bodyCamCounts.getBodyCamOff()) / bodyCamCounts.getBodyCamCount());
     }
 
-<<<<<<< HEAD
-=======
     //Getters for armed counts
 
     double getPerArmedUnknown() const
@@ -165,7 +163,6 @@ public:
 
         return (100.0f * (double)(numberOfCases - armedCounts.getWasArmed()) / armedCounts.getArmedCount());
     }
->>>>>>> fc0da8e2d01078b688d113d1d960e80e7648b2d3
     double getPerArmed() const
     {
         if (armedCounts.getWasArmed() == 0)
