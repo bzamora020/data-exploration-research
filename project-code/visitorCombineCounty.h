@@ -234,10 +234,14 @@ public:
     }
     std::sort(theCounties.begin(), theCounties.end(), compareNumShootings);
 
-    cout << "Counties with most police shootings: \n"
-         << "1.) " << theCounties[0]->getRegionType() << " in this state ->" << theCounties[0]->getState() << " had this many fatal police shootings ->" << theCounties[0]->getNumCases() << endl
-         << "2.) " << theCounties[1]->getRegionType() << " in this state ->" << theCounties[1]->getState() << " had this many fatal police shootings ->" << theCounties[1]->getNumCases() << endl
-         << "3.) " << theCounties[2]->getRegionType() << " in this state ->" << theCounties[2]->getState() << " had this many fatal police shootings ->" << theCounties[2]->getNumCases() << endl;
+    std::ofstream myFile;
+    myFile.open ("theCountiesSortedOnNumShootings.csv");
+    myFile << "State,County,NumShootings\n";
+    for(auto obj: theCounties){
+      myFile <<  obj->getName() << "," << obj->getRegionType() << "," << obj->() << "\n";
+    }
+    myFile.close();
+
   }
 
 
