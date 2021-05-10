@@ -62,7 +62,7 @@ int main()
 
     //cout << "***** OUR COMPUTATIONS *****" << endl;
 
-    statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getWhitePerc, &comboShootingData::getPerArmedUnknown);
+    // statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getWhitePerc, &comboShootingData::getPerArmedUnknown);
 
     //cout << endl;
 
@@ -77,43 +77,43 @@ int main()
  */
 
     //Printing out the number of shooting cases per State
-    int whiteTot = 0;
-    int hispTot = 0;
-    int blackTot = 0;
-    int asianTot = 0;
-    int nativeTot = 0;
-    int otherTot = 0;
-    int tot = 0;
+    // int whiteTot = 0;
+    // int hispTot = 0;
+    // int blackTot = 0;
+    // int asianTot = 0;
+    // int nativeTot = 0;
+    // int otherTot = 0;
+    // int tot = 0;
 
-    for (auto entry : theCounties.countySmap())
-    {
-        if (entry.first.find("Unknown") != std::string::npos)
-        {
-            auto temp = entry.second->getRaceData();
-            cout << entry.first << "\nNumber of cases: " << entry.second->getNumCases()
-                 << "\nPercentage that were White: " << entry.second->getPerWhite()
-                 << "\nPercentage that were Hispanic: " << entry.second->getPerHispanics()
-                 << "\nPercentage that were Black: " << entry.second->getPerAfricanAme()
-                 << "\nPercentage that were Native American: " << entry.second->getPerNativeAme()
-                 << "\nPercentage that were Asian: " << entry.second->getPerAsians()
-                 << "\nPercentage that were Other: " << entry.second->getPerOther()
-                 << "\nPercentage that were Body Cam off: " << entry.second->getPerBodyCamOff()
-                 << "\nPercentage that were Fleeing: " << entry.second->getPerFleeing()
-                 << "\nPercentage that were reported with a mental illness: " << entry.second->getPerMentalI()
-                 << endl;
-            whiteTot += temp.getNumWhite();
-            hispTot += temp.getNumHispanics();
-            blackTot += temp.getNumAsians();
-            asianTot += temp.getNumAsians();
-            nativeTot += temp.getNumNative();
-            otherTot += temp.getnumOther();
-        }
-    }
-    tot = whiteTot + hispTot + blackTot + asianTot + nativeTot + otherTot;
-    cout << "Totals per category: " << endl;
-    cout << "Whites: " << whiteTot << "\nHispanics: " << hispTot << "\nBlacks: " << blackTot << "\nAsians: " << asianTot << "\nNatives: " << nativeTot << "\nOthers: " << otherTot << endl;
-    cout << "total: " << tot << endl;
-    cout << "white per: " << (whiteTot / (double)tot) << endl;
+    // for (auto entry : theCounties.countySmap())
+    // {
+    //     if (entry.first.find("Unknown") != std::string::npos)
+    //     {
+    //         auto temp = entry.second->getRaceData();
+    //         cout << entry.first << "\nNumber of cases: " << entry.second->getNumCases()
+    //              << "\nPercentage that were White: " << entry.second->getPerWhite()
+    //              << "\nPercentage that were Hispanic: " << entry.second->getPerHispanics()
+    //              << "\nPercentage that were Black: " << entry.second->getPerAfricanAme()
+    //              << "\nPercentage that were Native American: " << entry.second->getPerNativeAme()
+    //              << "\nPercentage that were Asian: " << entry.second->getPerAsians()
+    //              << "\nPercentage that were Other: " << entry.second->getPerOther()
+    //              << "\nPercentage that were Body Cam off: " << entry.second->getPerBodyCamOff()
+    //              << "\nPercentage that were Fleeing: " << entry.second->getPerFleeing()
+    //              << "\nPercentage that were reported with a mental illness: " << entry.second->getPerMentalI()
+    //              << endl;
+    //         whiteTot += temp.getNumWhite();
+    //         hispTot += temp.getNumHispanics();
+    //         blackTot += temp.getNumAsians();
+    //         asianTot += temp.getNumAsians();
+    //         nativeTot += temp.getNumNative();
+    //         otherTot += temp.getnumOther();
+    //     }
+    // }
+    // tot = whiteTot + hispTot + blackTot + asianTot + nativeTot + otherTot;
+    // cout << "Totals per category: " << endl;
+    // cout << "Whites: " << whiteTot << "\nHispanics: " << hispTot << "\nBlacks: " << blackTot << "\nAsians: " << asianTot << "\nNatives: " << nativeTot << "\nOthers: " << otherTot << endl;
+    // cout << "total: " << tot << endl;
+    // cout << "white per: " << (whiteTot / (double)tot) << endl;
     // int counter = 0;
     // for (auto entry : theCounties.countySmap())
     // {
@@ -205,7 +205,6 @@ int main()
     statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getBelowPoverty, &comboShootingData::getPerHispanics);
 
 
-    // cout << "Stats per County" << endl;
 
 
     cout << "Stats per County" << endl; */
@@ -230,6 +229,12 @@ int main()
 
     /*     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount); */
+
+
+    cout << "Stats per County" << endl;
+    theStates.mostShootingsState();
+    theStates.leastShootingsState();
+
 
     return 0;
 }
