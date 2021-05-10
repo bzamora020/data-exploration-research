@@ -11,6 +11,7 @@
 #include "parse.h"
 #include <memory>
 #include <fstream>
+#include <algorithm>
 #include "comboShootingData.h"
 
 class visitorCombineState : public Visitor
@@ -95,31 +96,54 @@ public:
   void mostShootingsState()
   {
     std::vector<comboShootingData *> theStates;
+    std::vector<comboDemogData *> theStatesD;
     for (const auto entry : allStateShootingData)
     {
       theStates.push_back(entry.second);
     }
     std::sort(theStates.begin(), theStates.end(), compareNumShootings);
 
-    cout << "Counties with most police shootings: \n"
-         << "1.) " << theStates[0]->getRegionType() << " in this state ->" << theStates[0]->getState() << " had this many fatal police shootings ->" << theStates[0]->getNumCases() << endl
-         << "2.) " << theStates[1]->getRegionType() << " in this state ->" << theStates[1]->getState() << " had this many fatal police shootings ->" << theStates[1]->getNumCases() << endl
-         << "3.) " << theStates[2]->getRegionType() << " in this state ->" << theStates[2]->getState() << " had this many fatal police shootings ->" << theStates[2]->getNumCases() << endl;
+    for(auto entry : theStates){
+      theStatesD.push_back(stateDmapEntry(entry->getState()));
+    }
+
+    cout << "Counties with most police shootings: \n";
+    for(int i = 1; i <= 5; i++){
+
+         cout << i << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
+         << "\nBlack Demog Perc: " << theStatesD[i]->getBlackPerc() 
+         << "\nHispanic Demog Perc: " << theStatesD[i]->getHispanicPerc() 
+         << "\nWhite Demog Perc: " << theStatesD[i]->getWhitePerc() 
+         << "\nNative Demog Perc: " << theStatesD[i]->getNativePerc() 
+         << "\nAsian Demog Perc: " << theStatesD[i]->getAsianPerc() 
+         << endl;
+  }
   }
 
   void leastShootingsState()
   {
     std::vector<comboShootingData *> theStates;
+    std::vector<comboDemogData *> theStatesD;
     for (const auto entry : allStateShootingData)
     {
       theStates.push_back(entry.second);
     }
     std::sort(theStates.begin(), theStates.end(), compareLeastNumShootings);
 
-    cout << "Counties with least police shootings: \n"
-         << "1.) " << theStates[0]->getRegionType() << " in this state ->" << theStates[0]->getState() << " had this many fatal police shootings ->" << theStates[0]->getNumCases() << endl
-         << "2.) " << theStates[1]->getRegionType() << " in this state ->" << theStates[1]->getState() << " had this many fatal police shootings ->" << theStates[1]->getNumCases() << endl
-         << "3.) " << theStates[2]->getRegionType() << " in this state ->" << theStates[2]->getState() << " had this many fatal police shootings ->" << theStates[2]->getNumCases() << endl;
+    for(auto entry : theStates){
+      theStatesD.push_back(stateDmapEntry(entry->getState()));
+    }
+
+    cout << "Counties with least police shootings: \n";
+    for(int i = 1; i <= 5; i++){
+         cout << i << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
+         << "\nBlack Demog Perc: " << theStatesD[i]->getBlackPerc() 
+         << "\nHispanic Demog Perc: " << theStatesD[i]->getHispanicPerc() 
+         << "\nWhite Demog Perc: " << theStatesD[i]->getWhitePerc() 
+         << "\nNative Demog Perc: " << theStatesD[i]->getNativePerc() 
+         << "\nAsian Demog Perc: " << theStatesD[i]->getAsianPerc() 
+         << endl;
+    }
   }
 
 
