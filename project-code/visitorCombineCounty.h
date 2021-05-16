@@ -227,33 +227,138 @@ public:
 
   void mostShootingsCounty()
   {
-    std::vector<comboShootingData *> theCounties;
-    for (const auto entry : allCountySData)
-    {
-      theCounties.push_back(entry.second);
-    }
-    std::sort(theCounties.begin(), theCounties.end(), compareNumShootings);
+    std::vector<comboShootingData *> theCountiesShootingData;
+    std::vector<comboDemogData*> theCountiesDemogData;
+    // shooting county has a demog county
+    for (auto entry : (allCountySData))
+        {
+          if(entry.second->getState() == "CA"){
+            // cout << entry.first << endl;
+            comboDemogData *demogForCounty;
+            if(countyDmapEntry(entry.first) != NULL){
+                demogForCounty = countyDmapEntry(entry.first);
+            }
+            if(demogForCounty != NULL)
+            {
+                theCountiesShootingData.push_back(entry.second);
+                theCountiesDemogData.push_back(demogForCounty);
+            }
+          }
+        }
+    /*
+    CSVs to get:
+        - DC, AK, HI, CA, TX, AZ
+        Racial Demog and Shootings race identification
+    */
 
-    cout << "Counties with most police shootings: \n"
-         << "1.) " << theCounties[0]->getRegionType() << " in this state ->" << theCounties[0]->getState() << " had this many fatal police shootings ->" << theCounties[0]->getNumCases() << endl
-         << "2.) " << theCounties[1]->getRegionType() << " in this state ->" << theCounties[1]->getState() << " had this many fatal police shootings ->" << theCounties[1]->getNumCases() << endl
-         << "3.) " << theCounties[2]->getRegionType() << " in this state ->" << theCounties[2]->getState() << " had this many fatal police shootings ->" << theCounties[2]->getNumCases() << endl;
+    std::ofstream myFile;
+    myFile.open ("countiesDemogAndShootingCA.csv"); 
+    // Header Line
+    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
+    myFile << "County,NumberOfShootings,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,PercentageDemogIsBlack,PercentageDemogIsWhite,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+
+        /* myFile << demogObj->getPop() << ","
+             << demogObj->getBlackPerc() << ","
+             << demogObj->getOnlyWhitePerc() << "," 
+             << demogObj->getHispanicPerc() << ","
+             << demogObj->getNativePerc() << ","
+             << demogObj->getAsianPerc() << ","
+             << shootingObj->getNumCases() << ","
+             << shootingObj->getPerAfricanAme() << ","
+             << shootingObj->getPerWhite() << ","
+             << shootingObj->getPerHispanics() << ","
+             << shootingObj->getPerNativeAme() << ","
+             << shootingObj->getPerAsians(); */
+            if(shootingObj->getName() == demogObj->getName()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getNumCases() << "," 
+                   << shootingObj->getPerArmed() << "," 
+                   << shootingObj->getPerAfricanAme() << "," 
+                   << shootingObj->getPerHispanics() << "," 
+                   << shootingObj->getPerWhite() << "," 
+                   << shootingObj->getPerNativeAme() << "," 
+                   << shootingObj->getPerAsians() << "," 
+                   << demogObj->getBlackPerc() << "," 
+                   << demogObj->getOnlyWhitePerc() << ","
+                   << demogObj->getHispanicPerc() << ","
+                   << demogObj->getNativePerc() << ","
+                   << demogObj->getAsianPerc() 
+                   << "\n";
+        }
+    }
+    myFile.close();
+
+/*     myFile.open("statesBlackPercShooting.csv");
+    myFile << "State" */
+
   }
 
-  void leastHSGraduates()
+
+  void sortRacialDemogDemogCounties()
   {
-    std::vector<comboDemogData *> theCounties;
+    std::vector<comboDemogData *> theCountiesSortedOnBlackPerc;
     for (const auto entry : allCountyDData)
     {
-      theCounties.push_back(entry.second);
+      theCountiesSortedOnBlackPerc.push_back(entry.second);
     }
-    std::sort(theCounties.begin(), theCounties.end(), compareHSGraduatesLowHigh);
+    std::sort(theCountiesSortedOnBlackPerc.begin(), theCountiesSortedOnBlackPerc.end(), compareBlackPerc);
 
-    cout << "Counties with least HS graduates: \n";
-    for (int i = 0; i < 10; i++)
+    std::vector<comboDemogData *> theCountiesSortedOnHispanicPerc;
+    for (const auto entry : allCountyDData)
     {
-    cout << i << ".) " << theCounties[i]->getRegionType() << " in this state ->" << theCounties[i]->getState() << " had this \% of HS graduates ->" << theCounties[i]->getHSup() << endl;
+      theCountiesSortedOnHispanicPerc.push_back(entry.second);
     }
+    std::sort(theCountiesSortedOnHispanicPerc.begin(), theCountiesSortedOnHispanicPerc.end(), compareHispanicPerc);
+
+    std::vector<comboDemogData *> theCountiesSortedOnWhitePerc;
+    for (const auto entry : allCountyDData)
+    {
+      theCountiesSortedOnWhitePerc.push_back(entry.second);
+    }
+    std::sort(theCountiesSortedOnWhitePerc.begin(), theCountiesSortedOnWhitePerc.end(), compareWhitePerc);
+
+    std::vector<comboDemogData *> theCountiesSortedOnNativeAmerPerc;
+    for (const auto entry : allCountyDData)
+    {
+      theCountiesSortedOnNativeAmerPerc.push_back(entry.second);
+    }
+    std::sort(theCountiesSortedOnNativeAmerPerc.begin(), theCountiesSortedOnNativeAmerPerc.end(), compareNativeAmerPerc);
+
+    std::ofstream myFile;
+    myFile.open ("countiesSortedOnBlackPerc.csv");
+    myFile << "State,County,BlackPerc\n";
+    for(auto obj: theCountiesSortedOnBlackPerc){
+      myFile <<  obj->getName() << "," << obj->getRegionType() << "," << obj->getBlackPerc() << "\n";
+    }
+    myFile.close();
+
+    myFile.open ("countiesSortedOnHispanicPerc.csv");
+    myFile << "State,County,HispanicPerc\n";
+    for(auto obj: theCountiesSortedOnHispanicPerc){
+      myFile <<  obj->getName() << "," << obj->getRegionType() << "," << obj->getHispanicPerc() << "\n";
+    }
+    myFile.close();
+
+
+    myFile.open ("countiesSortedOnWhitePerc.csv");
+    myFile << "State,County,WhitePerc\n";
+    for(auto obj: theCountiesSortedOnWhitePerc){
+      myFile << obj->getName() << "," << obj->getRegionType() << "," << obj->getWhitePerc() << "\n";
+    }
+    myFile.close();
+
+
+    myFile.open ("countiesSortedOnNativeAmerPerc.csv");
+    myFile << "State,County,NativeAmerPerc\n";
+    for(auto obj: theCountiesSortedOnNativeAmerPerc){
+      myFile << obj->getName() << "," << obj->getRegionType() << "," << obj->getNativePerc() << "\n";
+    }
+    myFile.close();
+    
 
   }
 
@@ -291,6 +396,23 @@ private:
     return (a->getNumCases() > b->getNumCases());
   }
 
+  static bool compareBlackPerc(comboDemogData *a, comboDemogData *b)
+  {
+    return (a->getBlackPerc() > b->getBlackPerc());
+  }
+
+  static bool compareWhitePerc(comboDemogData *a, comboDemogData *b)
+  {
+    return (a->getWhitePerc() > b->getWhitePerc());
+  }
+  static bool compareHispanicPerc(comboDemogData *a, comboDemogData *b)
+  {
+    return (a->getHispanicPerc() > b->getHispanicPerc());
+  }
+  static bool compareNativeAmerPerc(comboDemogData *a, comboDemogData *b)
+  {
+    return (a->getNativePerc() > b->getNativePerc());
+  }
   static bool compareHSGraduatesLowHigh(comboDemogData *a, comboDemogData *b)
   {
     return (a->getHSup() < b->getHSup());

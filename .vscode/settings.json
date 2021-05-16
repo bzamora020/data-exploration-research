@@ -1,10 +1,9 @@
 {
-    "python.pythonPath": "/usr/bin/python",
+    "python.pythonPath": "C:\\Users\\Jesus\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
     "files.associations": {
         "vector": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "iosfwd": "cpp",
         "algorithm": "cpp",
         "cctype": "cpp",
         "cmath": "cpp",
@@ -21,6 +20,9 @@
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "ios": "cpp",
+
+        "iosfwd": "cpp",
+
         "istream": "cpp",
         "iterator": "cpp",
         "limits": "cpp",
