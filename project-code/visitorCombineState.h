@@ -101,9 +101,9 @@ public:
     std::vector<comboDemogData*> theStatesDemogData;
     for (const auto entry : allStateShootingData)
     {
-        //if(entry.first == "CA"){
+        if((entry.first == "CA")||(entry.first == "AZ")||(entry.first == "TX")||(entry.first == "HI")||(entry.first == "AK")||(entry.first == "DC")){
             theStatesShootingData.push_back(entry.second);
-        //}
+        }
         
     }
     std::sort(theStatesShootingData.begin(), theStatesShootingData.end(), compareNumShootings);
@@ -122,13 +122,14 @@ public:
     myFile.open ("statesSortedOnNumshootings.csv"); 
     // Header Line
     // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "State,NumberOfShootings,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,PercentageDemogIsBlack,Percentage of Demog is White,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian\n";
+    myFile << "State,StatePop,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,PercentageDemogIsBlack,Percentage of Demog is White,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theStatesShootingData.size(); i++){
         auto shootingObj = theStatesShootingData[i];
         auto demogObj = theStatesDemogData[i];
 
-        /* myFile << demogObj->getPop() << ","
+        myFile << demogObj->getState() << ","
+             << demogObj->getPop() << ","
              << demogObj->getBlackPerc() << ","
              << demogObj->getOnlyWhitePerc() << "," 
              << demogObj->getHispanicPerc() << ","
@@ -139,8 +140,8 @@ public:
              << shootingObj->getPerWhite() << ","
              << shootingObj->getPerHispanics() << ","
              << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+             << shootingObj->getPerAsians() << "\n";
+            /* if(shootingObj->getName() == demogObj->getName()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getNumCases() << "," 
                    << shootingObj->getPerArmed() << "," 
@@ -155,7 +156,7 @@ public:
                    << demogObj->getNativePerc() << ","
                    << demogObj->getAsianPerc() 
                    << "\n";
-        }
+        } */
     }
     myFile.close();
 
