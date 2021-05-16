@@ -11,6 +11,7 @@
 #include "parse.h"
 #include <memory>
 #include <fstream>
+#include <algorithm>
 #include "comboShootingData.h"
 #include <algorithm>
 
@@ -95,6 +96,7 @@ public:
         return allStateShootingData[stateN];
     }
 
+
     void mostShootingsState()
     {
     std::vector<comboShootingData *> theStatesShootingData;
@@ -167,6 +169,7 @@ public:
 
     
 
+
 private:
     // Private data like maps and stuff
 
@@ -175,10 +178,18 @@ private:
     std::map<string, comboHospitalData *> allStateHospData;
     std::map<string, comboShootingData *> allStateShootingData;
 
-      static bool compareNumShootings(comboShootingData *a, comboShootingData *b)
+
+  static bool compareNumShootings(comboShootingData *a, comboShootingData *b)
   {
     return (a->getNumCases() > b->getNumCases());
   }
+
+  static bool compareLeastNumShootings(comboShootingData *a, comboShootingData *b)
+  {
+    return (a->getNumCases() < b->getNumCases());
+  }
+
+
 };
 
 #endif
