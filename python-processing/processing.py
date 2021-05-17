@@ -59,7 +59,6 @@ with open("county_demographics_cleaned.csv", mode = 'w') as demog_file:
 
 
 # Clean Police_shooting csv,
-print(cityToCountyDict["Saint PaulMN"])
 
 with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
     #Header fields from WP fatal police shootings csv
@@ -92,6 +91,8 @@ with open("police_shootings_cleaned.csv", mode='w') as shooting_file:
                     #print("We know this city")
                     if(incidentCity.find("LA") != -1):
                         row["city"] = cityToCountyDict[incidentCity][0] + " Parish"
+                    elif(incidentCity.find("AK") != -1):
+                        row["city"] = cityToCountyDict[incidentCity][0] + " Borough"
                     else:
                         row["city"] = cityToCountyDict[incidentCity][0] + " County"
                     #print("{0} was placed in this county ->{1}, within this state {2}".format(tmp, cityToCountyDict[tmp], countyToStateDict[cityToCountyDict[tmp]]))

@@ -119,16 +119,16 @@ public:
     */
 
     std::ofstream myFile;
-    myFile.open ("statesSortedOnNumshootings.csv"); 
+    myFile.open ("statesSortedOnNumshootingsSelected.csv"); 
     // Header Line
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "State,StatePop,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,PercentageDemogIsBlack,Percentage of Demog is White,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian\n";
+    //myFile << "State,TotalPop,BlackDemog,OnlyWhiteDemog,HispanicDemog,NativeDemog,AsianDemog,numShootings,BlackShooting,WhiteShooting,HispanicShooting,NativeShooting,AsianShooting\n";
+    myFile << "State,StatePop,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,TotalPop,PercentageDemogIsBlack,Percentage of Demog is White,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theStatesShootingData.size(); i++){
         auto shootingObj = theStatesShootingData[i];
         auto demogObj = theStatesDemogData[i];
 
-        myFile << demogObj->getState() << ","
+       /*  myFile << demogObj->getState() << ","
              << demogObj->getPop() << ","
              << demogObj->getBlackPerc() << ","
              << demogObj->getOnlyWhitePerc() << "," 
@@ -140,8 +140,8 @@ public:
              << shootingObj->getPerWhite() << ","
              << shootingObj->getPerHispanics() << ","
              << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians() << "\n";
-            /* if(shootingObj->getName() == demogObj->getName()){
+             << shootingObj->getPerAsians() << "\n"; */
+            if(shootingObj->getName() == demogObj->getName()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getNumCases() << "," 
                    << shootingObj->getPerArmed() << "," 
@@ -150,13 +150,14 @@ public:
                    << shootingObj->getPerWhite() << "," 
                    << shootingObj->getPerNativeAme() << "," 
                    << shootingObj->getPerAsians() << "," 
+                   << demogObj->getPop() << ","
                    << demogObj->getBlackPerc() << "," 
                    << demogObj->getOnlyWhitePerc() << ","
                    << demogObj->getHispanicPerc() << ","
                    << demogObj->getNativePerc() << ","
                    << demogObj->getAsianPerc() 
                    << "\n";
-        } */
+        }
     }
     myFile.close();
 

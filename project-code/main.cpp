@@ -64,6 +64,13 @@ int main()
 
 /*     theCounties.sortRacialDemogDemogCounties();
     theCounties.mostShootingsCounty(); */
+    theCounties.mostShootingsCounty();
+    theCounties.mostShootingsCountyCA();
+    theCounties.mostShootingsCountyTX();
+    theCounties.mostShootingsCountyAZ();
+    theCounties.mostShootingsCountyHI();
+    theCounties.mostShootingsCountyAK();
+    theCounties.mostShootingsCountyDC();
     theStates.mostShootingsState();
     // theCounties.mostShootingsCounty();
 
@@ -312,10 +319,6 @@ int main()
    statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount);  */
 
-
-    cout << "Stats per County" << endl;
-    theStates.mostShootingsState();
-    theStates.leastShootingsState();
 
 
     return 0;

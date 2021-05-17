@@ -1,4 +1,4 @@
-State,StatePop,PercentageArmedShootings,PercentageShootingsOnBlack,PercentageShootingsOnHispanic,PercentageShootingsOnWhite,PercentageShootingsOnNative,PercentageShootingsOnAsian,PercentageDemogIsBlack,Percentage of Demog is White,PercentageDemogIsHispanic,PercentageDemogIsNative,PercentageDemogIsAsian
+State,TotalPop,BlackDemog,OnlyWhiteDemog,HispanicDemog,NativeDemog,AsianDemog,numShootings,BlackShooting,WhiteShooting,HispanicShooting,NativeShooting,AsianShooting
 CA,38802500,6.56,38.45,38.63,1.67,14.40,924,18.48,31.21,44.68,0.49,4.16
 TX,26956958,12.48,43.52,38.62,1.01,4.54,551,23.31,40.70,33.95,0.20,1.23
 AZ,6731484,4.70,56.21,30.56,5.34,3.29,291,8.80,46.80,39.20,5.20,0.00
