@@ -60,7 +60,43 @@ int main()
 
     // cleaning, removed the end of some of the county names, like Parish, city, stuff like dat, so there might be conflicts with something CountyNCA and CountyNCA
 
-    //cout << "***** OUR COMPUTATIONS *****" << endl;
+    cout << "***** OUR COMPUTATIONS *****" << endl;
+
+/*     theCounties.sortRacialDemogDemogCounties();
+    theCounties.mostShootingsCounty(); */
+    theStates.mostShootingsState();
+    // theCounties.mostShootingsCounty();
+
+ /*     cout << "Stats per County" << endl;
+
+    theCounties.mostShootingsCounty();
+
+    auto demogCA = theStates.stateDmapEntry("CA");
+    auto demogTX = theStates.stateDmapEntry("TX");
+    auto demogAZ = theStates.stateDmapEntry("AZ");
+
+    cout << "Num Shootings\n" << theStates.stateSmapEntry("CA")->getNumCases() << endl;
+    cout << theStates.stateSmapEntry("TX")->getNumCases() << endl;
+    cout << theStates.stateSmapEntry("AZ")->getNumCases() << endl;
+
+    cout << "Racial Demog: Black Perc\n";
+    cout << demogCA->getBlackPerc() << "%" << endl;
+    cout << demogTX->getBlackPerc() << "%" << endl;
+    cout << demogAZ->getBlackPerc() << "%" << endl;
+    
+    cout << "Racial Demog: White Perc\n";
+    cout << demogCA->getWhitePerc() << "%" << endl;
+    cout << demogTX->getWhitePerc() << "%" << endl;
+    cout << demogAZ->getWhitePerc() << "%" << endl;
+
+    cout << "Racial Demog: Hispanic Perc\n";
+    cout << demogCA->getHispanicPerc() << "%" << endl;
+    cout << demogTX->getHispanicPerc() << "%" << endl;
+    cout << demogAZ->getHispanicPerc() << "%" << endl; */
+
+
+
+
 
     // statTool::computeStatsMixRegionData3(&theCounties, &fillCounties, &demogData::getWhitePerc, &comboShootingData::getPerArmedUnknown);
 
@@ -77,6 +113,51 @@ int main()
  */
 
     //Printing out the number of shooting cases per State
+
+/*     int whiteTot = 0;
+    int hispTot = 0;
+    int blackTot = 0;
+    int asianTot = 0;
+    int nativeTot = 0;
+    int otherTot = 0;
+    int tot = 0;
+
+    for (auto entry : theCounties.countySmap())
+    {
+        if (entry.first.find("Unknown") != std::string::npos)
+        {
+            auto temp = entry.second->getRaceData();
+            cout << entry.first << "\nNumber of cases: " << entry.second->getNumCases()
+                 << "\nPercentage that were White: " << entry.second->getPerWhite()
+                 << "\nPercentage that were Hispanic: " << entry.second->getPerHispanics()
+                 << "\nPercentage that were Black: " << entry.second->getPerAfricanAme()
+                 << "\nPercentage that were Native American: " << entry.second->getPerNativeAme()
+                 << "\nPercentage that were Asian: " << entry.second->getPerAsians()
+                 << "\nPercentage that were Other: " << entry.second->getPerOther()
+                 << "\nPercentage that were Body Cam off: " << entry.second->getPerBodyCamOff()
+                 << "\nPercentage that were Fleeing: " << entry.second->getPerFleeing()
+                 << "\nPercentage that were reported with a mental illness: " << entry.second->getPerMentalI()
+                 << endl;
+            whiteTot += temp.getNumWhite();
+            hispTot += temp.getNumHispanics();
+            blackTot += temp.getNumAsians();
+            asianTot += temp.getNumAsians();
+            nativeTot += temp.getNumNative();
+            otherTot += temp.getnumOther();
+        }
+    }
+    tot = whiteTot + hispTot + blackTot + asianTot + nativeTot + otherTot;
+    cout << "Totals per category: " << endl;
+    cout << "Whites: " << whiteTot << "\nHispanics: " << hispTot << "\nBlacks: " << blackTot << "\nAsians: " << asianTot << "\nNatives: " << nativeTot << "\nOthers: " << otherTot << endl;
+    cout << "total: " << tot << endl;
+    cout << "white per: " << (whiteTot / (double)tot) << endl;
+    int counter = 0;
+    for (auto entry : theCounties.countySmap())
+    {
+        cout << "County name? " << entry.second->getRegionType() << " State: " << entry.second->getState() << " Cases: " << entry.second->getNumCases() << endl;
+        counter++;
+    }
+
     // int whiteTot = 0;
     // int hispTot = 0;
     // int blackTot = 0;
@@ -121,8 +202,9 @@ int main()
     //     counter++;
     // }
 
-    // cout << "Number of counties: " << counter << endl;
-    /*     cout << "*** Low Income Levels ***: " << "\n" << endl;
+
+    cout << "Number of counties: " << counter << endl;
+        cout << "*** Low Income Levels ***: " << "\n" << endl;
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerHispanics);
@@ -134,9 +216,9 @@ int main()
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerAsians);
 
     cout << "*** Below Poverty compared to percentage of fatal police shootings where the victim was classified as Natice American" << "\n" << endl;
-    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme); */
+    statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getBelowPoverty, &shootingData::getPerNativeAme);
 
-    /*     cout << "*** HS Levels ***: " << "\n" << endl;
+        cout << "*** HS Levels ***: " << "\n" << endl;
 
     cout << "*** Percentage HS degree compared to percentage of fatal police shootings where the victim was classified as Hispanic" << "\n" << endl;
     statTool::computeStatsMixRegionData2(&theCounties, &fillCounties, &demogData::getHSup, &shootingData::getPerHispanics);
@@ -207,28 +289,28 @@ int main()
 
 
 
-    cout << "Stats per County" << endl; */
+    cout << "Stats per County" << endl;
 
-    /*     theCounties.mostShootingsCounty();
+    theCounties.mostShootingsCounty();
     cout << theCounties.countySmapEntry("Los AngelesCA")->getPerWhite() << endl;
 
     cout << theCounties.countySmapEntry("MaricopaAZ")->getPerWhite() << endl;
     
-    cout << theCounties.countySmapEntry("HarrisTX")->getPerWhite() << endl; */
+    cout << theCounties.countySmapEntry("HarrisTX")->getPerWhite() << endl;
 
-    //     cout << endl;
-    // theCounties.leastShootingsCounty();
+        cout << endl;
+    theCounties.leastShootingsCounty();
 
-    // theCounties.leastHSGraduates();
-    //     cout << endl;
+    theCounties.leastHSGraduates();
+        cout << endl;
 
-    // theCounties.highestPovLevels();
-    //     cout << endl;
+    theCounties.highestPovLevels();
+        cout << endl;
 
-    // cout << "TESTSSSSSS: \n";
+    cout << "TESTSSSSSS: \n";
 
-    /*     statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
-                                          &demogData::getpopUnder5Count, &demogData::getBAupCount); */
+   statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
+                                          &demogData::getpopUnder5Count, &demogData::getBAupCount);  */
 
 
     cout << "Stats per County" << endl;
