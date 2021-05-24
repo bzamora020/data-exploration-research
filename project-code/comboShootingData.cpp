@@ -14,5 +14,6 @@ void comboShootingData::addShootingtoRegion(shootingData *CD)
   bodyCamCounts += CD->getBodyCamData();
   fleeingCounts += CD->getFleeingData();
   mentalCounts += CD->getMIData();
+  dateCounts += CD->getDateData();
   cases++;
 }
