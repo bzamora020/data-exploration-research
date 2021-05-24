@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\Jesus\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.pythonPath": "C:\\Users\\Jesus\\Anaconda3\\python.exe",
     "files.associations": {
         "vector": "cpp",
         "iostream": "cpp",

@@ -15,7 +15,7 @@ using namespace std;
 class shootingData : public placeData
 {
 public:
-    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed, string inDate) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed), bodyCamCounts(inBodyCam), fleeingCounts(inFleeing), mentalCounts(inMI), dateCounts(inDate)
+    shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed, string inDate) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed), bodyCamCounts(inBodyCam), fleeingCounts(inFleeing), mentalCounts(inMI), totalDateCounts(inDate)
     {
         countedAge = 0;
 
@@ -26,7 +26,7 @@ public:
         }
     }
 
-    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts(""), bodyCamCounts(""), fleeingCounts(""), mentalCounts(""), dateCounts("")
+    shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts(""), bodyCamCounts(""), fleeingCounts(""), mentalCounts(""), totalDateCounts("")
     {
         countedAge = 0;
         age = 0;
@@ -201,7 +201,7 @@ public:
     bodyCam getBodyCamData() { return bodyCamCounts; }
     fleeing getFleeingData() { return fleeingCounts; }
     mental getMIData() { return mentalCounts; }
-    date getDateData() { return dateCounts; }
+    date getDateData() { return totalDateCounts; }
 
     int getNumberOfCases() { return numberOfCases; }
 
@@ -223,7 +223,7 @@ protected:
     armed armedCounts;
     race raceCounts;
     gender genderCounts;
-    date dateCounts;
+    date totalDateCounts;
 };
 
 #endif

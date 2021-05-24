@@ -312,10 +312,10 @@ int main()
    statTool::computeStatsDemogRegionData(&theCounties, &fillCounties, &demogData::getpopUnder5, &demogData::getBAup,
                                           &demogData::getpopUnder5Count, &demogData::getBAupCount);  */
 
-
+/* 
     cout << "Stats per County" << endl;
     theStates.mostShootingsState();
-    theStates.leastShootingsState();
+    theStates.leastShootingsState(); */
 
 
     return 0;

@@ -91,31 +91,68 @@ public:
         return allStateShootingData[stateN];
     }
 
-  void mostShootingsState()
-  {
-    std::vector<comboShootingData *> theStates;
-    std::vector<comboDemogData *> theStatesD;
+   void mostShootingsState()
+    {
+    std::vector<comboShootingData *> theStatesShootingData;
+    std::vector<comboDemogData*> theStatesDemogData;
     for (const auto entry : allStateShootingData)
     {
-      theStates.push_back(entry.second);
+        if((entry.first == "CA")||(entry.first == "AZ")||(entry.first == "TX")||(entry.first == "HI")||(entry.first == "AK")||(entry.first == "DC")){
+            theStatesShootingData.push_back(entry.second);
+        }
+        
     }
-    std::sort(theStates.begin(), theStates.end(), compareNumShootings);
+    std::sort(theStatesShootingData.begin(), theStatesShootingData.end(), compareNumShootings);
 
-    for(auto entry : theStates){
-      theStatesD.push_back(stateDmapEntry(entry->getState()));
+    for(const auto entry : theStatesShootingData){
+        theStatesDemogData.push_back(stateDmapEntry(entry->getName()));
     }
 
-    cout << "Counties with most police shootings: \n";
-    for(int i = 0; i < 5; i++){
+    /*
+    CSVs to get:
+        - DC, AK, HI, CA, TX, AZ
+        Racial Demog and Shootings race identification
+    */
 
-         cout << i+1 << ".) " <<"This state ->" << theStates[i]->getState() << " had this many fatal police shootings ->" << theStates[i]->getNumCases() 
-         << "\nBlack Demog Perc: " << theStatesD[i]->getBlackPerc() 
-         << "\nHispanic Demog Perc: " << theStatesD[i]->getHispanicPerc() 
-         << "\nWhite Demog Perc: " << theStatesD[i]->getWhitePerc() 
-         << "\nNative Demog Perc: " << theStatesD[i]->getNativePerc() 
-         << "\nAsian Demog Perc: " << theStatesD[i]->getAsianPerc() 
-         << endl;
-  }
+    std::ofstream myFile;
+    myFile.open ("statesSortedOnNumshootingsSelected2020.csv"); 
+    // Header Line
+    myFile << "State, TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting, JanShooting, FebShooting, MarShooting, AprShooting, MayShooting, JunShooting, JulShooting, AugShooting, SepShooting, OctShooting, NovShooting, DecShooting\n";
+    myFile << std::setprecision(2) << std::fixed;
+
+    for(int i = 0; i < theStatesShootingData.size(); i++){
+        auto shootingObj = theStatesShootingData[i];
+        auto demogObj = theStatesDemogData[i];
+        if(shootingObj->getName() == demogObj->getName()){
+              myFile<< shootingObj->getName() << ","
+                    << demogObj->getPop() << ","
+                    << demogObj->getBlackPerc() << ","
+                    << demogObj->getOnlyWhitePerc() << "," 
+                    << demogObj->getHispanicPerc() << ","
+                    << demogObj->getNativePerc() << ","
+                    << demogObj->getAsianPerc() << ","
+                    << shootingObj->getNumCases() << ","
+                    << shootingObj->getPerAfricanAme() << ","
+                    << shootingObj->getPerWhite() << ","
+                    << shootingObj->getPerHispanics() << ","
+                    << shootingObj->getPerNativeAme() << ","
+                    << shootingObj->getPerAsians() << ","
+                    << shootingObj->getDateData().getNumShootingsJan2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsFeb2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsMar2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsApr2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsMay2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsJun2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsJul2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsAug2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsSep2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsOct2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsNov2020() << "," 
+                    << shootingObj->getDateData().getNumShootingsDec2020() 
+                    << "\n";
+        }
+    }
+    myFile.close();
   }
 
   void leastShootingsState()
