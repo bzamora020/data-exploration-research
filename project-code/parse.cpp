@@ -154,9 +154,12 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
 {
     std::stringstream ss(theLine);
     
-    for(int i = 0; i < 4; i++){
-        getFieldNQ(ss);
-    }
+    
+    int id = stoi(getFieldNQ(ss));
+    string name = getFieldNQ(ss);
+    string date = getFieldNQ(ss);
+    string mannerOfDeath = getFieldNQ(ss);
+
     string armed = getFieldNQ(ss);
     // cout << armed << endl;
     int age = 0;
@@ -180,7 +183,7 @@ shared_ptr<shootingData> readCSVLineShooting(std::string theLine)
     string bodyCam = getFieldNQ(ss);
 
 
-    return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing, bodyCam, armed);
+    return make_shared<cityShootingData>(state, city, age, race, gender, mental_illness, fleeing, bodyCam, armed, date);
 }
 // Rewrite as one method - maybe replace typeFlag with functor on readline
 void read_csv(std::vector<shared_ptr<placeData>> &dataV, std::string filename, typeFlag fileType)
