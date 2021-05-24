@@ -139,7 +139,7 @@ public:
         {
             string year = inDate.substr(0, 4);
             string month = inDate.substr(5, 2);
-            string date = inDate.substr(8, 2);
+            string day = inDate.substr(8, 2);
             if (year == "2015")
             {
                 counts_2015[month]++;
