@@ -115,9 +115,11 @@ public:
     */
 
     std::ofstream myFile;
-    myFile.open ("statesSortedOnNumshootingsSelected2020.csv"); 
+    myFile.open ("statesSortedOnNumshootingsSelected2018_2020.csv"); 
     // Header Line
-    myFile << "State, TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting, JanShooting, FebShooting, MarShooting, AprShooting, MayShooting, JunShooting, JulShooting, AugShooting, SepShooting, OctShooting, NovShooting, DecShooting\n";
+    myFile << "State, JanShooting18, FebShooting18, MarShooting18, AprShooting18, MayShooting18, JunShooting18, JulShooting18, AugShooting18, SepShooting18, OctShooting18, NovShooting18, DecShooting18,"
+            <<" JanShooting19, FebShooting19, MarShooting19, AprShooting19, MayShooting19, JunShooting19, JulShooting19, AugShooting19, SepShooting19, OctShooting19, NovShooting19, DecShooting19,"
+            <<" JanShooting20, FebShooting20, MarShooting20, AprShooting20, MayShooting20, JunShooting20, JulShooting20, AugShooting20, SepShooting20, OctShooting20, NovShooting20, DecShooting20\n";
     myFile << std::setprecision(2) << std::fixed;
 
     for(int i = 0; i < theStatesShootingData.size(); i++){
@@ -125,18 +127,31 @@ public:
         auto demogObj = theStatesDemogData[i];
         if(shootingObj->getName() == demogObj->getName()){
               myFile<< shootingObj->getName() << ","
-                    << demogObj->getPop() << ","
-                    << demogObj->getBlackPerc() << ","
-                    << demogObj->getOnlyWhitePerc() << "," 
-                    << demogObj->getHispanicPerc() << ","
-                    << demogObj->getNativePerc() << ","
-                    << demogObj->getAsianPerc() << ","
-                    << shootingObj->getNumCases() << ","
-                    << shootingObj->getPerAfricanAme() << ","
-                    << shootingObj->getPerWhite() << ","
-                    << shootingObj->getPerHispanics() << ","
-                    << shootingObj->getPerNativeAme() << ","
-                    << shootingObj->getPerAsians() << ","
+
+                    << shootingObj->getDateData().getNumShootingsJan2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsFeb2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsMar2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsApr2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsMay2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsJun2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsJul2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsAug2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsSep2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsOct2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsNov2018() << "," 
+                    << shootingObj->getDateData().getNumShootingsDec2015() << ","
+                    << shootingObj->getDateData().getNumShootingsJan2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsFeb2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsMar2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsApr2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsMay2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsJun2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsJul2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsAug2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsSep2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsOct2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsNov2019() << "," 
+                    << shootingObj->getDateData().getNumShootingsDec2019() << ","                    
                     << shootingObj->getDateData().getNumShootingsJan2020() << "," 
                     << shootingObj->getDateData().getNumShootingsFeb2020() << "," 
                     << shootingObj->getDateData().getNumShootingsMar2020() << "," 
@@ -148,7 +163,7 @@ public:
                     << shootingObj->getDateData().getNumShootingsSep2020() << "," 
                     << shootingObj->getDateData().getNumShootingsOct2020() << "," 
                     << shootingObj->getDateData().getNumShootingsNov2020() << "," 
-                    << shootingObj->getDateData().getNumShootingsDec2020() 
+                    << shootingObj->getDateData().getNumShootingsDec2020()
                     << "\n";
         }
     }
