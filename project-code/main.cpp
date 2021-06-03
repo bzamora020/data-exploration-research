@@ -65,13 +65,13 @@ int main()
 /*     theCounties.sortRacialDemogDemogCounties();
     theCounties.mostShootingsCounty(); */
     theCounties.mostShootingsCounty();
-    theCounties.mostShootingsCountyCA();
+/*     theCounties.mostShootingsCountyCA();
     theCounties.mostShootingsCountyTX();
     theCounties.mostShootingsCountyAZ();
     theCounties.mostShootingsCountyHI();
     theCounties.mostShootingsCountyAK();
     theCounties.mostShootingsCountyDC();
-    theStates.mostShootingsState();
+    theStates.mostShootingsState(); */
     // theCounties.mostShootingsCounty();
 
  /*     cout << "Stats per County" << endl;

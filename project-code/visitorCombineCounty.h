@@ -254,7 +254,7 @@ public:
     */
 
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShooting.csv"); 
+    myFile.open ("countiesDemogAndShootingCounts.csv"); 
     // Header Line
     string race = "Hispanic";
     // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
@@ -278,16 +278,16 @@ public:
              << shootingObj->getPerAsians(); */
             if(shootingObj->getName() == demogObj->getName()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getWasArmed() << "," 
+                   << shootingObj->getArmedData().getArmedGun() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOff() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << demogObj->getHispanicCount() << ","
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << demogObj->getBlackCount() << ","
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << demogObj->getOnlyWhiteCount() 
                    << "\n";
         }
     }
