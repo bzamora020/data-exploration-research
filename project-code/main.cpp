@@ -61,10 +61,10 @@ int main()
     // cleaning, removed the end of some of the county names, like Parish, city, stuff like dat, so there might be conflicts with something CountyNCA and CountyNCA
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
-
+    theStates.mostShootingsState(); 
 /*     theCounties.sortRacialDemogDemogCounties();
     theCounties.mostShootingsCounty(); */
-    theCounties.mostShootingsCounty();
+    //theCounties.mostShootingsCounty();
 /*     theCounties.mostShootingsCountyCA();
     theCounties.mostShootingsCountyTX();
     theCounties.mostShootingsCountyAZ();

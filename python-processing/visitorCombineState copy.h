@@ -101,9 +101,9 @@ public:
     std::vector<comboDemogData*> theStatesDemogData;
     for (const auto entry : allStateShootingData)
     {
-        //if((entry.first == "CA")||(entry.first == "AZ")||(entry.first == "TX")||(entry.first == "HI")||(entry.first == "AK")||(entry.first == "DC")){
+        if((entry.first == "CA")||(entry.first == "AZ")||(entry.first == "TX")||(entry.first == "HI")||(entry.first == "AK")||(entry.first == "DC")){
             theStatesShootingData.push_back(entry.second);
-        //}
+        }
         
     }
     std::sort(theStatesShootingData.begin(), theStatesShootingData.end(), compareNumShootings);

@@ -20,9 +20,7 @@
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "ios": "cpp",
-
         "iosfwd": "cpp",
-
         "istream": "cpp",
         "iterator": "cpp",
         "limits": "cpp",
@@ -51,6 +49,21 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "array": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "random": "cpp",
+        "string_view": "cpp",
+        "cinttypes": "cpp"
     }
 }
