@@ -235,7 +235,7 @@ public:
 
             if(shootingObj->getName() == demogObj->getName()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << demogObj->getpopUnder18Count() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
                    << shootingObj->getRaceData().getNumHispanics() << "," 
                    << shootingObj->getRaceData().getNumNative() << "," 
