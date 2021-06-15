@@ -262,7 +262,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getArmedData().getArmedCount() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -283,7 +283,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getBodyCamData().getBodyCamOn() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -304,7 +304,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getMIData().getMentalI() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -325,7 +325,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << shootingObj->getFleeingData().getTriedFleeing() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -346,7 +346,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << demogObj->getpopUnder18Count() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -367,7 +367,7 @@ public:
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
 
-            if(shootingObj->getName() == demogObj->getName()){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
                    << demogObj->getBelowPovertyCount() << "," 
                    << shootingObj->getRaceData().getNumAfricanAme() << "," 
@@ -401,55 +401,138 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
-
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingCA.csv"); 
+    myFile.open ("countiesPerArmedCA.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamCA.csv");
 
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessCA.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingCA.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18CA.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyCA.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
   }
   void mostShootingsCountyAK()
   {
@@ -471,56 +554,141 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
 
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingAK.csv"); 
+    myFile.open ("countiesPerArmedAK.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamAK.csv");
 
-  }
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessAK.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingAK.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18AK.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyAK.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(1){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+    }
+
   void mostShootingsCountyDC()
   {
     std::vector<comboShootingData *> theCountiesShootingData;
@@ -541,56 +709,140 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
-
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingDC.csv"); 
+    myFile.open ("countiesPerArmedDC.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamDC.csv");
 
-  }
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessDC.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingDC.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18DC.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyDC.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+    }
+
   void mostShootingsCountyHI()
   {
     std::vector<comboShootingData *> theCountiesShootingData;
@@ -611,56 +863,139 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
-
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingHI.csv"); 
+    myFile.open ("countiesPerArmedHI.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
-            myFile <<  shootingObj->getRegionType() << ","
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamHI.csv");
 
-  }
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessHI.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingHI.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18HI.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyHI.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+    }
   void mostShootingsCountyAZ()
   {
     std::vector<comboShootingData *> theCountiesShootingData;
@@ -668,6 +1003,9 @@ public:
     // shooting county has a demog county
     for (auto entry : (allCountySData))
         {
+          if(entry.second == NULL){
+            cout << "AHHH" << endl;
+          }
           if(entry.second->getState() == "AZ"){
             // cout << entry.first << endl;
             comboDemogData *demogForCounty;
@@ -681,56 +1019,139 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
-
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingAZ.csv"); 
+    myFile.open ("countiesPerArmedAZ.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamAZ.csv");
 
-  }
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessAZ.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingAZ.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18AZ.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyAZ.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+    }
   void mostShootingsCountyTX()
   {
     std::vector<comboShootingData *> theCountiesShootingData;
@@ -738,6 +1159,9 @@ public:
     // shooting county has a demog county
     for (auto entry : (allCountySData))
         {
+          if(entry.second == NULL){
+            cout << "AHHH" << endl;
+          }
           if(entry.second->getState() == "TX"){
             // cout << entry.first << endl;
             comboDemogData *demogForCounty;
@@ -751,56 +1175,139 @@ public:
             }
           }
         }
-    /*
-    CSVs to get:
-        - DC, AK, HI, CA, TX, AZ
-        Racial Demog and Shootings race identification
-    */
-
     std::ofstream myFile;
-    myFile.open ("countiesDemogAndShootingTX.csv"); 
+    myFile.open ("countiesPerArmedTX.csv"); 
     // Header Line
-    string race = "Hispanic";
-    // myFile << "TotalPop, BlackDemog, OnlyWhiteDemog, HispanicDemog, NativeDemog, AsianDemog, numShootings, BlackShooting, WhiteShooting, HispanicShooting, NativeShooting, AsianShooting\n";
-    myFile << "County,PercentageArmedShootings,PercentageArmedUnknownShootings,PercentageBodyCamOff,PercentageArmedGun,HispanicDemog,HispanicShooting,BlackShooting,BlackDemog,WhiteShooting,WhiteDemog\n";
+     myFile << "County,NumArmedShootings,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
     myFile << std::setprecision(2) << std::fixed;
     for(int i = 0; i < theCountiesShootingData.size(); i++){
         auto shootingObj = theCountiesShootingData[i];
         auto demogObj = theCountiesDemogData[i];
-
-        /* myFile << demogObj->getPop() << ","
-             << demogObj->getBlackPerc() << ","
-             << demogObj->getOnlyWhitePerc() << "," 
-             << demogObj->getHispanicPerc() << ","
-             << demogObj->getNativePerc() << ","
-             << demogObj->getAsianPerc() << ","
-             << shootingObj->getNumCases() << ","
-             << shootingObj->getPerAfricanAme() << ","
-             << shootingObj->getPerWhite() << ","
-             << shootingObj->getPerHispanics() << ","
-             << shootingObj->getPerNativeAme() << ","
-             << shootingObj->getPerAsians(); */
-            if(shootingObj->getName() == demogObj->getName()){
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
             myFile <<  shootingObj->getRegionType() << "," 
-                   << shootingObj->getPerArmed() << "," 
-                   << shootingObj->getPerArmedUnknown() << "," 
-                   << shootingObj->getPerBodyCamOff() << "," 
-                   << shootingObj->getPerArmedGun() << "," 
-                   << shootingObj->getPerHispanics() << "," 
-                   << demogObj->getHispanicPerc() << ","
-                   << shootingObj->getPerAfricanAme() << "," 
-                   << demogObj->getBlackPerc() << ","
-                   << shootingObj->getPerWhite() << "," 
-                   << demogObj->getOnlyWhitePerc() 
+                   << shootingObj->getArmedData().getArmedCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
                    << "\n";
         }
+          }
     }
     myFile.close();
 
-/*     myFile.open("statesBlackPercShooting.csv");
-    myFile << "State" */
+    myFile.open("countiesPerBodyCamTX.csv");
 
-  }
+    myFile << "County,NumBodyCamOn,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getBodyCamData().getBodyCamOn() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerMentalIllnessTX.csv");
+
+    myFile << "County,NumMentalIllness,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getMIData().getMentalI() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerWasFleeingTX.csv");
+
+    myFile << "County,NumWereFleeing,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << shootingObj->getFleeingData().getTriedFleeing() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerUnder18TX.csv");
+
+    myFile << "County,NumUnder18,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getpopUnder18Count() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+
+    myFile.open("countiesPerBelowPovertyTX.csv");
+
+    myFile << "County,NumBelowPoverty,NumShootingsOnBlack,NumShootingsOnHispanic,NumShootingsOnWhite,NumShootingsOnNative,NumShootingsOnAsian\n";
+    myFile << std::setprecision(2) << std::fixed;
+    for(int i = 0; i < theCountiesShootingData.size(); i++){
+        auto shootingObj = theCountiesShootingData[i];
+        auto demogObj = theCountiesDemogData[i];
+          if(shootingObj !=NULL && demogObj != NULL){
+            if(shootingObj->getRegionType() == demogObj->getRegionType()){
+            myFile <<  shootingObj->getRegionType() << "," 
+                   << demogObj->getBelowPovertyCount() << "," 
+                   << shootingObj->getRaceData().getNumAfricanAme() << "," 
+                   << shootingObj->getRaceData().getNumHispanics() << "," 
+                   << shootingObj->getRaceData().getNumNative() << "," 
+                   << shootingObj->getRaceData().getNumWhite() << "," 
+                   << shootingObj->getRaceData().getNumAsians() 
+                   << "\n";
+        }
+          }
+    }
+    myFile.close();
+    }
 
 
   void sortRacialDemogDemogCounties()
