@@ -17,11 +17,48 @@ public:
     shootingData(string inS, int inAge, string inRace, string inGender, string inMI, string inFleeing, string inBodyCam, string inArmed) : placeData{inS, 7}, raceCounts(inRace), genderCounts(inGender), numberOfCases(1), age(inAge), armedCounts(inArmed), bodyCamCounts(inBodyCam), fleeingCounts(inFleeing), mentalCounts(inMI)
     {
         countedAge = 0;
+        numBlackFleeing = 0;
+        numBlackMI = 0;
+        numBlackBodyCamOn = 0;
+        numNativeFleeing = 0;
+        numNativeMI = 0;
+        numNativeBodyCamOn = 0;
+        numBlackArmed = 0;
+        numNativeArmed = 0;
 
         if (inAge > 0)
         {
             age = inAge;
             countedAge++;
+        }
+        if((inRace.compare("B") == 0)){
+            if((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0)){
+                numBlackFleeing++;
+            }
+            if(inMI.compare("True") == 0){
+                numBlackMI++;
+            }
+            if(inBodyCam.compare("True") == 0){
+                numBlackBodyCamOn++;
+            }
+            if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
+                numBlackArmed++;
+            }
+
+        }
+        if((inRace.compare("N") == 0)){
+            if((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0)){
+                numNativeFleeing++;
+            }
+            if(inMI.compare("True") == 0){
+                numNativeMI++;
+            }
+            if(inBodyCam.compare("True") == 0){
+                numNativeBodyCamOn++;
+            }
+            if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
+                numNativeArmed++;
+            }
         }
     }
 
@@ -30,7 +67,39 @@ public:
         countedAge = 0;
         age = 0;
     }
-
+    // Race specific counts of different tags for police shootings
+    int getCountBlackFleeing() const
+    {
+        return numBlackFleeing;
+    }
+    int getCountBlackMI() const
+    {
+        return numBlackMI;
+    }
+    int getCountBlackBodyCamOn() const
+    {
+        return numBlackBodyCamOn;
+    }
+    int getCountBlackArmed() const
+    {
+        return numBlackArmed;
+    }
+    int getCountNativeFleeing() const
+    {
+        return numNativeFleeing;
+    }
+    int getCountNativeMI() const
+    {
+        return numNativeMI;
+    }
+    int getCountNativeBodyCamOn() const
+    {
+        return numNativeBodyCamOn;
+    }
+    int getCountNativeArmed() const
+    {
+        return numNativeArmed;
+    }
     // These return percentage of police shootings by race
 
     // Adding base case if no cases at all then return = 0
@@ -215,6 +284,16 @@ protected:
 
     int age;
     int numberOfCases;
+
+    int numBlackFleeing;
+    int numNativeFleeing;
+    int numBlackMI;
+    int numNativeMI;
+    int numBlackBodyCamOn;
+    int numNativeBodyCamOn;
+    int numBlackArmed;
+    int numNativeArmed;
+
     mental mentalCounts;
     fleeing fleeingCounts;
     bodyCam bodyCamCounts;

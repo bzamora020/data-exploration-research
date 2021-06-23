@@ -1,4 +1,4 @@
-#ifndef RACE_H
+  #ifndef RACE_H
 #define RACE_H
 
 #include <string>

@@ -62,13 +62,13 @@ int main()
 
     cout << "***** OUR COMPUTATIONS *****" << endl;
     theStates.mostShootingsState(); 
-    //theCounties.mostShootingsCounty();
-    theCounties.mostShootingsCountyCA();
-    theCounties.mostShootingsCountyTX();
-    theCounties.mostShootingsCountyAZ();
-    theCounties.mostShootingsCountyHI();
-    //theCounties.mostShootingsCountyAK();
-    theCounties.mostShootingsCountyDC();
+    theCounties.mostShootingsCounty();
+    // theCounties.mostShootingsCountyCA();
+    // theCounties.mostShootingsCountyTX();
+    // theCounties.mostShootingsCountyAZ();
+    // theCounties.mostShootingsCountyHI();
+    // theCounties.mostShootingsCountyAK();
+    // theCounties.mostShootingsCountyDC();
 /*     theCounties.sortRacialDemogDemogCounties();
     theCounties.mostShootingsCounty(); */
 /*     theCounties.mostShootingsCountyCA();
