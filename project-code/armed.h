@@ -44,6 +44,8 @@ public:
 
     armed &operator+=(const armed &a);
 
+    std::cout << "testing" << endl;
+
 private:
     //String holding the raw values
     string strArmed;
