@@ -25,6 +25,19 @@ public:
         numNativeBodyCamOn = 0;
         numBlackArmed = 0;
         numNativeArmed = 0;
+        numWhiteFleeing = 0;
+        numWhiteMI = 0;
+        numWhiteBodyCamOn = 0;
+        numWhiteArmed = 0;
+        numHispanicFleeing = 0;
+        numHispanicMI = 0;
+        numHispanicBodyCamOn = 0;
+        numHispanicArmed = 0;
+
+
+
+
+
 
         if (inAge > 0)
         {
@@ -58,6 +71,34 @@ public:
             }
             if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
                 numNativeArmed++;
+            }
+        }
+        if((inRace.compare("W") == 0)){
+            if((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0)){
+                numWhiteFleeing++;
+            }
+            if(inMI.compare("True") == 0){
+                numWhiteMI++;
+            }
+            if(inBodyCam.compare("True") == 0){
+                numWhiteBodyCamOn++;
+            }
+            if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
+                numWhiteArmed++;
+            }
+        }
+        if((inRace.compare("H") == 0)){
+            if((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0)){
+                numHispanicFleeing++;
+            }
+            if(inMI.compare("True") == 0){
+                numHispanicMI++;
+            }
+            if(inBodyCam.compare("True") == 0){
+                numHispanicBodyCamOn++;
+            }
+            if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
+                numHispanicArmed++;
             }
         }
     }
@@ -100,6 +141,39 @@ public:
     {
         return numNativeArmed;
     }
+    int getCountHispanicFleeing() const
+    {
+        return numHispanicFleeing;
+    }
+    int getCountHispanicMI() const
+    {
+        return numHispanicMI;
+    }
+    int getCountHispanicBodyCamOn() const
+    {
+        return numHispanicBodyCamOn;
+    }
+    int getCountHispanicArmed() const
+    {
+        return numHispanicArmed;
+    }
+    int getCountWhiteFleeing() const
+    {
+        return numWhiteFleeing;
+    }
+    int getCountWhiteMI() const
+    {
+        return numWhiteMI;
+    }
+    int getCountWhiteBodyCamOn() const
+    {
+        return numWhiteBodyCamOn;
+    }
+    int getCountWhiteArmed() const
+    {
+        return numWhiteArmed;
+    }
+    
     // These return percentage of police shootings by race
 
     // Adding base case if no cases at all then return = 0
@@ -293,6 +367,14 @@ protected:
     int numNativeBodyCamOn;
     int numBlackArmed;
     int numNativeArmed;
+    int numWhiteFleeing;
+    int numWhiteMI;
+    int numWhiteBodyCamOn;
+    int numWhiteArmed;
+    int numHispanicFleeing;
+    int numHispanicMI;
+    int numHispanicBodyCamOn;
+    int numHispanicArmed ;
 
     mental mentalCounts;
     fleeing fleeingCounts;

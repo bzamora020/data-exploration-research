@@ -18,13 +18,21 @@ void comboShootingData::addShootingtoRegion(shootingData *CD)
 
   numBlackFleeing += CD->getCountBlackFleeing();
   numNativeFleeing += CD->getCountNativeFleeing();
+  numWhiteFleeing += CD->getCountWhiteFleeing();
+  numHispanicFleeing += CD->getCountHispanicFleeing();
   numBlackMI += CD->getCountBlackMI();
   numNativeMI += CD->getCountNativeMI();
+  numWhiteMI += CD->getCountWhiteMI();
+  numHispanicMI += CD->getCountHispanicMI();
   numBlackBodyCamOn += CD->getCountBlackBodyCamOn();
   numNativeBodyCamOn += CD->getCountNativeBodyCamOn();
-
+  numWhiteBodyCamOn += CD->getCountWhiteBodyCamOn();
+  numHispanicBodyCamOn += CD->getCountHispanicBodyCamOn();
   numBlackArmed += CD->getCountBlackArmed();
   numNativeArmed += CD->getCountNativeArmed();
+  numWhiteArmed += CD->getCountWhiteArmed();
+  numHispanicArmed += CD->getCountHispanicArmed();
+  
   
   cases++;
 }
