@@ -33,8 +33,10 @@ public:
         numHispanicMI = 0;
         numHispanicBodyCamOn = 0;
         numHispanicArmed = 0;
-
-
+        numAsianFleeing = 0;
+        numAsianMI = 0;
+        numAsianBodyCamOn = 0;
+        numAsianArmed = 0;
 
 
 
@@ -101,6 +103,20 @@ public:
                 numHispanicArmed++;
             }
         }
+        if((inRace.compare("A") == 0)){
+            if((inFleeing.compare("Foot") == 0) || (inFleeing.compare("Car") == 0) || (inFleeing.compare("Other") == 0)){
+                numAsianFleeing++;
+            }
+            if(inMI.compare("True") == 0){
+                numAsianMI++;
+            }
+            if(inBodyCam.compare("True") == 0){
+                numAsianBodyCamOn++;
+            }
+            if((inArmed.compare("") != 0) && (inArmed.compare("undetermined") != 0) && (inArmed.compare("unarmed") != 0)){
+                numAsianArmed++;
+            }
+        }
     }
 
     shootingData(string inS) : placeData{inS, 7}, raceCounts(""), genderCounts(""), armedCounts(""), bodyCamCounts(""), fleeingCounts(""), mentalCounts("")
@@ -112,6 +128,10 @@ public:
     int getCountBlackFleeing() const
     {
         return numBlackFleeing;
+    }
+    double getPerBlackFleeing() const
+    {
+        return (100.0f * (double)(numBlackFleeing/fleeingCounts.getTriedFleeing()));
     }
     int getCountBlackMI() const
     {
@@ -129,6 +149,10 @@ public:
     {
         return numNativeFleeing;
     }
+    double getPerNativeFleeing() const
+    {
+        return (100.0f * (double)(numNativeFleeing/fleeingCounts.getTriedFleeing()));
+    }
     int getCountNativeMI() const
     {
         return numNativeMI;
@@ -144,6 +168,10 @@ public:
     int getCountHispanicFleeing() const
     {
         return numHispanicFleeing;
+    }
+    double getPerHispanicFleeing() const
+    {
+        return  (100.0f * (double)(numHispanicFleeing/fleeingCounts.getTriedFleeing()));
     }
     int getCountHispanicMI() const
     {
@@ -161,6 +189,10 @@ public:
     {
         return numWhiteFleeing;
     }
+    double getPerWhiteFleeing() const
+    {
+        return (100.0f * (double)(numWhiteFleeing/fleeingCounts.getTriedFleeing()));
+    }
     int getCountWhiteMI() const
     {
         return numWhiteMI;
@@ -172,6 +204,14 @@ public:
     int getCountWhiteArmed() const
     {
         return numWhiteArmed;
+    }
+    int getCountAsianFleeing() const
+    {
+        return numAsianFleeing;
+    }
+    double getPerAsianFleeing() const
+    {
+        return (100.0f * (double)(numAsianFleeing/fleeingCounts.getTriedFleeing()));
     }
     
     // These return percentage of police shootings by race
@@ -375,6 +415,10 @@ protected:
     int numHispanicMI;
     int numHispanicBodyCamOn;
     int numHispanicArmed ;
+    int numAsianFleeing;
+    int numAsianMI;
+    int numAsianBodyCamOn;
+    int numAsianArmed;
 
     mental mentalCounts;
     fleeing fleeingCounts;
